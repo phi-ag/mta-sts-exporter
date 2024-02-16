@@ -195,7 +195,7 @@ func handleReport(config Config) http.HandlerFunc {
 			}
 
 			slog.Warn("Report error", "remote", r.RemoteAddr, "error", err)
-			w.WriteHeader(http.StatusInternalServerError)
+			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
 
