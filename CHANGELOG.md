@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/phi-ag/mta-sts-exporter/compare/v1.0.3...v1.0.4) (2024-02-16)
+
+
+### Bug Fixes
+
+* shared setup go action ([4f3dcc3](https://github.com/phi-ag/mta-sts-exporter/commit/4f3dcc34daf335a602c9e39addeb5e005aacfd5b))
+
 ## [1.0.3](https://github.com/phi-ag/mta-sts-exporter/compare/v1.0.2...v1.0.3) (2024-02-16)
 
 
