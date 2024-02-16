@@ -22,21 +22,23 @@ type Ports struct {
 	Metrics string
 }
 
-type Limits struct {
-	MaxBodySize int64
-	MaxJsonSize int64
-}
-
 type Path struct {
 	Reports string
 	Metrics string
 }
 
+type Limits struct {
+	MaxBodySize int64
+	MaxJsonSize int64
+}
+
 type Config struct {
-	Save     bool
-	SavePath string
-	Limits   Limits
-	Path     Path
+	Save           bool
+	SavePath       string
+	CollectGoStats bool
+	Ports          Ports
+	Path           Path
+	Limits         Limits
 }
 
 type DateRange struct {
@@ -200,15 +202,15 @@ func handleReport(config Config) http.HandlerFunc {
 	}
 }
 
-func main() {
-	ports := Ports{
-		Reports: getEnv("REPORTS_PORT", "8080"),
-		Metrics: getEnv("METRICS_PORT", "8081"),
-	}
-
-	config := Config{
-		Save:     getEnvBool("SAVE_REPORTS", true),
-		SavePath: getEnv("SAVE_REPORTS_PATH", "/tmp/reports"),
+func createConfig() Config {
+	return Config{
+		Save:           getEnvBool("SAVE_REPORTS", true),
+		SavePath:       getEnv("SAVE_REPORTS_PATH", "/tmp/reports"),
+		CollectGoStats: getEnvBool("COLLECT_GO_STATS", false),
+		Ports: Ports{
+			Reports: getEnv("REPORTS_PORT", "8080"),
+			Metrics: getEnv("METRICS_PORT", "8081"),
+		},
 		Path: Path{
 			Reports: getEnv("REPORTS_PATH", "/"),
 			Metrics: getEnv("METRICS_PATH", "/metrics"),
@@ -218,20 +220,23 @@ func main() {
 			MaxJsonSize: getEnvInt64("MAX_JSON_SIZE", 5*1024*1024),
 		},
 	}
+}
 
-	collectGoStats := getEnvBool("COLLECT_GO_STATS", false)
-	registry := createRegistry(collectGoStats)
+func main() {
+	config := createConfig()
+
+	registry := createRegistry(config.CollectGoStats)
 	metricsHandler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{Registry: registry})
 
 	metricsHttp := http.NewServeMux()
 	metricsHttp.Handle(config.Path.Metrics, metricsHandler)
 
 	go func() {
-		slog.Info("Serving metrics", "port", ports.Metrics, "path", config.Path.Metrics)
-		log.Fatal(http.ListenAndServe(":"+ports.Metrics, metricsHttp))
+		slog.Info("Serving metrics", "port", config.Ports.Metrics, "path", config.Path.Metrics)
+		log.Fatal(http.ListenAndServe(":"+config.Ports.Metrics, metricsHttp))
 	}()
 
 	http.HandleFunc(config.Path.Reports, handleReport(config))
-	slog.Info("Listening for reports", "port", ports.Reports, "path", config.Path.Reports)
-	log.Fatal(http.ListenAndServe(":"+ports.Reports, nil))
+	slog.Info("Listening for reports", "port", config.Ports.Reports, "path", config.Path.Reports)
+	log.Fatal(http.ListenAndServe(":"+config.Ports.Reports, nil))
 }
