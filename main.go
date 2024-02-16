@@ -36,6 +36,7 @@ type Config struct {
 	Save           bool
 	SavePath       string
 	CollectGoStats bool
+	LogJson        bool
 	Ports          Ports
 	Path           Path
 	Limits         Limits
@@ -207,6 +208,7 @@ func createConfig() Config {
 		Save:           getEnvBool("SAVE_REPORTS", true),
 		SavePath:       getEnv("SAVE_REPORTS_PATH", "/tmp/reports"),
 		CollectGoStats: getEnvBool("COLLECT_GO_STATS", false),
+		LogJson:        getEnvBool("LOG_JSON", true),
 		Ports: Ports{
 			Reports: getEnv("REPORTS_PORT", "8080"),
 			Metrics: getEnv("METRICS_PORT", "8081"),
@@ -224,6 +226,11 @@ func createConfig() Config {
 
 func main() {
 	config := createConfig()
+
+	if config.LogJson {
+		logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
+		slog.SetDefault(logger)
+	}
 
 	registry := createRegistry(config.CollectGoStats)
 	metricsHandler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{Registry: registry})

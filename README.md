@@ -13,6 +13,7 @@ Configuration
 - `SAVE_REPORTS` (default: true)
 - `SAVE_REPORTS_PATH` (default: /tmp/reports)
 - `COLLECT_GO_STATS` (default: false)
+- `LOG_JSON` (default: true)
 
 Example
 
