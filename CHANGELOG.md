@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/phi-ag/mta-sts-exporter/compare/v1.0.4...v1.0.5) (2024-02-16)
+
+
+### Bug Fixes
+
+* added image labels ([f17d5e0](https://github.com/phi-ag/mta-sts-exporter/commit/f17d5e086a02f5edd76d7dbae8d64697417ec0ab))
+
 ## [1.0.4](https://github.com/phi-ag/mta-sts-exporter/compare/v1.0.3...v1.0.4) (2024-02-16)
 
 
