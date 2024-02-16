@@ -6,6 +6,7 @@ Configuration
 
 - `REPORTS_PORT` (default: 8080)
 - `METRICS_PORT` (default: 8081)
+- `REPORTS_PATH` (default: /)
 - `METRICS_PATH` (default: /metrics)
 - `MAX_BODY_SIZE` (default: 1 MiB)
 - `MAX_JSON_SIZE` (default: 5 MiB)

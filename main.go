@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"io"
 	"log"
+	"log/slog"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -26,10 +27,16 @@ type Limits struct {
 	MaxJsonSize int64
 }
 
+type Path struct {
+	Reports string
+	Metrics string
+}
+
 type ReportConfig struct {
 	Save     bool
 	SavePath string
 	Limits   Limits
+	Path     Path
 }
 
 type DateRange struct {
@@ -146,7 +153,7 @@ func handleReport(config ReportConfig) http.HandlerFunc {
 
 		gzipReader, err := gzip.NewReader(limitedBody)
 		if err != nil {
-			log.Println("Gzip error", r.RemoteAddr, err)
+			slog.Warn("Gzip error", "remote", r.RemoteAddr, "error", err)
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
@@ -157,17 +164,17 @@ func handleReport(config ReportConfig) http.HandlerFunc {
 		if config.Save {
 			err := os.MkdirAll(config.SavePath, os.ModePerm)
 			if err != nil {
-				log.Println("Failed to create directory", config.SavePath, err)
+				slog.Error("Failed to create directory", "path", config.SavePath, "error", err)
 				return
 			}
 
 			filename := time.Now().Format(time.RFC3339Nano) + ".json"
 			target := filepath.Join(config.SavePath, filename)
-			log.Println("Saving report to", target)
+			slog.Info("Saving report", "target", target)
 
 			out, err := os.Create(target)
 			if err != nil {
-				log.Println("Failed to create file", target, err)
+				slog.Error("Failed to create file", "target", target, "error", err)
 				return
 			}
 			defer out.Close()
@@ -179,17 +186,17 @@ func handleReport(config ReportConfig) http.HandlerFunc {
 		report, err := parseReport(limitedJson)
 		if err != nil {
 			if err == io.ErrUnexpectedEOF {
-				log.Println("Request too large", r.RemoteAddr)
+				slog.Warn("Request too large", "remote", r.RemoteAddr)
 				w.WriteHeader(http.StatusRequestEntityTooLarge)
 				return
 			}
 
-			log.Println("Report error", r.RemoteAddr, err)
+			slog.Warn("Report error", "remote", r.RemoteAddr, "error", err)
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
 
-		log.Println("DONE", report)
+		slog.Info("DONE", "report", report)
 	}
 }
 
@@ -202,6 +209,10 @@ func main() {
 	reportConfig := ReportConfig{
 		Save:     getEnvBool("SAVE_REPORTS", true),
 		SavePath: getEnv("SAVE_REPORTS_PATH", "/tmp/reports"),
+		Path: Path{
+			Reports: getEnv("REPORTS_PATH", "/"),
+			Metrics: getEnv("METRICS_PATH", "/metrics"),
+		},
 		Limits: Limits{
 			MaxBodySize: getEnvInt64("MAX_BODY_SIZE", 1*1024*1024),
 			MaxJsonSize: getEnvInt64("MAX_JSON_SIZE", 5*1024*1024),
@@ -212,16 +223,15 @@ func main() {
 	registry := createRegistry(collectGoStats)
 	metricsHandler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{Registry: registry})
 
-	metricsPath := getEnv("METRICS_PATH", "/metrics")
 	metricsHttp := http.NewServeMux()
-	metricsHttp.Handle(metricsPath, metricsHandler)
+	metricsHttp.Handle(reportConfig.Path.Metrics, metricsHandler)
 
 	go func() {
-		log.Printf("Serving metrics on port %s and path '%s'", ports.Metrics, metricsPath)
+		slog.Info("Serving metrics", "port", ports.Metrics, "path", reportConfig.Path.Metrics)
 		log.Fatal(http.ListenAndServe(":"+ports.Metrics, metricsHttp))
 	}()
 
-	http.HandleFunc("/", handleReport(reportConfig))
-	log.Printf("Listening for reports on port %s", ports.Reports)
+	http.HandleFunc(reportConfig.Path.Reports, handleReport(reportConfig))
+	slog.Info("Listening for reports", "port", ports.Reports, "path", reportConfig.Path.Reports)
 	log.Fatal(http.ListenAndServe(":"+ports.Reports, nil))
 }
