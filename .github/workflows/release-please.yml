@@ -20,7 +20,7 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v4
+      - uses: google-github-actions/release-please-action@cc61a07e2da466bebbc19b3a7dd01d6aecb20d1e # v4
         with:
           #token: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
           release-type: simple
@@ -30,11 +30,11 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
 
       - name: Setup Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@93397bea11091df50f3d7e59dc26a7711a8bcfbe # v4
         if: ${{ steps.release.outputs.release_created }}
 
       - name: Setup ko
-        uses: ko-build/setup-ko@v0.6
+        uses: ko-build/setup-ko@ace48d793556083a76f1e3e6068850c1f4a369aa # v0.6
         env:
           KO_DOCKER_REPO: ${{ secrets.DOCKERHUB_USERNAME }}
           #KO_DEFAULTPLATFORMS: linux/arm64,linux/amd64
