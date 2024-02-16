@@ -85,7 +85,6 @@ type Report struct {
 
 func parseReport(reader io.Reader) (Report, error) {
 	report := &Report{}
-
 	err := json.NewDecoder(reader).Decode(report)
 	return *report, err
 }
@@ -94,7 +93,6 @@ func getEnv(key, fallback string) string {
 	if value, ok := os.LookupEnv(key); ok {
 		return value
 	}
-
 	return fallback
 }
 
@@ -104,10 +102,8 @@ func getEnvBool(key string, fallback bool) bool {
 		if err != nil {
 			return fallback
 		}
-
 		return result
 	}
-
 	return fallback
 }
 
@@ -117,10 +113,8 @@ func getEnvInt64(key string, fallback int64) int64 {
 		if err != nil {
 			return fallback
 		}
-
 		return result
 	}
-
 	return fallback
 }
 
@@ -162,7 +156,7 @@ func save(config Config, reader io.Reader) (io.Reader, error) {
 	}
 	defer out.Close()
 
-	/// NOTE: It seems `TeeReader` writes complete json even when parsing fails later.
+	/// NOTE: It seems `TeeReader` writes the complete stream even when parsing fails later.
 	/// This is probably only true for small payloads.
 	return io.TeeReader(reader, out), nil
 }
