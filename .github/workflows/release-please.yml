@@ -1,0 +1,49 @@
+name: Release Please
+
+on:
+  push:
+    branches:
+      - main
+    secrets:
+      #MY_RELEASE_PLEASE_TOKEN:
+      #  required: true
+      DOCKERHUB_USERNAME:
+        required: true
+      DOCKERHUB_TOKEN:
+        required: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v4
+        with:
+          #token: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
+          release-type: simple
+
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Setup ko
+        uses: ko-build/setup-ko@v0.6
+        env:
+          KO_DOCKER_REPO: ${{ secrets.DOCKERHUB_USERNAME }}
+          #KO_DEFAULTPLATFORMS: linux/arm64,linux/amd64
+          KO_DEFAULTPLATFORMS: all
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Publish
+        run: >
+          ko build
+          --base-import-paths
+          --tags latest,${{ steps.release.outputs.major }},${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }},${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
+        if: ${{ steps.release.outputs.release_created }}
