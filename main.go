@@ -144,6 +144,29 @@ func createRegistry(collectGoStats bool) *prometheus.Registry {
 	return registry
 }
 
+func save(config Config, reader io.Reader) (io.Reader, error) {
+	err := os.MkdirAll(config.SavePath, os.ModePerm)
+	if err != nil {
+		slog.Error("Failed to create directory", "path", config.SavePath, "error", err)
+		return reader, err
+	}
+
+	filename := time.Now().Format(time.RFC3339Nano) + ".json"
+	target := filepath.Join(config.SavePath, filename)
+	slog.Info("Saving report", "target", target)
+
+	out, err := os.Create(target)
+	if err != nil {
+		slog.Error("Failed to create file", "target", target, "error", err)
+		return reader, err
+	}
+	defer out.Close()
+
+	/// NOTE: It seems `TeeReader` writes complete json even when parsing fails later.
+	/// This is probably only true for small payloads.
+	return io.TeeReader(reader, out), nil
+}
+
 func handleReport(config Config) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
@@ -165,25 +188,10 @@ func handleReport(config Config) http.HandlerFunc {
 		defer gzipReader.Close()
 
 		if config.Save {
-			err := os.MkdirAll(config.SavePath, os.ModePerm)
+			limitedJson, err = save(config, limitedJson)
 			if err != nil {
-				slog.Error("Failed to create directory", "path", config.SavePath, "error", err)
-				return
+				slog.Warn("Save failed")
 			}
-
-			filename := time.Now().Format(time.RFC3339Nano) + ".json"
-			target := filepath.Join(config.SavePath, filename)
-			slog.Info("Saving report", "target", target)
-
-			out, err := os.Create(target)
-			if err != nil {
-				slog.Error("Failed to create file", "target", target, "error", err)
-				return
-			}
-			defer out.Close()
-
-			/// NOTE: It seems `TeeReader` writes complete json even when parsing fails later.
-			limitedJson = io.TeeReader(limitedJson, out)
 		}
 
 		report, err := parseReport(limitedJson)

@@ -17,5 +17,6 @@ Configuration
 
 Example
 
+    docker run phiag/mta-sts-exporter
     cat test/example.json | gzip | curl -X POST -v --data-binary @- localhost:8080
     curl localhost:8081/metrics
