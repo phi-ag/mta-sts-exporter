@@ -105,7 +105,7 @@ func TestReturnsMethodNotAllowedForGetRequest(t *testing.T) {
 	req := httptest.NewRequest(http.MethodGet, "/", nil)
 	recorder := httptest.NewRecorder()
 
-	config := ReportConfig{
+	config := Config{
 		Save:     false,
 		SavePath: "",
 		Limits: Limits{
@@ -130,7 +130,7 @@ func TestReturnsBadRequestForNonGzip(t *testing.T) {
 	req := httptest.NewRequest(http.MethodPost, "/", bodyReader)
 	recorder := httptest.NewRecorder()
 
-	config := ReportConfig{
+	config := Config{
 		Save:     false,
 		SavePath: "",
 		Limits: Limits{
@@ -165,7 +165,7 @@ func TestReturnsRequestEntityTooLargeForBody(t *testing.T) {
 	req := httptest.NewRequest(http.MethodPost, "/", bodyReader)
 	recorder := httptest.NewRecorder()
 
-	config := ReportConfig{
+	config := Config{
 		Save:     false,
 		SavePath: "",
 		Limits: Limits{
@@ -200,7 +200,7 @@ func TestReturnsRequestEntityTooLargeForJson(t *testing.T) {
 	req := httptest.NewRequest(http.MethodPost, "/", bodyReader)
 	recorder := httptest.NewRecorder()
 
-	config := ReportConfig{
+	config := Config{
 		Save:     false,
 		SavePath: "",
 		Limits: Limits{
@@ -235,7 +235,7 @@ func TestReturnsOk(t *testing.T) {
 	req := httptest.NewRequest(http.MethodPost, "/", bodyReader)
 	recorder := httptest.NewRecorder()
 
-	config := ReportConfig{
+	config := Config{
 		Save:     false,
 		SavePath: "",
 		Limits: Limits{

@@ -32,7 +32,7 @@ type Path struct {
 	Metrics string
 }
 
-type ReportConfig struct {
+type Config struct {
 	Save     bool
 	SavePath string
 	Limits   Limits
@@ -141,7 +141,7 @@ func createRegistry(collectGoStats bool) *prometheus.Registry {
 	return registry
 }
 
-func handleReport(config ReportConfig) http.HandlerFunc {
+func handleReport(config Config) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			w.WriteHeader(http.StatusMethodNotAllowed)
@@ -206,7 +206,7 @@ func main() {
 		Metrics: getEnv("METRICS_PORT", "8081"),
 	}
 
-	reportConfig := ReportConfig{
+	config := Config{
 		Save:     getEnvBool("SAVE_REPORTS", true),
 		SavePath: getEnv("SAVE_REPORTS_PATH", "/tmp/reports"),
 		Path: Path{
@@ -224,14 +224,14 @@ func main() {
 	metricsHandler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{Registry: registry})
 
 	metricsHttp := http.NewServeMux()
-	metricsHttp.Handle(reportConfig.Path.Metrics, metricsHandler)
+	metricsHttp.Handle(config.Path.Metrics, metricsHandler)
 
 	go func() {
-		slog.Info("Serving metrics", "port", ports.Metrics, "path", reportConfig.Path.Metrics)
+		slog.Info("Serving metrics", "port", ports.Metrics, "path", config.Path.Metrics)
 		log.Fatal(http.ListenAndServe(":"+ports.Metrics, metricsHttp))
 	}()
 
-	http.HandleFunc(reportConfig.Path.Reports, handleReport(reportConfig))
-	slog.Info("Listening for reports", "port", ports.Reports, "path", reportConfig.Path.Reports)
+	http.HandleFunc(config.Path.Reports, handleReport(config))
+	slog.Info("Listening for reports", "port", ports.Reports, "path", config.Path.Reports)
 	log.Fatal(http.ListenAndServe(":"+ports.Reports, nil))
 }
