@@ -50,5 +50,4 @@ jobs:
           --tags latest,${{ steps.release.outputs.major }},${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }},${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
           --image-label org.opencontainers.image.created=$(date +'%Y-%m-%dT%H:%M:%S'),org.opencontainers.image.revision=${{ github.sha }}",org.opencontainers.image.version=${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}",org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
         env:
-          KO_DEFAULTPLATFORMS: all
-          #KO_DEFAULTPLATFORMS: linux/arm64,linux/amd64
+          KO_DEFAULTPLATFORMS: linux/amd64,linux/arm64,linux/riscv64,linux/arm/v7,linux/386
