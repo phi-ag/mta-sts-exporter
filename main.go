@@ -213,9 +213,12 @@ func createConfig() Config {
 	configPath := filepath.Dir(configPathFull)
 	configName := filepath.Base(configPathFull)
 
+	if filepath.Ext(configName) == "" {
+		viper.SetConfigType("yaml")
+	}
+
 	viper.SetConfigName(configName)
 	viper.AddConfigPath(configPath)
-	viper.SetConfigType("yaml")
 	viper.AutomaticEnv()
 
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))

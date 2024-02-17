@@ -1,0 +1,55 @@
+name: mta-sts-exporter-example
+
+configs:
+  mta-sts-exporter:
+    content: |
+      log:
+        json: true
+
+      reports:
+        port: 8080
+        path: /
+        maxbodysize: 1048576
+        maxjsonsize: 5242880
+        save: true
+        savepath: /tmp/reports
+
+      metrics:
+        port: 8081
+        path: /metrics
+        go: false
+
+volumes:
+  mta-sts-reports: {}
+
+x-service: &service
+  restart: unless-stopped
+  logging:
+    driver: journald
+    options:
+      tag: "{{.Name}}/{{.ID}}"
+
+x-healthcheck: &healthcheck
+  start_period: 15s
+  start_interval: 1s
+  interval: 15s
+  timeout: 3s
+  retries: 3
+
+services:
+  mta-sts-exporter:
+    <<: *service
+    image: phiag/mta-sts-exporter:1.1.1
+    # allow rootless docker to write to volume
+    user: 0:0
+    ports:
+      - 127.0.0.1:8080:8080
+      - 127.0.0.1:8081:8081
+      - "[::1]:8080:8080"
+      - "[::1]:8081:8081"
+    environment:
+      CONFIG_PATH: /mta-sts
+    configs:
+      - mta-sts-exporter
+    volumes:
+      - mta-sts-reports:/tmp/reports
