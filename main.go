@@ -3,6 +3,7 @@ package main
 import (
 	"compress/gzip"
 	"encoding/json"
+	"fmt"
 	"io"
 	"log"
 	"log/slog"
@@ -20,7 +21,7 @@ import (
 )
 
 type Reports struct {
-	Port        string
+	Port        uint16
 	Path        string
 	MaxBodySize int64
 	MaxJsonSize int64
@@ -29,7 +30,7 @@ type Reports struct {
 }
 
 type Metrics struct {
-	Port string
+	Port uint16
 	Path string
 	Go   bool
 }
@@ -214,18 +215,19 @@ func createConfig() Config {
 
 	viper.SetConfigName(configName)
 	viper.AddConfigPath(configPath)
+	viper.SetConfigType("yaml")
 	viper.AutomaticEnv()
 
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 
 	viper.SetDefault("Log.Json", true)
-	viper.SetDefault("Reports.Port", "8080")
+	viper.SetDefault("Reports.Port", 8080)
 	viper.SetDefault("Reports.Path", "/")
 	viper.SetDefault("Reports.MaxBodySize", 1*1024*1024)
 	viper.SetDefault("Reports.MaxJsonSize", 5*1024*1024)
 	viper.SetDefault("Reports.Save", true)
 	viper.SetDefault("Reports.SavePath", "/tmp/reports")
-	viper.SetDefault("Metrics.Port", "8081")
+	viper.SetDefault("Metrics.Port", 8081)
 	viper.SetDefault("Metrics.Path", "/metrics")
 	viper.SetDefault("Metrics.Go", false)
 
@@ -262,10 +264,10 @@ func main() {
 
 	go func() {
 		slog.Info("Serving metrics", "port", config.Metrics.Port, "path", config.Metrics.Path)
-		log.Fatal(http.ListenAndServe(":"+config.Metrics.Port, metricsHttp))
+		log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Metrics.Port), metricsHttp))
 	}()
 
 	http.HandleFunc(config.Reports.Path, handleReport(config))
 	slog.Info("Listening for reports", "port", config.Reports.Port, "path", config.Reports.Path)
-	log.Fatal(http.ListenAndServe(":"+config.Reports.Port, nil))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Reports.Port), nil))
 }
