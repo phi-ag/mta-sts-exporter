@@ -10,36 +10,36 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/collectors"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/spf13/viper"
 )
 
-type Ports struct {
-	Reports string
-	Metrics string
-}
-
-type Path struct {
-	Reports string
-	Metrics string
-}
-
-type Limits struct {
+type Reports struct {
+	Port        string
+	Path        string
 	MaxBodySize int64
 	MaxJsonSize int64
+	Save        bool
+	SavePath    string
+}
+
+type Metrics struct {
+	Port string
+	Path string
+	Go   bool
 }
 
 type Config struct {
-	Save           bool
-	SavePath       string
-	CollectGoStats bool
-	LogJson        bool
-	Ports          Ports
-	Path           Path
-	Limits         Limits
+	Log struct {
+		Json bool
+	}
+	Reports Reports
+	Metrics Metrics
 }
 
 type DateRange struct {
@@ -118,7 +118,7 @@ func getEnvInt64(key string, fallback int64) int64 {
 	return fallback
 }
 
-func createRegistry(collectGoStats bool) *prometheus.Registry {
+func createRegistry(config Config) *prometheus.Registry {
 	registry := prometheus.NewRegistry()
 
 	/*
@@ -128,7 +128,7 @@ func createRegistry(collectGoStats bool) *prometheus.Registry {
 		}, []string{"type", "action", "scope", "from", "name", "namespace", "service_name", "node_id", "service_id"})
 	*/
 
-	if collectGoStats {
+	if config.Metrics.Go {
 		registry.MustRegister(
 			collectors.NewGoCollector(),
 			collectors.NewProcessCollector(collectors.ProcessCollectorOpts{}),
@@ -138,27 +138,26 @@ func createRegistry(collectGoStats bool) *prometheus.Registry {
 	return registry
 }
 
-func save(config Config, reader io.Reader) (io.Reader, error) {
-	err := os.MkdirAll(config.SavePath, os.ModePerm)
+func save(config Config, reader io.Reader) (io.Reader, *os.File, error) {
+	err := os.MkdirAll(config.Reports.SavePath, os.ModePerm)
 	if err != nil {
-		slog.Error("Failed to create directory", "path", config.SavePath, "error", err)
-		return reader, err
+		slog.Error("Failed to create directory", "path", config.Reports.SavePath, "error", err)
+		return reader, nil, err
 	}
 
 	filename := time.Now().Format(time.RFC3339Nano) + ".json"
-	target := filepath.Join(config.SavePath, filename)
+	target := filepath.Join(config.Reports.SavePath, filename)
 	slog.Info("Saving report", "target", target)
 
-	out, err := os.Create(target)
+	file, err := os.Create(target)
 	if err != nil {
 		slog.Error("Failed to create file", "target", target, "error", err)
-		return reader, err
+		return reader, nil, err
 	}
-	defer out.Close()
 
 	/// NOTE: It seems `TeeReader` writes the complete stream even when parsing fails later.
 	/// This is probably only true for small payloads.
-	return io.TeeReader(reader, out), nil
+	return io.TeeReader(reader, file), file, nil
 }
 
 func handleReport(config Config) http.HandlerFunc {
@@ -168,7 +167,7 @@ func handleReport(config Config) http.HandlerFunc {
 			return
 		}
 
-		limitedBody := io.LimitReader(r.Body, config.Limits.MaxBodySize)
+		limitedBody := io.LimitReader(r.Body, config.Reports.MaxBodySize)
 		defer r.Body.Close()
 
 		gzipReader, err := gzip.NewReader(limitedBody)
@@ -177,14 +176,17 @@ func handleReport(config Config) http.HandlerFunc {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
-
-		limitedJson := io.LimitReader(gzipReader, config.Limits.MaxJsonSize)
 		defer gzipReader.Close()
 
-		if config.Save {
-			limitedJson, err = save(config, limitedJson)
+		limitedJson := io.LimitReader(gzipReader, config.Reports.MaxJsonSize)
+
+		if config.Reports.Save {
+			saveReader, file, err := save(config, limitedJson)
 			if err != nil {
 				slog.Warn("Save failed")
+			} else {
+				defer file.Close()
+				limitedJson = saveReader
 			}
 		}
 
@@ -206,46 +208,64 @@ func handleReport(config Config) http.HandlerFunc {
 }
 
 func createConfig() Config {
-	return Config{
-		Save:           getEnvBool("SAVE_REPORTS", true),
-		SavePath:       getEnv("SAVE_REPORTS_PATH", "/tmp/reports"),
-		CollectGoStats: getEnvBool("COLLECT_GO_STATS", false),
-		LogJson:        getEnvBool("LOG_JSON", true),
-		Ports: Ports{
-			Reports: getEnv("REPORTS_PORT", "8080"),
-			Metrics: getEnv("METRICS_PORT", "8081"),
-		},
-		Path: Path{
-			Reports: getEnv("REPORTS_PATH", "/"),
-			Metrics: getEnv("METRICS_PATH", "/metrics"),
-		},
-		Limits: Limits{
-			MaxBodySize: getEnvInt64("MAX_BODY_SIZE", 1*1024*1024),
-			MaxJsonSize: getEnvInt64("MAX_JSON_SIZE", 5*1024*1024),
-		},
+	configPathFull := getEnv("CONFIG_PATH", "/etc/mta-sts-exporter/config.yaml")
+	configPath := filepath.Dir(configPathFull)
+	configName := filepath.Base(configPathFull)
+
+	viper.SetConfigName(configName)
+	viper.AddConfigPath(configPath)
+	viper.AutomaticEnv()
+
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+
+	viper.SetDefault("Log.Json", true)
+	viper.SetDefault("Reports.Port", "8080")
+	viper.SetDefault("Reports.Path", "/")
+	viper.SetDefault("Reports.MaxBodySize", 1*1024*1024)
+	viper.SetDefault("Reports.MaxJsonSize", 5*1024*1024)
+	viper.SetDefault("Reports.Save", true)
+	viper.SetDefault("Reports.SavePath", "/tmp/reports")
+	viper.SetDefault("Metrics.Port", "8081")
+	viper.SetDefault("Metrics.Path", "/metrics")
+	viper.SetDefault("Metrics.Go", false)
+
+	if _, err := os.Stat(filepath.Join(configPath, configName)); err == nil {
+		if err := viper.ReadInConfig(); err != nil {
+			log.Fatal("Failed to read config file", "error", err)
+		}
 	}
+
+	var config Config
+
+	if err := viper.Unmarshal(&config); err != nil {
+		slog.Warn("Failed to unmarshal config", "error", err)
+	}
+
+	return config
 }
 
 func main() {
 	config := createConfig()
 
-	if config.LogJson {
+	if config.Log.Json {
 		logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
 		slog.SetDefault(logger)
 	}
 
-	registry := createRegistry(config.CollectGoStats)
+	slog.Info("Config", "config", config)
+
+	registry := createRegistry(config)
 	metricsHandler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{Registry: registry})
 
 	metricsHttp := http.NewServeMux()
-	metricsHttp.Handle(config.Path.Metrics, metricsHandler)
+	metricsHttp.Handle(config.Metrics.Path, metricsHandler)
 
 	go func() {
-		slog.Info("Serving metrics", "port", config.Ports.Metrics, "path", config.Path.Metrics)
-		log.Fatal(http.ListenAndServe(":"+config.Ports.Metrics, metricsHttp))
+		slog.Info("Serving metrics", "port", config.Metrics.Port, "path", config.Metrics.Path)
+		log.Fatal(http.ListenAndServe(":"+config.Metrics.Port, metricsHttp))
 	}()
 
-	http.HandleFunc(config.Path.Reports, handleReport(config))
-	slog.Info("Listening for reports", "port", config.Ports.Reports, "path", config.Path.Reports)
-	log.Fatal(http.ListenAndServe(":"+config.Ports.Reports, nil))
+	http.HandleFunc(config.Reports.Path, handleReport(config))
+	slog.Info("Listening for reports", "port", config.Reports.Port, "path", config.Reports.Path)
+	log.Fatal(http.ListenAndServe(":"+config.Reports.Port, nil))
 }

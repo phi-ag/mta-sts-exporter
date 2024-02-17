@@ -106,9 +106,8 @@ func TestReturnsMethodNotAllowedForGetRequest(t *testing.T) {
 	recorder := httptest.NewRecorder()
 
 	config := Config{
-		Save:     false,
-		SavePath: "",
-		Limits: Limits{
+		Reports: Reports{
+			Save: false,
 			MaxBodySize: 5000,
 			MaxJsonSize: 5000,
 		},
@@ -131,11 +130,10 @@ func TestReturnsBadRequestForNonGzip(t *testing.T) {
 	recorder := httptest.NewRecorder()
 
 	config := Config{
-		Save:     false,
-		SavePath: "",
-		Limits: Limits{
-			MaxBodySize: 500,
-			MaxJsonSize: 500,
+		Reports: Reports{
+			Save: false,
+			MaxBodySize: 5000,
+			MaxJsonSize: 5000,
 		},
 	}
 
@@ -166,9 +164,8 @@ func TestReturnsRequestEntityTooLargeForBody(t *testing.T) {
 	recorder := httptest.NewRecorder()
 
 	config := Config{
-		Save:     false,
-		SavePath: "",
-		Limits: Limits{
+		Reports: Reports{
+			Save: false,
 			MaxBodySize: 25,
 			MaxJsonSize: 5000,
 		},
@@ -201,11 +198,10 @@ func TestReturnsRequestEntityTooLargeForJson(t *testing.T) {
 	recorder := httptest.NewRecorder()
 
 	config := Config{
-		Save:     false,
-		SavePath: "",
-		Limits: Limits{
+		Reports: Reports{
+			Save: false,
 			MaxBodySize: 5000,
-			MaxJsonSize: 10,
+			MaxJsonSize: 25,
 		},
 	}
 
@@ -236,9 +232,8 @@ func TestReturnsOk(t *testing.T) {
 	recorder := httptest.NewRecorder()
 
 	config := Config{
-		Save:     false,
-		SavePath: "",
-		Limits: Limits{
+		Reports: Reports{
+			Save: false,
 			MaxBodySize: 5000,
 			MaxJsonSize: 5000,
 		},
