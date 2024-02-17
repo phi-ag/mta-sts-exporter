@@ -22,7 +22,7 @@ Configuration
 Save reports
 
     mkdir reports
-    chown 165531:165531 reports
+    chown 65532:65532 reports
     docker run -it --rm -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
 
 Post example
