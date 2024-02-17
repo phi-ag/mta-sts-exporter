@@ -10,7 +10,6 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"strconv"
 	"strings"
 	"time"
 
@@ -93,28 +92,6 @@ func parseReport(reader io.Reader) (Report, error) {
 func getEnv(key, fallback string) string {
 	if value, ok := os.LookupEnv(key); ok {
 		return value
-	}
-	return fallback
-}
-
-func getEnvBool(key string, fallback bool) bool {
-	if value, ok := os.LookupEnv(key); ok {
-		result, err := strconv.ParseBool(value)
-		if err != nil {
-			return fallback
-		}
-		return result
-	}
-	return fallback
-}
-
-func getEnvInt64(key string, fallback int64) int64 {
-	if value, ok := os.LookupEnv(key); ok {
-		result, err := strconv.ParseInt(value, 10, 64)
-		if err != nil {
-			return fallback
-		}
-		return result
 	}
 	return fallback
 }

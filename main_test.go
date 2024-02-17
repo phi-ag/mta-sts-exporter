@@ -154,6 +154,7 @@ func TestReturnsRequestEntityTooLargeForBody(t *testing.T) {
 
 	go func() {
 		dataReader := strings.NewReader(example)
+		//nolint:errcheck
 		io.Copy(gzipWriter, dataReader)
 
 		gzipWriter.Close()
@@ -188,6 +189,7 @@ func TestReturnsRequestEntityTooLargeForJson(t *testing.T) {
 
 	go func() {
 		dataReader := strings.NewReader(example)
+		//nolint:errcheck
 		io.Copy(gzipWriter, dataReader)
 
 		gzipWriter.Close()
@@ -222,6 +224,7 @@ func TestReturnsOk(t *testing.T) {
 
 	go func() {
 		dataReader := strings.NewReader(example)
+		//nolint:errcheck
 		io.Copy(gzipWriter, dataReader)
 
 		gzipWriter.Close()

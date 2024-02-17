@@ -2,6 +2,14 @@ name: Check
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: read
+  checks: write
 
 jobs:
   check:
@@ -21,3 +29,8 @@ jobs:
 
       - name: Test
         run: go test -v
+
+      - name: Lint
+        uses: golangci/golangci-lint-action@v3
+        with:
+          version: v1.56
