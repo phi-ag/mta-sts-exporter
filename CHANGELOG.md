@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.1.2](https://github.com/phi-ag/mta-sts-exporter/compare/v1.1.1...v1.1.2) (2024-02-17)
+
+
+### Documentation
+
+* added example docker compose.yaml and infer config file type ([bee678a](https://github.com/phi-ag/mta-sts-exporter/commit/bee678a4e1df67c3e3f3c85dba3ba861c47c0c04))
+* added readme badges ([12d5801](https://github.com/phi-ag/mta-sts-exporter/commit/12d5801d694462accc8732cf0bc8d7808f7a3551))
+* added save report instructions to readme ([3f993ef](https://github.com/phi-ag/mta-sts-exporter/commit/3f993efb58a0e4e78e0266e9e5a9470570663a1e))
+
+
+### Miscellaneous Chores
+
+* **deps:** pin golangci/golangci-lint-action action to 3a91952 ([b1c7ebf](https://github.com/phi-ag/mta-sts-exporter/commit/b1c7ebf7818c112bb60098300f10c1a767f7af44))
+* **deps:** pin phiag/mta-sts-exporter docker tag to fc97b23 ([92e07ee](https://github.com/phi-ag/mta-sts-exporter/commit/92e07eef19742812c53315d94d3e72eca5648570))
+
+
+### Code Refactoring
+
+* split into multiple files ([feb21b9](https://github.com/phi-ag/mta-sts-exporter/commit/feb21b91b7f2702fcb2b000acb761132e3de06e4))
+
+
+### Continuous Integration
+
+* added lint ([005add3](https://github.com/phi-ag/mta-sts-exporter/commit/005add3800b873496888e8f9b6cfc94762a23217))
+
 ## [1.1.1](https://github.com/phi-ag/mta-sts-exporter/compare/v1.1.0...v1.1.1) (2024-02-17)
 
 
