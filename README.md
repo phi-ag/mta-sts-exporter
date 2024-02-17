@@ -19,8 +19,14 @@ Configuration
 - `REPORTS_SAVEPATH` (default: /tmp/reports)
 - `METRICS_GO` (default: false)
 
-Example
+Save reports
 
-    docker run phiag/mta-sts-exporter
+    mkdir reports
+    chown 165531:165531 reports
+    docker run -it --rm -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
+
+Post example
+
+    docker run -it --rm phiag/mta-sts-exporter:latest
     cat test/example.json | gzip | curl -X POST -v --data-binary @- localhost:8080
     curl localhost:8081/metrics
