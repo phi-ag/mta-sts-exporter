@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.1](https://github.com/phi-ag/mta-sts-exporter/compare/v1.1.0...v1.1.1) (2024-02-17)
+
+
+### Bug Fixes
+
+* fixed save report and use viper for config ([8a043cb](https://github.com/phi-ag/mta-sts-exporter/commit/8a043cb0af5db2ccd8c5396b62e01a57b8646ada))
+* use uint16 for port config ([ea55a19](https://github.com/phi-ag/mta-sts-exporter/commit/ea55a19ee96f494555c592574143c8c76b3e4017))
+
+
+### Styles
+
+* removed some whitespace ([999cdcf](https://github.com/phi-ag/mta-sts-exporter/commit/999cdcfea94ca8d172432e827a5e47d01bb9bf48))
+
 ## [1.1.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.0.0...v1.1.0) (2024-02-16)
 
 
