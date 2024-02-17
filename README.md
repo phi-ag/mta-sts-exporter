@@ -1,5 +1,8 @@
 # MTA-STS Exporter
 
+[![GitHub release](https://img.shields.io/github/release/phi-ag/mta-sts-exporter.svg?logo=github&style=flat-square)](https://github.com/phi-ag/mta-sts-exporter/releases/latest)
+[![Docker pulls](https://img.shields.io/docker/pulls/phiag/mta-sts-exporter.svg?logo=docker&style=flat-square)](https://hub.docker.com/r/phiag/mta-sts-exporter)
+
 **WIP** Prometheus metrics not implemented yet!
 
 Configuration
