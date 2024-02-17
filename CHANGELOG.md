@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.1.2...v1.2.0) (2024-02-17)
+
+
+### Features
+
+* enabled platforms riscv64 and 386, dropped ppc64le and s390x ([4ad7769](https://github.com/phi-ag/mta-sts-exporter/commit/4ad7769105db2ba62228dab633ccd47dd951155a))
+
+
+### Miscellaneous Chores
+
+* **deps:** update golangci/golangci-lint-action action to v4 ([7402705](https://github.com/phi-ag/mta-sts-exporter/commit/740270580b30a9b2ca65336472c2118f470fe811))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.1.2 ([d73dd5c](https://github.com/phi-ag/mta-sts-exporter/commit/d73dd5c23472fc1e919afa7219ba3f8574b48ce3))
+
 ## [1.1.2](https://github.com/phi-ag/mta-sts-exporter/compare/v1.1.1...v1.1.2) (2024-02-17)
 
 
