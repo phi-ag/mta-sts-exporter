@@ -2,99 +2,17 @@ package main
 
 import (
 	"compress/gzip"
-	"encoding/json"
 	"fmt"
 	"io"
 	"log"
 	"log/slog"
 	"net/http"
 	"os"
-	"path/filepath"
-	"strings"
-	"time"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/collectors"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/spf13/viper"
 )
-
-type Reports struct {
-	Port        uint16
-	Path        string
-	MaxBodySize int64
-	MaxJsonSize int64
-	Save        bool
-	SavePath    string
-}
-
-type Metrics struct {
-	Port uint16
-	Path string
-	Go   bool
-}
-
-type Config struct {
-	Log struct {
-		Json bool
-	}
-	Reports Reports
-	Metrics Metrics
-}
-
-type DateRange struct {
-	StartDatetime time.Time `json:"start-datetime"`
-	EndDatetime   time.Time `json:"end-datetime"`
-}
-
-type Policy struct {
-	PolicyType   string   `json:"policy-type"`
-	PolicyString []string `json:"policy-string"`
-	PolicyDomain string   `json:"policy-domain"`
-	MxHost       string   `json:"mx-host"`
-}
-
-type Summary struct {
-	TotalSuccessfulSessionCount int64 `json:"total-successful-session-count"`
-	TotalFailureSessionCount    int64 `json:"total-failure-session-count"`
-}
-
-type FailureDetail struct {
-	ResultType            string `json:"result-type"`
-	SendingMtaIp          string `json:"sending-mta-ip"`
-	ReceivingIp           string `json:"receiving-ip"`
-	ReceivingMxHostname   string `json:"receiving-mx-hostname"`
-	FailedSessionCount    int64  `json:"failed-session-count"`
-	FailureReasonCode     string `json:"failure-reason-code"`
-	AdditionalInformation string `json:"additional-information"`
-}
-
-type PolicyItem struct {
-	Policy         Policy          `json:"policy"`
-	Summary        Summary         `json:"summary"`
-	FailureDetails []FailureDetail `json:"failure-details"`
-}
-
-type Report struct {
-	OrganizationName string       `json:"organization-name"`
-	DateRange        DateRange    `json:"date-range"`
-	ContactInfo      string       `json:"contact-info"`
-	ReportId         string       `json:"report-id"`
-	Policies         []PolicyItem `json:"policies"`
-}
-
-func parseReport(reader io.Reader) (Report, error) {
-	report := &Report{}
-	err := json.NewDecoder(reader).Decode(report)
-	return *report, err
-}
-
-func getEnv(key, fallback string) string {
-	if value, ok := os.LookupEnv(key); ok {
-		return value
-	}
-	return fallback
-}
 
 func createRegistry(config Config) *prometheus.Registry {
 	registry := prometheus.NewRegistry()
@@ -114,28 +32,6 @@ func createRegistry(config Config) *prometheus.Registry {
 	}
 
 	return registry
-}
-
-func save(config Config, reader io.Reader) (io.Reader, *os.File, error) {
-	err := os.MkdirAll(config.Reports.SavePath, os.ModePerm)
-	if err != nil {
-		slog.Error("Failed to create directory", "path", config.Reports.SavePath, "error", err)
-		return reader, nil, err
-	}
-
-	filename := time.Now().Format(time.RFC3339Nano) + ".json"
-	target := filepath.Join(config.Reports.SavePath, filename)
-	slog.Info("Saving report", "target", target)
-
-	file, err := os.Create(target)
-	if err != nil {
-		slog.Error("Failed to create file", "target", target, "error", err)
-		return reader, nil, err
-	}
-
-	/// NOTE: It seems `TeeReader` writes the complete stream even when parsing fails later.
-	/// This is probably only true for small payloads.
-	return io.TeeReader(reader, file), file, nil
 }
 
 func handleReport(config Config) http.HandlerFunc {
@@ -159,7 +55,7 @@ func handleReport(config Config) http.HandlerFunc {
 		limitedJson := io.LimitReader(gzipReader, config.Reports.MaxJsonSize)
 
 		if config.Reports.Save {
-			saveReader, file, err := save(config, limitedJson)
+			saveReader, file, err := saveReport(config, limitedJson)
 			if err != nil {
 				slog.Warn("Save failed")
 			} else {
@@ -183,47 +79,6 @@ func handleReport(config Config) http.HandlerFunc {
 
 		slog.Info("DONE", "report", report)
 	}
-}
-
-func createConfig() Config {
-	configPathFull := getEnv("CONFIG_PATH", "/etc/mta-sts-exporter/config.yaml")
-	configPath := filepath.Dir(configPathFull)
-	configName := filepath.Base(configPathFull)
-
-	if filepath.Ext(configName) == "" {
-		viper.SetConfigType("yaml")
-	}
-
-	viper.SetConfigName(configName)
-	viper.AddConfigPath(configPath)
-	viper.AutomaticEnv()
-
-	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
-
-	viper.SetDefault("Log.Json", true)
-	viper.SetDefault("Reports.Port", 8080)
-	viper.SetDefault("Reports.Path", "/")
-	viper.SetDefault("Reports.MaxBodySize", 1*1024*1024)
-	viper.SetDefault("Reports.MaxJsonSize", 5*1024*1024)
-	viper.SetDefault("Reports.Save", true)
-	viper.SetDefault("Reports.SavePath", "/tmp/reports")
-	viper.SetDefault("Metrics.Port", 8081)
-	viper.SetDefault("Metrics.Path", "/metrics")
-	viper.SetDefault("Metrics.Go", false)
-
-	if _, err := os.Stat(filepath.Join(configPath, configName)); err == nil {
-		if err := viper.ReadInConfig(); err != nil {
-			log.Fatal("Failed to read config file", "error", err)
-		}
-	}
-
-	var config Config
-
-	if err := viper.Unmarshal(&config); err != nil {
-		slog.Warn("Failed to unmarshal config", "error", err)
-	}
-
-	return config
 }
 
 func main() {
