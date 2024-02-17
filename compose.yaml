@@ -39,7 +39,7 @@ x-healthcheck: &healthcheck
 services:
   mta-sts-exporter:
     <<: *service
-    image: phiag/mta-sts-exporter:1.1.2@sha256:99ce34485d9eff01a61f28b2db908e03fdefddbed33e033df5e13178b462ce4c
+    image: phiag/mta-sts-exporter:1.2.0
     # allow rootless docker to write to volume
     user: 0:0
     ports:
@@ -48,7 +48,7 @@ services:
       - "[::1]:8080:8080"
       - "[::1]:8081:8081"
     environment:
-      CONFIG_PATH: /mta-sts
+      CONFIG_PATH: /mta-sts-exporter
     configs:
       - mta-sts-exporter
     volumes:
