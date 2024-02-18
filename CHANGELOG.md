@@ -1,5 +1,38 @@
 # Changelog
 
+## [1.2.1](https://github.com/phi-ag/mta-sts-exporter/compare/v1.2.0...v1.2.1) (2024-02-18)
+
+
+### Bug Fixes
+
+* parse mx-host field (string or string array) ([7342162](https://github.com/phi-ag/mta-sts-exporter/commit/73421625bcdff4387d05660b86b65117d9129443))
+
+
+### Documentation
+
+* fixed compose.yaml config ([37db97e](https://github.com/phi-ag/mta-sts-exporter/commit/37db97e784c2a250f5d87050f56ad07fbf2dffe6))
+* fixed uid/gid in readme ([9e08f39](https://github.com/phi-ag/mta-sts-exporter/commit/9e08f39d81dcacb7f921c0468378c0a61a08fd15))
+
+
+### Miscellaneous Chores
+
+* **deps:** pin phiag/mta-sts-exporter docker tag to ac65f14 ([e797067](https://github.com/phi-ag/mta-sts-exporter/commit/e797067f49a4354b3a0511af715bac32f0f82088))
+
+
+### Code Refactoring
+
+* split tests ([4236cba](https://github.com/phi-ag/mta-sts-exporter/commit/4236cbac16a70fa3f1582c6d9020795a389b1bab))
+
+
+### Tests
+
+* added google and microsoft report examples ([61458ad](https://github.com/phi-ag/mta-sts-exporter/commit/61458ad1fd2add41b8cd3b93f8ba5000046ee3b0))
+
+
+### Continuous Integration
+
+* added note about missing platforms ([160a55e](https://github.com/phi-ag/mta-sts-exporter/commit/160a55e859c0112571b4a4cb7a9443b15ac66340))
+
 ## [1.2.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.1.2...v1.2.0) (2024-02-17)
 
 
