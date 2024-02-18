@@ -23,7 +23,8 @@ func TestReturnsMethodNotAllowedForGetRequest(t *testing.T) {
 		},
 	}
 
-	handleReport(config)(recorder, req)
+	metrics := createMetrics()
+	handleReport(config, metrics)(recorder, req)
 	res := recorder.Result()
 	defer res.Body.Close()
 
@@ -51,7 +52,8 @@ func TestReturnsBadRequestForNonGzip(t *testing.T) {
 		},
 	}
 
-	handleReport(config)(recorder, req)
+	metrics := createMetrics()
+	handleReport(config, metrics)(recorder, req)
 	res := recorder.Result()
 	defer res.Body.Close()
 
@@ -79,7 +81,8 @@ func TestReturnsRequestEntityTooLargeForBody(t *testing.T) {
 		},
 	}
 
-	handleReport(config)(recorder, req)
+	metrics := createMetrics()
+	handleReport(config, metrics)(recorder, req)
 	res := recorder.Result()
 	defer res.Body.Close()
 
@@ -107,7 +110,8 @@ func TestReturnsRequestEntityTooLargeForJson(t *testing.T) {
 		},
 	}
 
-	handleReport(config)(recorder, req)
+	metrics := createMetrics()
+	handleReport(config, metrics)(recorder, req)
 	res := recorder.Result()
 	defer res.Body.Close()
 
@@ -135,7 +139,8 @@ func TestReturnsOk(t *testing.T) {
 		},
 	}
 
-	handleReport(config)(recorder, req)
+	metrics := createMetrics()
+	handleReport(config, metrics)(recorder, req)
 	res := recorder.Result()
 	defer res.Body.Close()
 

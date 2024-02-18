@@ -35,7 +35,7 @@ type Reports struct {
 	Save    ReportsSave
 }
 
-type Metrics struct {
+type ConfigMetrics struct {
 	Enabled bool
 	Port    uint16
 	Path    string
@@ -49,7 +49,7 @@ type Config struct {
 	}
 	Policy  Policy
 	Reports Reports
-	Metrics Metrics
+	Metrics ConfigMetrics
 }
 
 func createConfig() Config {

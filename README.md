@@ -3,11 +3,12 @@
 [![GitHub release](https://img.shields.io/github/release/phi-ag/mta-sts-exporter.svg?logo=github&style=flat-square)](https://github.com/phi-ag/mta-sts-exporter/releases/latest)
 [![Docker pulls](https://img.shields.io/docker/pulls/phiag/mta-sts-exporter.svg?logo=docker&style=flat-square)](https://hub.docker.com/r/phiag/mta-sts-exporter/tags)
 
-**WIP** Prometheus metrics not implemented yet!
+> [!WARNING]
+> Experimental
 
 ## Configuration
 
-Use environment variables or a configuration file (see [compose.yaml](compose.yaml)).
+Use environment variables or a configuration file (see [compose.yaml](compose.yaml))
 
 - `CONFIG_PATH` (default: /etc/mta-sts-exporter/config.yaml)
 - `PORT` (default: 8080)

@@ -16,15 +16,69 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
-func createRegistry(config Config) *prometheus.Registry {
+type Metrics struct {
+	PolicyRequestsTotal prometheus.Counter
+	ReportRequestsTotal prometheus.Counter
+	ReportRequestsValid prometheus.Counter
+	ReportGzipError     prometheus.Counter
+	ReportSaveError     prometheus.Counter
+	ReportTooLarge      prometheus.Counter
+	ReportError         prometheus.Counter
+}
+
+func createMetrics() Metrics {
+	namespace := "mta_sts"
+
+	return Metrics{
+		PolicyRequestsTotal: prometheus.NewCounter(prometheus.CounterOpts{
+			Namespace: namespace,
+			Name:      "policy_requests_total",
+			Help:      "Total number of policy requests.",
+		}),
+		ReportRequestsTotal: prometheus.NewCounter(prometheus.CounterOpts{
+			Namespace: namespace,
+			Name:      "report_requests_total",
+			Help:      "Total number of report requests.",
+		}),
+		ReportRequestsValid: prometheus.NewCounter(prometheus.CounterOpts{
+			Namespace: namespace,
+			Name:      "report_requests_valid",
+			Help:      "Total number of valid report requests.",
+		}),
+		ReportGzipError: prometheus.NewCounter(prometheus.CounterOpts{
+			Namespace: namespace,
+			Name:      "report_gzip_error",
+			Help:      "Total number of report gzip errors.",
+		}),
+		ReportSaveError: prometheus.NewCounter(prometheus.CounterOpts{
+			Namespace: namespace,
+			Name:      "report_save_error",
+			Help:      "Total number of report save errors.",
+		}),
+		ReportTooLarge: prometheus.NewCounter(prometheus.CounterOpts{
+			Namespace: namespace,
+			Name:      "report_too_large",
+			Help:      "Total number of too large report requests.",
+		}),
+		ReportError: prometheus.NewCounter(prometheus.CounterOpts{
+			Namespace: namespace,
+			Name:      "report_error",
+			Help:      "Total number of report errors.",
+		}),
+	}
+}
+
+func createRegistry(config Config, metrics Metrics) *prometheus.Registry {
 	registry := prometheus.NewRegistry()
 
-	/*
-		counter := prometheus.NewCounterVec(prometheus.CounterOpts{
-			Name: "docker_events",
-			Help: "Number of docker container events",
-		}, []string{"type", "action", "scope", "from", "name", "namespace", "service_name", "node_id", "service_id"})
-	*/
+	registry.MustRegister(
+		metrics.PolicyRequestsTotal,
+		metrics.ReportRequestsTotal,
+		metrics.ReportRequestsValid,
+		metrics.ReportGzipError,
+		metrics.ReportSaveError,
+		metrics.ReportTooLarge,
+		metrics.ReportError)
 
 	if config.Metrics.Go {
 		registry.MustRegister(
@@ -59,7 +113,7 @@ func policyResponse(policy Policy) string {
 	return sb.String()
 }
 
-func handlePolicy(config Config) http.HandlerFunc {
+func handlePolicy(config Config, metrics Metrics) http.HandlerFunc {
 	response := policyResponse(config.Policy)
 
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -67,16 +121,19 @@ func handlePolicy(config Config) http.HandlerFunc {
 			w.WriteHeader(http.StatusMethodNotAllowed)
 			return
 		}
+		metrics.PolicyRequestsTotal.Inc()
 		fmt.Fprint(w, response)
 	}
 }
 
-func handleReport(config Config) http.HandlerFunc {
+func handleReport(config Config, metrics Metrics) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			w.WriteHeader(http.StatusMethodNotAllowed)
 			return
 		}
+
+		metrics.ReportRequestsTotal.Inc()
 
 		bodyReader := io.LimitReader(r.Body, config.Reports.Max.Body)
 		defer r.Body.Close()
@@ -84,6 +141,7 @@ func handleReport(config Config) http.HandlerFunc {
 		gzipReader, err := gzip.NewReader(bodyReader)
 		if err != nil {
 			slog.Warn("Gzip error", "remote", r.RemoteAddr, "error", err)
+			metrics.ReportGzipError.Inc()
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
@@ -95,6 +153,7 @@ func handleReport(config Config) http.HandlerFunc {
 			saveReader, file, err := saveReport(config, jsonReader)
 			if err != nil {
 				slog.Warn("Save failed")
+				metrics.ReportSaveError.Inc()
 			} else {
 				defer file.Close()
 				jsonReader = saveReader
@@ -105,15 +164,18 @@ func handleReport(config Config) http.HandlerFunc {
 		if err != nil {
 			if err == io.ErrUnexpectedEOF {
 				slog.Warn("Request too large", "remote", r.RemoteAddr)
+				metrics.ReportTooLarge.Inc()
 				w.WriteHeader(http.StatusRequestEntityTooLarge)
 				return
 			}
 
 			slog.Warn("Report error", "remote", r.RemoteAddr, "error", err)
+			metrics.ReportError.Inc()
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
 
+		metrics.ReportRequestsValid.Inc()
 		slog.Info("DONE", "report", report)
 	}
 }
@@ -134,7 +196,8 @@ func main() {
 	} else {
 		slog.Info("Config", "config", config)
 
-		registry := createRegistry(config)
+		metrics := createMetrics()
+		registry := createRegistry(config, metrics)
 		metricsHandler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{Registry: registry})
 
 		metricsHttp := http.NewServeMux()
@@ -151,12 +214,12 @@ func main() {
 
 		if config.Reports.Enabled {
 			slog.Info("Listening for reports", "port", config.Port, "path", config.Reports.Path)
-			http.HandleFunc(config.Reports.Path, handleReport(config))
+			http.HandleFunc(config.Reports.Path, handleReport(config, metrics))
 		}
 
 		if config.Policy.Enabled {
 			slog.Info("Serving policy", "port", config.Port, "path", config.Policy.Path)
-			http.HandleFunc(config.Policy.Path, handlePolicy(config))
+			http.HandleFunc(config.Policy.Path, handlePolicy(config, metrics))
 		}
 
 		log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Port), nil))
