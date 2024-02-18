@@ -2,6 +2,7 @@ package main
 
 import (
 	"compress/gzip"
+	"flag"
 	"fmt"
 	"io"
 	"log"
@@ -81,6 +82,15 @@ func handleReport(config Config) http.HandlerFunc {
 	}
 }
 
+func healthCheck(config Config) int {
+	res, err := http.Get(fmt.Sprintf("http://localhost:%d/healthz", config.Reports.Port))
+	if err != nil || res.StatusCode != http.StatusOK {
+		slog.Error("Healthcheck failed", "error", err, "statusCode", res.StatusCode)
+		return 1
+	}
+	return 0
+}
+
 func main() {
 	config := createConfig()
 
@@ -89,20 +99,29 @@ func main() {
 		slog.SetDefault(logger)
 	}
 
-	slog.Info("Config", "config", config)
+	healthCheckFlag := flag.Bool("health", false, "run health check")
+	flag.Parse()
 
-	registry := createRegistry(config)
-	metricsHandler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{Registry: registry})
+	if *healthCheckFlag {
+		os.Exit(healthCheck(config))
+	} else {
+		slog.Info("Config", "config", config)
 
-	metricsHttp := http.NewServeMux()
-	metricsHttp.Handle(config.Metrics.Path, metricsHandler)
+		registry := createRegistry(config)
+		metricsHandler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{Registry: registry})
 
-	go func() {
-		slog.Info("Serving metrics", "port", config.Metrics.Port, "path", config.Metrics.Path)
-		log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Metrics.Port), metricsHttp))
-	}()
+		metricsHttp := http.NewServeMux()
+		metricsHttp.Handle(config.Metrics.Path, metricsHandler)
 
-	http.HandleFunc(config.Reports.Path, handleReport(config))
-	slog.Info("Listening for reports", "port", config.Reports.Port, "path", config.Reports.Path)
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Reports.Port), nil))
+		go func() {
+			slog.Info("Serving metrics", "port", config.Metrics.Port, "path", config.Metrics.Path)
+			log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Metrics.Port), metricsHttp))
+		}()
+
+		http.HandleFunc(config.Reports.Path, handleReport(config))
+		http.HandleFunc("/healthz", func(http.ResponseWriter, *http.Request) {})
+
+		slog.Info("Listening for reports", "port", config.Reports.Port, "path", config.Reports.Path)
+		log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Reports.Port), nil))
+	}
 }
