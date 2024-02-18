@@ -23,8 +23,9 @@ configs:
 
       reports:
         path: /report
-        maxbodysize: 1048576
-        maxjsonsize: 5242880
+        max:
+          body: 1048576
+          json: 5242880
         save: true
         savepath: /tmp/reports
 
@@ -87,8 +88,8 @@ services:
       POLICY_MX: example.com,mx.example.com
       POLICY_MAXAGE: 86400
       REPORTS_PATH: /report
-      REPORTS_MAXBODYSIZE: 1048576
-      REPORTS_MAXJSONSIZE: 5242880
+      REPORTS_MAX_BODY: 1048576
+      REPORTS_MAX_JSON: 5242880
       REPORTS_SAVE: true
       REPORTS_SAVEPATH: /tmp/reports
       METRICS_PORT: 8081

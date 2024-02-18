@@ -18,12 +18,16 @@ type Policy struct {
 	MaxAge  int64
 }
 
+type ReportsMax struct {
+	Body int64
+	Json int64
+}
+
 type Reports struct {
-	Path        string
-	MaxBodySize int64
-	MaxJsonSize int64
-	Save        bool
-	SavePath    string
+	Path     string
+	Max      ReportsMax
+	Save     bool
+	SavePath string
 }
 
 type Metrics struct {
@@ -66,8 +70,8 @@ func createConfig() Config {
 	viper.SetDefault("Policy.Mx", []string{"example.com"})
 	viper.SetDefault("Policy.MaxAge", "86400")
 	viper.SetDefault("Reports.Path", "/report")
-	viper.SetDefault("Reports.MaxBodySize", 1*1024*1024)
-	viper.SetDefault("Reports.MaxJsonSize", 5*1024*1024)
+	viper.SetDefault("Reports.Max.Body", 1*1024*1024)
+	viper.SetDefault("Reports.Max.Json", 5*1024*1024)
 	viper.SetDefault("Reports.Save", true)
 	viper.SetDefault("Reports.SavePath", "/tmp/reports")
 	viper.SetDefault("Metrics.Port", 8081)

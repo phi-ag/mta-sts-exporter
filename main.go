@@ -43,7 +43,7 @@ func handleReport(config Config) http.HandlerFunc {
 			return
 		}
 
-		bodyReader := io.LimitReader(r.Body, config.Reports.MaxBodySize)
+		bodyReader := io.LimitReader(r.Body, config.Reports.Max.Body)
 		defer r.Body.Close()
 
 		gzipReader, err := gzip.NewReader(bodyReader)
@@ -54,7 +54,7 @@ func handleReport(config Config) http.HandlerFunc {
 		}
 		defer gzipReader.Close()
 
-		jsonReader := io.LimitReader(gzipReader, config.Reports.MaxJsonSize)
+		jsonReader := io.LimitReader(gzipReader, config.Reports.Max.Json)
 
 		if config.Reports.Save {
 			saveReader, file, err := saveReport(config, jsonReader)
