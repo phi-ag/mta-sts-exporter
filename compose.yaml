@@ -22,6 +22,7 @@ configs:
         maxage: 86400
 
       reports:
+        enabled: true
         path: /report
         max:
           body: 1048576
@@ -31,6 +32,7 @@ configs:
           path: /tmp/reports
 
       metrics:
+        enabled: true
         port: 8081
         path: /metrics
         go: false
@@ -88,11 +90,13 @@ services:
       POLICY_MODE: enforce
       POLICY_MX: example.com,mx.example.com
       POLICY_MAXAGE: 86400
+      REPORTS_ENABLED: true
       REPORTS_PATH: /report
       REPORTS_MAX_BODY: 1048576
       REPORTS_MAX_JSON: 5242880
       REPORTS_SAVE_ENABLED: true
       REPORTS_SAVE_PATH: /tmp/reports
+      METRICS_ENABLED: true
       METRICS_PORT: 8081
       METRICS_PATH: /metrics
       METRICS_GO: false

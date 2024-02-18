@@ -18,11 +18,13 @@ Use environment variables or a configuration file (see [compose.yaml](compose.ya
 - `POLICY_MODE` (default: enforce)
 - `POLICY_MX` (default: example.com)
 - `POLICY_MAXAGE` (default: 86400)
+- `REPORTS_ENABLED` (default: true)
 - `REPORTS_PATH` (default: /report)
 - `REPORTS_MAX_BODY` (default: 1 MiB)
 - `REPORTS_MAX_JSON` (default: 5 MiB)
 - `REPORTS_SAVE_ENABLED` (default: true)
 - `REPORTS_SAVE_PATH` (default: /tmp/reports)
+- `METRICS_ENABLED` (default: true)
 - `METRICS_PORT` (default: 8081)
 - `METRICS_PATH` (default: /metrics)
 - `METRICS_GO` (default: false)
@@ -45,8 +47,8 @@ cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:8080/r
 cat examples/google.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
 cat examples/microsoft.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
 
+curl localhost:8080/.well-known/mta-sts.txt
 curl localhost:8081/metrics
-curl http://localhost:8080/.well-known/mta-sts.txt
 ```
 
 Save reports

@@ -29,15 +29,17 @@ type ReportsSave struct {
 }
 
 type Reports struct {
-	Path string
-	Max  ReportsMax
-	Save ReportsSave
+	Enabled bool
+	Path    string
+	Max     ReportsMax
+	Save    ReportsSave
 }
 
 type Metrics struct {
-	Port uint16
-	Path string
-	Go   bool
+	Enabled bool
+	Port    uint16
+	Path    string
+	Go      bool
 }
 
 type Config struct {
@@ -73,11 +75,13 @@ func createConfig() Config {
 	viper.SetDefault("Policy.Mode", "enforce")
 	viper.SetDefault("Policy.Mx", []string{"example.com"})
 	viper.SetDefault("Policy.MaxAge", "86400")
+	viper.SetDefault("Reports.Enabled", true)
 	viper.SetDefault("Reports.Path", "/report")
 	viper.SetDefault("Reports.Max.Body", 1*1024*1024)
 	viper.SetDefault("Reports.Max.Json", 5*1024*1024)
 	viper.SetDefault("Reports.Save.Enabled", true)
 	viper.SetDefault("Reports.Save.Path", "/tmp/reports")
+	viper.SetDefault("Metrics.Enabled", true)
 	viper.SetDefault("Metrics.Port", 8081)
 	viper.SetDefault("Metrics.Path", "/metrics")
 	viper.SetDefault("Metrics.Go", false)
