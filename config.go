@@ -23,11 +23,15 @@ type ReportsMax struct {
 	Json int64
 }
 
+type ReportsSave struct {
+	Enabled bool
+	Path    string
+}
+
 type Reports struct {
-	Path     string
-	Max      ReportsMax
-	Save     bool
-	SavePath string
+	Path string
+	Max  ReportsMax
+	Save ReportsSave
 }
 
 type Metrics struct {
@@ -72,8 +76,8 @@ func createConfig() Config {
 	viper.SetDefault("Reports.Path", "/report")
 	viper.SetDefault("Reports.Max.Body", 1*1024*1024)
 	viper.SetDefault("Reports.Max.Json", 5*1024*1024)
-	viper.SetDefault("Reports.Save", true)
-	viper.SetDefault("Reports.SavePath", "/tmp/reports")
+	viper.SetDefault("Reports.Save.Enabled", true)
+	viper.SetDefault("Reports.Save.Path", "/tmp/reports")
 	viper.SetDefault("Metrics.Port", 8081)
 	viper.SetDefault("Metrics.Path", "/metrics")
 	viper.SetDefault("Metrics.Go", false)

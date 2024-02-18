@@ -26,8 +26,9 @@ configs:
         max:
           body: 1048576
           json: 5242880
-        save: true
-        savepath: /tmp/reports
+        save:
+          enabled: true
+          path: /tmp/reports
 
       metrics:
         port: 8081
@@ -90,8 +91,8 @@ services:
       REPORTS_PATH: /report
       REPORTS_MAX_BODY: 1048576
       REPORTS_MAX_JSON: 5242880
-      REPORTS_SAVE: true
-      REPORTS_SAVEPATH: /tmp/reports
+      REPORTS_SAVE_ENABLED: true
+      REPORTS_SAVE_PATH: /tmp/reports
       METRICS_PORT: 8081
       METRICS_PATH: /metrics
       METRICS_GO: false

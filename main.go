@@ -56,7 +56,7 @@ func handleReport(config Config) http.HandlerFunc {
 
 		jsonReader := io.LimitReader(gzipReader, config.Reports.Max.Json)
 
-		if config.Reports.Save {
+		if config.Reports.Save.Enabled {
 			saveReader, file, err := saveReport(config, jsonReader)
 			if err != nil {
 				slog.Warn("Save failed")

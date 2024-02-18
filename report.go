@@ -86,14 +86,14 @@ func parseReport(reader io.Reader) (Report, error) {
 }
 
 func saveReport(config Config, reader io.Reader) (io.Reader, *os.File, error) {
-	err := os.MkdirAll(config.Reports.SavePath, os.ModePerm)
+	err := os.MkdirAll(config.Reports.Save.Path, os.ModePerm)
 	if err != nil {
-		slog.Error("Failed to create directory", "path", config.Reports.SavePath, "error", err)
+		slog.Error("Failed to create directory", "path", config.Reports.Save.Path, "error", err)
 		return reader, nil, err
 	}
 
 	filename := time.Now().Format(time.RFC3339Nano) + ".json"
-	target := filepath.Join(config.Reports.SavePath, filename)
+	target := filepath.Join(config.Reports.Save.Path, filename)
 	slog.Info("Saving report", "target", target)
 
 	file, err := os.Create(target)

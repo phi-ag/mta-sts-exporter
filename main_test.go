@@ -13,7 +13,9 @@ func TestReturnsMethodNotAllowedForGetRequest(t *testing.T) {
 
 	config := Config{
 		Reports: Reports{
-			Save: false,
+			Save: ReportsSave{
+				Enabled: false,
+			},
 			Max: ReportsMax{
 				Body: 5_000,
 				Json: 5_000,
@@ -39,7 +41,9 @@ func TestReturnsBadRequestForNonGzip(t *testing.T) {
 
 	config := Config{
 		Reports: Reports{
-			Save: false,
+			Save: ReportsSave{
+				Enabled: false,
+			},
 			Max: ReportsMax{
 				Body: 5_000,
 				Json: 5_000,
@@ -65,7 +69,9 @@ func TestReturnsRequestEntityTooLargeForBody(t *testing.T) {
 
 	config := Config{
 		Reports: Reports{
-			Save: false,
+			Save: ReportsSave{
+				Enabled: false,
+			},
 			Max: ReportsMax{
 				Body: 25,
 				Json: 5_000,
@@ -91,7 +97,9 @@ func TestReturnsRequestEntityTooLargeForJson(t *testing.T) {
 
 	config := Config{
 		Reports: Reports{
-			Save: false,
+			Save: ReportsSave{
+				Enabled: false,
+			},
 			Max: ReportsMax{
 				Body: 5_000,
 				Json: 25,
@@ -117,7 +125,9 @@ func TestReturnsOk(t *testing.T) {
 
 	config := Config{
 		Reports: Reports{
-			Save: false,
+			Save: ReportsSave{
+				Enabled: false,
+			},
 			Max: ReportsMax{
 				Body: 5_000,
 				Json: 5_000,
