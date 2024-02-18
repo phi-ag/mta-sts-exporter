@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.5.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.4.1...v1.5.0) (2024-02-18)
+
+
+### Features
+
+* added enable config for reports and metrics ([8f2b64f](https://github.com/phi-ag/mta-sts-exporter/commit/8f2b64f0aad5c9842e8c8f16fca51c7032393669))
+* added some basic prometheus counter ([67d93f6](https://github.com/phi-ag/mta-sts-exporter/commit/67d93f683ffd0134b756d3a8fcd324a0e5a692a9))
+
+
+### Documentation
+
+* added A and AAAA dns entries to readme and formatted examples ([2d9fdc3](https://github.com/phi-ag/mta-sts-exporter/commit/2d9fdc3290a0c3d491b34e20df67f771b7ef8a0b))
+* added traefik example to compose.yaml ([e3a6dcf](https://github.com/phi-ag/mta-sts-exporter/commit/e3a6dcf863b9d63eb2a82f87d1dbf782929d6462))
+
+
+### Miscellaneous Chores
+
+* **deps:** pin phiag/mta-sts-exporter docker tag to 874a452 ([7dd2d14](https://github.com/phi-ag/mta-sts-exporter/commit/7dd2d14420e8276ff8fcdf67f1c423c0f1ff80bf))
+
+
+### Code Refactoring
+
+* disabled save report by default ([e7348f9](https://github.com/phi-ag/mta-sts-exporter/commit/e7348f9d77030a14fc1708f59fd8ea3b66c92f7d))
+* moved max body/json config ([e2905cd](https://github.com/phi-ag/mta-sts-exporter/commit/e2905cdae3e56fc5b09b09b4ac41d342eb76a4e9))
+* moved save config ([aa9596d](https://github.com/phi-ag/mta-sts-exporter/commit/aa9596d59a44cb14b14cec18b021f53e5a1558b7))
+* reordered functions in main ([555dba4](https://github.com/phi-ag/mta-sts-exporter/commit/555dba413de79406cbbdfd598e870a905f5bf999))
+
 ## [1.4.1](https://github.com/phi-ag/mta-sts-exporter/compare/v1.4.0...v1.4.1) (2024-02-18)
 
 
