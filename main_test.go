@@ -53,7 +53,7 @@ func TestReturnsBadRequestForNonGzip(t *testing.T) {
 }
 
 func TestReturnsRequestEntityTooLargeForBody(t *testing.T) {
-	reader := reportExampleGzip()
+	reader := reportExampleGzip("rfc")
 	defer reader.Close()
 
 	req := httptest.NewRequest(http.MethodPost, "/", reader)
@@ -63,7 +63,7 @@ func TestReturnsRequestEntityTooLargeForBody(t *testing.T) {
 		Reports: Reports{
 			Save:        false,
 			MaxBodySize: 25,
-			MaxJsonSize: 5000,
+			MaxJsonSize: 5_000,
 		},
 	}
 
@@ -77,7 +77,7 @@ func TestReturnsRequestEntityTooLargeForBody(t *testing.T) {
 }
 
 func TestReturnsRequestEntityTooLargeForJson(t *testing.T) {
-	reader := reportExampleGzip()
+	reader := reportExampleGzip("rfc")
 	defer reader.Close()
 
 	req := httptest.NewRequest(http.MethodPost, "/", reader)
@@ -86,7 +86,7 @@ func TestReturnsRequestEntityTooLargeForJson(t *testing.T) {
 	config := Config{
 		Reports: Reports{
 			Save:        false,
-			MaxBodySize: 5000,
+			MaxBodySize: 5_000,
 			MaxJsonSize: 25,
 		},
 	}
@@ -101,7 +101,7 @@ func TestReturnsRequestEntityTooLargeForJson(t *testing.T) {
 }
 
 func TestReturnsOk(t *testing.T) {
-	reader := reportExampleGzip()
+	reader := reportExampleGzip("rfc")
 	defer reader.Close()
 
 	req := httptest.NewRequest(http.MethodPost, "/", reader)
@@ -110,8 +110,8 @@ func TestReturnsOk(t *testing.T) {
 	config := Config{
 		Reports: Reports{
 			Save:        false,
-			MaxBodySize: 5000,
-			MaxJsonSize: 5000,
+			MaxBodySize: 5_000,
+			MaxJsonSize: 5_000,
 		},
 	}
 

@@ -28,5 +28,9 @@ Save reports
 Post example
 
     docker run -it --rm phiag/mta-sts-exporter:latest
-    cat test/example.json | gzip | curl -X POST -v --data-binary @- localhost:8080
+
+    cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:8080
+    cat examples/google.json | gzip | curl -X POST -v --data-binary @- localhost:8080
+    cat examples/microsoft.json | gzip | curl -X POST -v --data-binary @- localhost:8080
+
     curl localhost:8081/metrics

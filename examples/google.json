@@ -1,0 +1,28 @@
+{
+  "organization-name": "Google Inc.",
+  "date-range": {
+    "start-datetime": "2024-02-17T00:00:00Z",
+    "end-datetime": "2024-02-17T23:59:59Z"
+  },
+  "contact-info": "smtp-tls-reporting@google.com",
+  "report-id": "2024-02-17T00:00:00Z_example.com",
+  "policies": [
+    {
+      "policy": {
+        "policy-type": "sts",
+        "policy-string": [
+          "version: STSv1",
+          "mode: enforce",
+          "mx: example.com",
+          "max_age: 86400"
+        ],
+        "policy-domain": "example.com",
+        "mx-host": ["example.com"]
+      },
+      "summary": {
+        "total-successful-session-count": 53,
+        "total-failure-session-count": 0
+      }
+    }
+  ]
+}

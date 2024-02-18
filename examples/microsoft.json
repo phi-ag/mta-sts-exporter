@@ -1,0 +1,27 @@
+{
+  "organization-name": "Microsoft Corporation",
+  "date-range": {
+    "start-datetime": "2024-02-16T00:00:00Z",
+    "end-datetime": "2024-02-16T23:59:59Z"
+  },
+  "contact-info": "tlsrpt-noreply@microsoft.com",
+  "report-id": "133526718584528772+example.com",
+  "policies": [
+    {
+      "policy": {
+        "policy-type": "sts",
+        "policy-string": [
+          "version: STSv1",
+          "mode: enforce",
+          "mx: example.com",
+          "max_age: 86400"
+        ],
+        "policy-domain": "example.com"
+      },
+      "summary": {
+        "total-successful-session-count": 18,
+        "total-failure-session-count": 0
+      }
+    }
+  ]
+}
