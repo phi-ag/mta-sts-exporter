@@ -1,7 +1,7 @@
 # MTA-STS Exporter
 
 [![GitHub release](https://img.shields.io/github/release/phi-ag/mta-sts-exporter.svg?logo=github&style=flat-square)](https://github.com/phi-ag/mta-sts-exporter/releases/latest)
-[![Docker pulls](https://img.shields.io/docker/pulls/phiag/mta-sts-exporter.svg?logo=docker&style=flat-square)](https://hub.docker.com/r/phiag/mta-sts-exporter)
+[![Docker pulls](https://img.shields.io/docker/pulls/phiag/mta-sts-exporter.svg?logo=docker&style=flat-square)](https://hub.docker.com/r/phiag/mta-sts-exporter/tags)
 
 **WIP** Prometheus metrics not implemented yet!
 
@@ -34,3 +34,8 @@ Post example
     cat examples/microsoft.json | gzip | curl -X POST -v --data-binary @- localhost:8080
 
     curl localhost:8081/metrics
+
+## References
+
+- [RFC 8460: SMTP TLS Reporting](https://www.rfc-editor.org/rfc/rfc8460.html)
+- [RFC 8461: SMTP MTA Strict Transport Security (MTA-STS)](https://www.rfc-editor.org/rfc/rfc8461.html)

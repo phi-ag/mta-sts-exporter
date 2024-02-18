@@ -18,6 +18,7 @@ type DateRange struct {
 
 type MxHost []string
 
+/// NOTE: see https://www.rfc-editor.org/errata/eid6241
 func (l *MxHost) UnmarshalJSON(input []byte) error {
 	if len(input) == 0 {
 		return nil
