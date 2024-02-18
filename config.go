@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"log/slog"
 	"os"
 	"path/filepath"
 	"strings"
@@ -59,16 +58,15 @@ func createConfig() Config {
 	viper.SetDefault("Metrics.Path", "/metrics")
 	viper.SetDefault("Metrics.Go", false)
 
-	if _, err := os.Stat(filepath.Join(configPath, configName)); err == nil {
+	if _, err := os.Stat(configPathFull); err == nil {
 		if err := viper.ReadInConfig(); err != nil {
-			log.Fatal("Failed to read config file", "error", err)
+			log.Fatalln("Failed to read config file:", err)
 		}
 	}
 
 	var config Config
-
 	if err := viper.Unmarshal(&config); err != nil {
-		slog.Warn("Failed to unmarshal config", "error", err)
+		log.Fatalln("Failed to unmarshal config:", err)
 	}
 
 	return config
