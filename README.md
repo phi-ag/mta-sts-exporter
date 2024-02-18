@@ -11,7 +11,7 @@ Configuration
 - `LOG_JSON` (default: true)
 - `REPORTS_PORT` (default: 8080)
 - `METRICS_PORT` (default: 8081)
-- `REPORTS_PATH` (default: /)
+- `REPORTS_PATH` (default: /report)
 - `METRICS_PATH` (default: /metrics)
 - `REPORTS_MAXBODYSIZE` (default: 1 MiB)
 - `REPORTS_MAXJSONSIZE` (default: 5 MiB)
@@ -25,15 +25,15 @@ Save reports
 
     mkdir reports
     chown 65532:65532 reports
-    docker run -it --rm -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
+    docker run -it --rm -p 8080:8080 -p 8081:8081 -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
 
 Post examples
 
-    docker run -it --rm phiag/mta-sts-exporter:latest
+    docker run -it --rm -p 8080:8080 -p 8081:8081 phiag/mta-sts-exporter:latest
 
-    cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:8080
-    cat examples/google.json | gzip | curl -X POST -v --data-binary @- localhost:8080
-    cat examples/microsoft.json | gzip | curl -X POST -v --data-binary @- localhost:8080
+    cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
+    cat examples/google.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
+    cat examples/microsoft.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
 
     curl localhost:8081/metrics
     curl http://localhost:8080/.well-known/mta-sts.txt

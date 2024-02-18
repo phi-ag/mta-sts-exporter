@@ -8,7 +8,7 @@ configs:
 
       reports:
         port: 8080
-        path: /
+        path: /report
         maxbodysize: 1048576
         maxjsonsize: 5242880
         save: true

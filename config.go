@@ -55,7 +55,7 @@ func createConfig() Config {
 
 	viper.SetDefault("Log.Json", true)
 	viper.SetDefault("Reports.Port", 8080)
-	viper.SetDefault("Reports.Path", "/")
+	viper.SetDefault("Reports.Path", "/report")
 	viper.SetDefault("Reports.MaxBodySize", 1*1024*1024)
 	viper.SetDefault("Reports.MaxJsonSize", 5*1024*1024)
 	viper.SetDefault("Reports.Save", true)
