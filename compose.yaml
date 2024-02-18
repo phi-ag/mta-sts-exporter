@@ -3,11 +3,21 @@ name: mta-sts-exporter-example
 configs:
   mta-sts-exporter:
     content: |
+      port: 8080
+
       log:
         json: true
 
+      policy:
+        enabled: true
+        path: /.well-known/mta-sts.txt
+        version: STSv1
+        mode: enforce
+        mx:
+          - example.com
+        maxage: 86400
+
       reports:
-        port: 8080
         path: /report
         maxbodysize: 1048576
         maxjsonsize: 5242880
@@ -18,14 +28,6 @@ configs:
         port: 8081
         path: /metrics
         go: false
-
-      policy:
-        enabled: true
-        content: |
-          version: STSv1
-          mode: testing
-          mx: example.com
-          max_age: 86400
 
 volumes:
   mta-sts-reports: {}
@@ -47,7 +49,7 @@ x-healthcheck: &healthcheck
 services:
   mta-sts-exporter:
     <<: *service
-    image: phiag/mta-sts-exporter:1.4.0@sha256:bc1b5c3b240f8188306c70e814f80707553c84dad3e3d0c43a3b42961c53c92f
+    image: phiag/mta-sts-exporter:latest
     # allow rootless docker to write to volume
     user: 0:0
     ports:

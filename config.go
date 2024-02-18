@@ -9,8 +9,16 @@ import (
 	"github.com/spf13/viper"
 )
 
+type Policy struct {
+	Enabled bool
+	Path    string
+	Version string
+	Mode    string
+	Mx      []string
+	MaxAge  int64
+}
+
 type Reports struct {
-	Port        uint16
 	Path        string
 	MaxBodySize int64
 	MaxJsonSize int64
@@ -24,18 +32,14 @@ type Metrics struct {
 	Go   bool
 }
 
-type Policy struct {
-	Enabled bool
-	Content string
-}
-
 type Config struct {
-	Log struct {
+	Port uint16
+	Log  struct {
 		Json bool
 	}
+	Policy  Policy
 	Reports Reports
 	Metrics Metrics
-	Policy  Policy
 }
 
 func createConfig() Config {
@@ -54,7 +58,13 @@ func createConfig() Config {
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 
 	viper.SetDefault("Log.Json", true)
-	viper.SetDefault("Reports.Port", 8080)
+	viper.SetDefault("Port", 8080)
+	viper.SetDefault("Policy.Enabled", true)
+	viper.SetDefault("Policy.Path", "/.well-known/mta-sts.txt")
+	viper.SetDefault("Policy.Version", "STSv1")
+	viper.SetDefault("Policy.Mode", "enforce")
+	viper.SetDefault("Policy.Mx", []string{"example.com"})
+	viper.SetDefault("Policy.MaxAge", "86400")
 	viper.SetDefault("Reports.Path", "/report")
 	viper.SetDefault("Reports.MaxBodySize", 1*1024*1024)
 	viper.SetDefault("Reports.MaxJsonSize", 5*1024*1024)
@@ -63,8 +73,6 @@ func createConfig() Config {
 	viper.SetDefault("Metrics.Port", 8081)
 	viper.SetDefault("Metrics.Path", "/metrics")
 	viper.SetDefault("Metrics.Go", false)
-	viper.SetDefault("Policy.Enabled", true)
-	viper.SetDefault("Policy.Content", "version: STSv1\nmode: testing\nmx: example.com\nmax_age: 86400\n")
 
 	if _, err := os.Stat(configPathFull); err == nil {
 		if err := viper.ReadInConfig(); err != nil {

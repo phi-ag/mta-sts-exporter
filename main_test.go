@@ -123,3 +123,19 @@ func TestReturnsOk(t *testing.T) {
 		t.Errorf("expected StatusOK got %v", res.Status)
 	}
 }
+
+func TestCreatePolicyResponse(t *testing.T) {
+	policy := Policy{
+		Version: "STSv1",
+		Mode:    "testing",
+		Mx:      []string{"example.com", "mx.example.com"},
+		MaxAge:  600,
+	}
+
+	expected := "version: STSv1\nmode: testing\nmx: example.com\nmx: mx.example.com\nmax_age: 600\n"
+
+	result := policyResponse(policy)
+	if result != expected {
+		t.Errorf("unexpected policy response %v", result)
+	}
+}

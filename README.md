@@ -8,18 +8,22 @@
 Configuration
 
 - `CONFIG_PATH` (default: /etc/mta-sts-exporter/config.yaml)
+- `PORT` (default: 8080)
 - `LOG_JSON` (default: true)
-- `REPORTS_PORT` (default: 8080)
-- `METRICS_PORT` (default: 8081)
+- `POLICY_ENABLED` (default: true)
+- `POLICY_PATH` (default: /.well-known/mta-sts.txt)
+- `POLICY_VERSION` (default: STSv1)
+- `POLICY_MODE` (default: enforce)
+- `POLICY_MX` (default: example.com)
+- `POLICY_MAXAGE` (default: 86400)
 - `REPORTS_PATH` (default: /report)
-- `METRICS_PATH` (default: /metrics)
 - `REPORTS_MAXBODYSIZE` (default: 1 MiB)
 - `REPORTS_MAXJSONSIZE` (default: 5 MiB)
 - `REPORTS_SAVE` (default: true)
 - `REPORTS_SAVEPATH` (default: /tmp/reports)
+- `METRICS_PORT` (default: 8081)
+- `METRICS_PATH` (default: /metrics)
 - `METRICS_GO` (default: false)
-- `POLICY_ENABLED` (default: true)
-- `POLICY_CONTENT` (default: "version: STSv1\nmode: testing\nmx: example.com\nmax_age: 86400\n")
 
 Save reports
 

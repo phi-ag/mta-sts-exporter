@@ -9,6 +9,7 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/collectors"
@@ -82,18 +83,32 @@ func handleReport(config Config) http.HandlerFunc {
 	}
 }
 
+func policyResponse(policy Policy) string {
+	var sb strings.Builder
+
+	sb.WriteString(fmt.Sprintf("version: %s\n", policy.Version))
+	sb.WriteString(fmt.Sprintf("mode: %s\n", policy.Mode))
+
+	for _, mx := range policy.Mx {
+		sb.WriteString(fmt.Sprintf("mx: %s\n", mx))
+	}
+
+	sb.WriteString(fmt.Sprintf("max_age: %d\n", policy.MaxAge))
+	return sb.String()
+}
+
 func handlePolicy(config Config) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodGet {
 			w.WriteHeader(http.StatusMethodNotAllowed)
 			return
 		}
-		fmt.Fprintf(w, config.Policy.Content)
+		fmt.Fprint(w, policyResponse(config.Policy))
 	}
 }
 
 func healthCheck(config Config) int {
-	res, err := http.Get(fmt.Sprintf("http://localhost:%d/healthz", config.Reports.Port))
+	res, err := http.Get(fmt.Sprintf("http://localhost:%d/healthz", config.Port))
 	if err != nil || res.StatusCode != http.StatusOK {
 		slog.Error("Healthcheck failed", "error", err, "statusCode", res.StatusCode)
 		return 1
@@ -132,10 +147,10 @@ func main() {
 		http.HandleFunc("/healthz", func(http.ResponseWriter, *http.Request) {})
 
 		if config.Policy.Enabled {
-			http.HandleFunc("/.well-known/mta-sts.txt", handlePolicy(config))
+			http.HandleFunc(config.Policy.Path, handlePolicy(config))
 		}
 
-		slog.Info("Listening for reports", "port", config.Reports.Port, "path", config.Reports.Path)
-		log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Reports.Port), nil))
+		slog.Info("Listening for reports", "port", config.Port, "path", config.Reports.Path)
+		log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Port), nil))
 	}
 }
