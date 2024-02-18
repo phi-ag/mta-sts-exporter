@@ -29,27 +29,33 @@ Use environment variables or a configuration file (see [compose.yaml](compose.ya
 
 ## DNS
 
-    _mta-sts   TXT "v=STSv1; id=20240101T010101;"
-    _smtp._tls TXT "v=TLSRPTv1;rua=https://mta-sts.example.com/report"
+    mta-sts    A    <IPv4>
+    mta-sts    AAAA <IPv6>
+    _mta-sts   TXT  "v=STSv1; id=20240101T010101;"
+    _smtp._tls TXT  "v=TLSRPTv1;rua=https://mta-sts.example.com/report"
 
 ## Usage
 
 Post examples
 
-    docker run -it --rm -p 8080:8080 -p 8081:8081 phiag/mta-sts-exporter:latest
+```sh
+docker run -it --rm -p 8080:8080 -p 8081:8081 phiag/mta-sts-exporter:latest
 
-    cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
-    cat examples/google.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
-    cat examples/microsoft.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
+cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
+cat examples/google.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
+cat examples/microsoft.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
 
-    curl localhost:8081/metrics
-    curl http://localhost:8080/.well-known/mta-sts.txt
+curl localhost:8081/metrics
+curl http://localhost:8080/.well-known/mta-sts.txt
+```
 
 Save reports
 
-    mkdir reports
-    chown 65532:65532 reports
-    docker run -it --rm -p 8080:8080 -p 8081:8081 -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
+```sh
+mkdir reports
+chown 65532:65532 reports
+docker run -it --rm -p 8080:8080 -p 8081:8081 -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
+```
 
 ## References
 
