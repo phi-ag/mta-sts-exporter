@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.4.1](https://github.com/phi-ag/mta-sts-exporter/compare/v1.4.0...v1.4.1) (2024-02-18)
+
+
+### Performance Improvements
+
+* generate policy response on startup ([5782223](https://github.com/phi-ag/mta-sts-exporter/commit/5782223ac80cad0510e38ac85b95b72b8f474bb5))
+
+
+### Documentation
+
+* added dns entries to readme ([15fd78d](https://github.com/phi-ag/mta-sts-exporter/commit/15fd78da636d3d282eca06d84740a4c54e1e0aeb))
+* added environment based config example to compose.yaml ([e7c0ef5](https://github.com/phi-ag/mta-sts-exporter/commit/e7c0ef55030fb65e79c6ddb16318e920e44c6b48))
+* configure policy in compose.yaml ([5d50c4a](https://github.com/phi-ag/mta-sts-exporter/commit/5d50c4a3a84b87d9ecf2fa0d83c0d584c5f6a575))
+
+
+### Miscellaneous Chores
+
+* **deps:** pin phiag/mta-sts-exporter docker tag to bc1b5c3 ([5557dc8](https://github.com/phi-ag/mta-sts-exporter/commit/5557dc8fa87157442b81ebce12064b58cf5ab562))
+
+
+### Code Refactoring
+
+* changed default report path to /report ([858fc87](https://github.com/phi-ag/mta-sts-exporter/commit/858fc87f146024fa58327c74fa1e86a04f7a73e7))
+* **config:** replaced policy content config with fields ([4dc9995](https://github.com/phi-ag/mta-sts-exporter/commit/4dc9995ae6f729c9fc68ebbdc94bdcb21dafaeb1))
+
 ## [1.4.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.3.0...v1.4.0) (2024-02-18)
 
 
