@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.4.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.3.0...v1.4.0) (2024-02-18)
+
+
+### Features
+
+* added option to serve mta-sts policy ([2c59c63](https://github.com/phi-ag/mta-sts-exporter/commit/2c59c632d3297b609b809460cfd989dbb41a17ab))
+
+
+### Documentation
+
+* fixed docker compose healthcheck ([cb2facc](https://github.com/phi-ag/mta-sts-exporter/commit/cb2facc4031039c1bdece7fd3bff24a76aed1416))
+
+
+### Miscellaneous Chores
+
+* **deps:** pin phiag/mta-sts-exporter docker tag to adc373c ([2c38da4](https://github.com/phi-ag/mta-sts-exporter/commit/2c38da4092dd22a0c85a724c4450ebfe2a2be3a1))
+
 ## [1.3.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.2.1...v1.3.0) (2024-02-18)
 
 
