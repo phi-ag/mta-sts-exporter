@@ -36,6 +36,41 @@ func createRegistry(config Config) *prometheus.Registry {
 	return registry
 }
 
+func healthCheck(config Config) int {
+	res, err := http.Get(fmt.Sprintf("http://localhost:%d/healthz", config.Port))
+	if err != nil || res.StatusCode != http.StatusOK {
+		slog.Error("Healthcheck failed", "error", err, "statusCode", res.StatusCode)
+		return 1
+	}
+	return 0
+}
+
+func policyResponse(policy Policy) string {
+	var sb strings.Builder
+
+	sb.WriteString(fmt.Sprintf("version: %s\n", policy.Version))
+	sb.WriteString(fmt.Sprintf("mode: %s\n", policy.Mode))
+
+	for _, mx := range policy.Mx {
+		sb.WriteString(fmt.Sprintf("mx: %s\n", mx))
+	}
+
+	sb.WriteString(fmt.Sprintf("max_age: %d\n", policy.MaxAge))
+	return sb.String()
+}
+
+func handlePolicy(config Config) http.HandlerFunc {
+	response := policyResponse(config.Policy)
+
+	return func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			w.WriteHeader(http.StatusMethodNotAllowed)
+			return
+		}
+		fmt.Fprint(w, response)
+	}
+}
+
 func handleReport(config Config) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
@@ -81,41 +116,6 @@ func handleReport(config Config) http.HandlerFunc {
 
 		slog.Info("DONE", "report", report)
 	}
-}
-
-func policyResponse(policy Policy) string {
-	var sb strings.Builder
-
-	sb.WriteString(fmt.Sprintf("version: %s\n", policy.Version))
-	sb.WriteString(fmt.Sprintf("mode: %s\n", policy.Mode))
-
-	for _, mx := range policy.Mx {
-		sb.WriteString(fmt.Sprintf("mx: %s\n", mx))
-	}
-
-	sb.WriteString(fmt.Sprintf("max_age: %d\n", policy.MaxAge))
-	return sb.String()
-}
-
-func handlePolicy(config Config) http.HandlerFunc {
-	response := policyResponse(config.Policy)
-
-	return func(w http.ResponseWriter, r *http.Request) {
-		if r.Method != http.MethodGet {
-			w.WriteHeader(http.StatusMethodNotAllowed)
-			return
-		}
-		fmt.Fprint(w, response)
-	}
-}
-
-func healthCheck(config Config) int {
-	res, err := http.Get(fmt.Sprintf("http://localhost:%d/healthz", config.Port))
-	if err != nil || res.StatusCode != http.StatusOK {
-		slog.Error("Healthcheck failed", "error", err, "statusCode", res.StatusCode)
-		return 1
-	}
-	return 0
 }
 
 func main() {
