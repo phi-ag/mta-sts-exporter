@@ -83,7 +83,59 @@ func TestParseReportRfcExample(t *testing.T) {
 		t.Errorf("expected single Policy got %v", len(parsed.Policies))
 	}
 
+	if parsed.Policies[0].Policy.MxHost[0] != "*.mail.company-y.example" {
+		t.Errorf("expected MxHost *.mail.company-y.example got %v", parsed.Policies[0].Policy.MxHost[0])
+	}
+
 	if len(parsed.Policies[0].FailureDetails) != 3 {
 		t.Errorf("expected three FailureDetails got %v", len(parsed.Policies[0].FailureDetails))
+	}
+}
+
+func TestParseReportGoogleExample(t *testing.T) {
+	reportReader := reportExample("google")
+	defer reportReader.Close()
+
+	parsed, err := parseReport(reportReader)
+	if err != nil {
+		t.Error("failed to parse report example", err)
+	}
+
+	if parsed.OrganizationName != "Google Inc." {
+		t.Errorf("expected OrganizationName Google Inc. got %v", parsed.OrganizationName)
+	}
+
+	if len(parsed.Policies) != 1 {
+		t.Errorf("expected single Policy got %v", len(parsed.Policies))
+	}
+
+	if len(parsed.Policies[0].Policy.MxHost) != 1 {
+		t.Errorf("expected one MxHost got %v", len(parsed.Policies[0].Policy.MxHost))
+	}
+
+	if parsed.Policies[0].Policy.MxHost[0] != "example.com" {
+		t.Errorf("expected MxHost example.com got %v", parsed.Policies[0].Policy.MxHost[0])
+	}
+}
+
+func TestParseReportMicrosoftExample(t *testing.T) {
+	reportReader := reportExample("microsoft")
+	defer reportReader.Close()
+
+	parsed, err := parseReport(reportReader)
+	if err != nil {
+		t.Error("failed to parse report example", err)
+	}
+
+	if parsed.OrganizationName != "Microsoft Corporation" {
+		t.Errorf("expected OrganizationName Microsoft Corporation got %v", parsed.OrganizationName)
+	}
+
+	if len(parsed.Policies) != 1 {
+		t.Errorf("expected single Policy got %v", len(parsed.Policies))
+	}
+
+	if len(parsed.Policies[0].Policy.MxHost) != 0 {
+		t.Errorf("expected no MxHost got %v", len(parsed.Policies[0].Policy.MxHost))
 	}
 }

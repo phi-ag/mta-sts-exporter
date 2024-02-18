@@ -2,10 +2,12 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"io"
 	"log/slog"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
@@ -14,11 +16,37 @@ type DateRange struct {
 	EndDatetime   time.Time `json:"end-datetime"`
 }
 
+type MxHost []string
+
+func (l *MxHost) UnmarshalJSON(input []byte) error {
+	if len(input) == 0 {
+		return nil
+	}
+
+	switch input[0] {
+	case '"':
+		*l = MxHost{strings.Trim(string(input), `"`)}
+		return nil
+
+	case '[':
+		var tmp []string
+		err := json.Unmarshal(input, &tmp)
+		if err != nil {
+			return err
+		}
+		*l = MxHost(tmp)
+		return nil
+
+	default:
+		return errors.New("Invalid mx-host")
+	}
+}
+
 type Policy struct {
 	PolicyType   string   `json:"policy-type"`
 	PolicyString []string `json:"policy-string"`
 	PolicyDomain string   `json:"policy-domain"`
-	MxHost       string   `json:"mx-host"`
+	MxHost       MxHost   `json:"mx-host"`
 }
 
 type Summary struct {
