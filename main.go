@@ -41,10 +41,10 @@ func handleReport(config Config) http.HandlerFunc {
 			return
 		}
 
-		limitedBody := io.LimitReader(r.Body, config.Reports.MaxBodySize)
+		bodyReader := io.LimitReader(r.Body, config.Reports.MaxBodySize)
 		defer r.Body.Close()
 
-		gzipReader, err := gzip.NewReader(limitedBody)
+		gzipReader, err := gzip.NewReader(bodyReader)
 		if err != nil {
 			slog.Warn("Gzip error", "remote", r.RemoteAddr, "error", err)
 			w.WriteHeader(http.StatusBadRequest)
@@ -52,19 +52,19 @@ func handleReport(config Config) http.HandlerFunc {
 		}
 		defer gzipReader.Close()
 
-		limitedJson := io.LimitReader(gzipReader, config.Reports.MaxJsonSize)
+		jsonReader := io.LimitReader(gzipReader, config.Reports.MaxJsonSize)
 
 		if config.Reports.Save {
-			saveReader, file, err := saveReport(config, limitedJson)
+			saveReader, file, err := saveReport(config, jsonReader)
 			if err != nil {
 				slog.Warn("Save failed")
 			} else {
 				defer file.Close()
-				limitedJson = saveReader
+				jsonReader = saveReader
 			}
 		}
 
-		report, err := parseReport(limitedJson)
+		report, err := parseReport(jsonReader)
 		if err != nil {
 			if err == io.ErrUnexpectedEOF {
 				slog.Warn("Request too large", "remote", r.RemoteAddr)
