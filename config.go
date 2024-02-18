@@ -79,7 +79,7 @@ func createConfig() Config {
 	viper.SetDefault("Reports.Path", "/report")
 	viper.SetDefault("Reports.Max.Body", 1*1024*1024)
 	viper.SetDefault("Reports.Max.Json", 5*1024*1024)
-	viper.SetDefault("Reports.Save.Enabled", true)
+	viper.SetDefault("Reports.Save.Enabled", false)
 	viper.SetDefault("Reports.Save.Path", "/tmp/reports")
 	viper.SetDefault("Metrics.Enabled", true)
 	viper.SetDefault("Metrics.Port", 8081)

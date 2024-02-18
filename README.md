@@ -22,7 +22,7 @@ Use environment variables or a configuration file (see [compose.yaml](compose.ya
 - `REPORTS_PATH` (default: /report)
 - `REPORTS_MAX_BODY` (default: 1 MiB)
 - `REPORTS_MAX_JSON` (default: 5 MiB)
-- `REPORTS_SAVE_ENABLED` (default: true)
+- `REPORTS_SAVE_ENABLED` (default: false)
 - `REPORTS_SAVE_PATH` (default: /tmp/reports)
 - `METRICS_ENABLED` (default: true)
 - `METRICS_PORT` (default: 8081)
@@ -56,7 +56,7 @@ Save reports
 ```sh
 mkdir reports
 chown 65532:65532 reports
-docker run -it --rm -p 8080:8080 -p 8081:8081 -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
+docker run -it --rm -p 8080:8080 -p 8081:8081 --env REPORTS_SAVE_ENABLED=true -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
 ```
 
 ## References
