@@ -5,8 +5,7 @@ volumes:
 
 configs:
   mta-sts-exporter:
-    # all default values
-    # your config may only contain values you want to override
+    # all default values, your config may only contain values you want to override
     content: |
       port: 8080
 
@@ -51,7 +50,7 @@ x-healthcheck: &healthcheck
 services:
   mta-sts-exporter:
     <<: *service
-    image: phiag/mta-sts-exporter:latest
+    image: phiag/mta-sts-exporter:1.4.1
     # only required for rootless docker to write to volume
     user: 0:0
     ports:
@@ -71,7 +70,10 @@ services:
 
   mta-sts-exporter-env:
     <<: *service
-    image: phiag/mta-sts-exporter:latest
+    image: phiag/mta-sts-exporter:1.4.1
+    expose:
+      - 8080
+      - 8081
     healthcheck:
       <<: *healthcheck
       test: [CMD, /ko-app/mta-sts-exporter, -health]
@@ -92,3 +94,21 @@ services:
       METRICS_PORT: 8081
       METRICS_PATH: /metrics
       METRICS_GO: false
+
+  mta-sts-exporter-traefik:
+    <<: *service
+    image: phiag/mta-sts-exporter:1.4.1
+    expose:
+      - 8080
+      - 8081
+    healthcheck:
+      <<: *healthcheck
+      test: [CMD, /ko-app/mta-sts-exporter, -health]
+    environment:
+      POLICY_MX: mx1.example.com,mx2.example.com
+    labels:
+      traefik.enable: true
+      traefik.http.routers.mta_sts.rule: Host(`mta-sts.example.com`)
+      traefik.http.routers.mta_sts.entrypoints: https
+      traefik.http.routers.mta_sts.tls: true
+      traefik.http.routers.mta_sts.tls.certresolver: letsencrypt
