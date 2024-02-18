@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.3.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.2.1...v1.3.0) (2024-02-18)
+
+
+### Features
+
+* added healthcheck ([b37a9ac](https://github.com/phi-ag/mta-sts-exporter/commit/b37a9ac16e7c623e9f2bca63d27b9b944ac1025a))
+
+
+### Bug Fixes
+
+* panic when unmarshal config fails ([9e87e83](https://github.com/phi-ag/mta-sts-exporter/commit/9e87e83fc5be5853c29592e42fd3d84535d6e380))
+
+
+### Documentation
+
+* added links to RFCs and comment for mx-host array errata ([90e4774](https://github.com/phi-ag/mta-sts-exporter/commit/90e4774fdfaec92fd379a2ae40894b036b3b4362))
+
+
+### Code Refactoring
+
+* renamed body and json reader ([9f0ef77](https://github.com/phi-ag/mta-sts-exporter/commit/9f0ef770a16ecf6cb483ba0f09121b76b10e2d6f))
+
 ## [1.2.1](https://github.com/phi-ag/mta-sts-exporter/compare/v1.2.0...v1.2.1) (2024-02-18)
 
 
