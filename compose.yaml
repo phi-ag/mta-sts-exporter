@@ -19,6 +19,14 @@ configs:
         path: /metrics
         go: false
 
+      policy:
+        enabled: true
+        content: |
+          version: STSv1
+          mode: testing
+          mx: example.com
+          max_age: 86400
+
 volumes:
   mta-sts-reports: {}
 
@@ -39,7 +47,7 @@ x-healthcheck: &healthcheck
 services:
   mta-sts-exporter:
     <<: *service
-    image: phiag/mta-sts-exporter:1.3.0@sha256:adc373c6d7ee0767ef2a9278edc861ff215eb4697a848392cda4c8e96459a28d
+    image: phiag/mta-sts-exporter:1.4.0
     # allow rootless docker to write to volume
     user: 0:0
     ports:
