@@ -5,7 +5,9 @@
 
 **WIP** Prometheus metrics not implemented yet!
 
-Configuration
+## Configuration
+
+Use environment variables or a configuration file (see [compose.yaml](compose.yaml)).
 
 - `CONFIG_PATH` (default: /etc/mta-sts-exporter/config.yaml)
 - `PORT` (default: 8080)
@@ -25,11 +27,12 @@ Configuration
 - `METRICS_PATH` (default: /metrics)
 - `METRICS_GO` (default: false)
 
-Save reports
+## DNS
 
-    mkdir reports
-    chown 65532:65532 reports
-    docker run -it --rm -p 8080:8080 -p 8081:8081 -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
+    _mta-sts   TXT "v=STSv1; id=20240101T010101;"
+    _smtp._tls TXT "v=TLSRPTv1;rua=https://mta-sts.example.com/report"
+
+## Usage
 
 Post examples
 
@@ -41,6 +44,12 @@ Post examples
 
     curl localhost:8081/metrics
     curl http://localhost:8080/.well-known/mta-sts.txt
+
+Save reports
+
+    mkdir reports
+    chown 65532:65532 reports
+    docker run -it --rm -p 8080:8080 -p 8081:8081 -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
 
 ## References
 
