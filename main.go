@@ -98,12 +98,14 @@ func policyResponse(policy Policy) string {
 }
 
 func handlePolicy(config Config) http.HandlerFunc {
+	response := policyResponse(config.Policy)
+
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodGet {
 			w.WriteHeader(http.StatusMethodNotAllowed)
 			return
 		}
-		fmt.Fprint(w, policyResponse(config.Policy))
+		fmt.Fprint(w, response)
 	}
 }
 
