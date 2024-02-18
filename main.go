@@ -82,6 +82,16 @@ func handleReport(config Config) http.HandlerFunc {
 	}
 }
 
+func handlePolicy(config Config) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			w.WriteHeader(http.StatusMethodNotAllowed)
+			return
+		}
+		fmt.Fprintf(w, config.Policy.Content)
+	}
+}
+
 func healthCheck(config Config) int {
 	res, err := http.Get(fmt.Sprintf("http://localhost:%d/healthz", config.Reports.Port))
 	if err != nil || res.StatusCode != http.StatusOK {
@@ -120,6 +130,10 @@ func main() {
 
 		http.HandleFunc(config.Reports.Path, handleReport(config))
 		http.HandleFunc("/healthz", func(http.ResponseWriter, *http.Request) {})
+
+		if config.Policy.Enabled {
+			http.HandleFunc("/.well-known/mta-sts.txt", handlePolicy(config))
+		}
 
 		slog.Info("Listening for reports", "port", config.Reports.Port, "path", config.Reports.Path)
 		log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Reports.Port), nil))

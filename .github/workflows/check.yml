@@ -24,6 +24,10 @@ jobs:
       - name: Install dependencies
         run: go get
 
+      - name: Format
+        continue-on-error: true
+        run: files=$(gofmt -l .) && echo $files && [ -z "$files" ]
+
       - name: Build
         run: go build -v
 

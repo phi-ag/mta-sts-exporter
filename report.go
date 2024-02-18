@@ -18,7 +18,7 @@ type DateRange struct {
 
 type MxHost []string
 
-/// NOTE: see https://www.rfc-editor.org/errata/eid6241
+// NOTE: see https://www.rfc-editor.org/errata/eid6241
 func (l *MxHost) UnmarshalJSON(input []byte) error {
 	if len(input) == 0 {
 		return nil
@@ -43,7 +43,7 @@ func (l *MxHost) UnmarshalJSON(input []byte) error {
 	}
 }
 
-type Policy struct {
+type ReportPolicy struct {
 	PolicyType   string   `json:"policy-type"`
 	PolicyString []string `json:"policy-string"`
 	PolicyDomain string   `json:"policy-domain"`
@@ -66,7 +66,7 @@ type FailureDetail struct {
 }
 
 type PolicyItem struct {
-	Policy         Policy          `json:"policy"`
+	Policy         ReportPolicy    `json:"policy"`
 	Summary        Summary         `json:"summary"`
 	FailureDetails []FailureDetail `json:"failure-details"`
 }

@@ -18,6 +18,8 @@ Configuration
 - `REPORTS_SAVE` (default: true)
 - `REPORTS_SAVEPATH` (default: /tmp/reports)
 - `METRICS_GO` (default: false)
+- `POLICY_ENABLED` (default: true)
+- `POLICY_CONTENT` (default: "version: STSv1\nmode: testing\nmx: example.com\nmax_age: 86400\n")
 
 Save reports
 
@@ -25,7 +27,7 @@ Save reports
     chown 65532:65532 reports
     docker run -it --rm -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
 
-Post example
+Post examples
 
     docker run -it --rm phiag/mta-sts-exporter:latest
 
@@ -34,6 +36,7 @@ Post example
     cat examples/microsoft.json | gzip | curl -X POST -v --data-binary @- localhost:8080
 
     curl localhost:8081/metrics
+    curl http://localhost:8080/.well-known/mta-sts.txt
 
 ## References
 

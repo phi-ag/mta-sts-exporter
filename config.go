@@ -24,12 +24,18 @@ type Metrics struct {
 	Go   bool
 }
 
+type Policy struct {
+	Enabled bool
+	Content string
+}
+
 type Config struct {
 	Log struct {
 		Json bool
 	}
 	Reports Reports
 	Metrics Metrics
+	Policy  Policy
 }
 
 func createConfig() Config {
@@ -57,6 +63,8 @@ func createConfig() Config {
 	viper.SetDefault("Metrics.Port", 8081)
 	viper.SetDefault("Metrics.Path", "/metrics")
 	viper.SetDefault("Metrics.Go", false)
+	viper.SetDefault("Policy.Enabled", true)
+	viper.SetDefault("Policy.Content", "version: STSv1\nmode: testing\nmx: example.com\nmax_age: 86400\n")
 
 	if _, err := os.Stat(configPathFull); err == nil {
 		if err := viper.ReadInConfig(); err != nil {
