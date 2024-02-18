@@ -1,7 +1,12 @@
-name: mta-sts-exporter-example
+name: mta-sts-exporter-examples
+
+volumes:
+  mta-sts-reports: {}
 
 configs:
   mta-sts-exporter:
+    # all default values
+    # your config may only contain values you want to override
     content: |
       port: 8080
 
@@ -29,9 +34,6 @@ configs:
         path: /metrics
         go: false
 
-volumes:
-  mta-sts-reports: {}
-
 x-service: &service
   restart: unless-stopped
   logging:
@@ -50,7 +52,7 @@ services:
   mta-sts-exporter:
     <<: *service
     image: phiag/mta-sts-exporter:latest
-    # allow rootless docker to write to volume
+    # only required for rootless docker to write to volume
     user: 0:0
     ports:
       - 127.0.0.1:8080:8080
@@ -66,3 +68,27 @@ services:
       - mta-sts-exporter
     volumes:
       - mta-sts-reports:/tmp/reports
+
+  mta-sts-exporter-env:
+    <<: *service
+    image: phiag/mta-sts-exporter:latest
+    healthcheck:
+      <<: *healthcheck
+      test: [CMD, /ko-app/mta-sts-exporter, -health]
+    environment:
+      PORT: 8080
+      LOG_JSON: true
+      POLICY_ENABLED: true
+      POLICY_PATH: /.well-known/mta-sts.txt
+      POLICY_VERSION: STSv1
+      POLICY_MODE: enforce
+      POLICY_MX: example.com,mx.example.com
+      POLICY_MAXAGE: 86400
+      REPORTS_PATH: /report
+      REPORTS_MAXBODYSIZE: 1048576
+      REPORTS_MAXJSONSIZE: 5242880
+      REPORTS_SAVE: true
+      REPORTS_SAVEPATH: /tmp/reports
+      METRICS_PORT: 8081
+      METRICS_PATH: /metrics
+      METRICS_GO: false
