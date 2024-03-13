@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.5.1](https://github.com/phi-ag/mta-sts-exporter/compare/v1.5.0...v1.5.1) (2024-03-13)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/prometheus/client_golang to v1.19.0 ([4f100f2](https://github.com/phi-ag/mta-sts-exporter/commit/4f100f2296297611d41504aef758aa886c12f7ed))
+
+
+### Documentation
+
+* removed initial changelog title ([6a28617](https://github.com/phi-ag/mta-sts-exporter/commit/6a2861733e075291226de9dbe8ee743518ddfcd8))
+* updated readme badges ([d343ce9](https://github.com/phi-ag/mta-sts-exporter/commit/d343ce94d1a652d4d274aaa7b48367fa33ffe41d))
+
+
+### Miscellaneous Chores
+
+* **deps:** pin phiag/mta-sts-exporter docker tag to d9183e9 ([fda00e3](https://github.com/phi-ag/mta-sts-exporter/commit/fda00e37be81c344927c1fb4615fbcae7d904df9))
+* **deps:** update actions/setup-go action to v5 ([3481011](https://github.com/phi-ag/mta-sts-exporter/commit/34810119f87aff4ae21e7dee121c6fd92072fac8))
+* **deps:** update dependency go to v1.22.1 ([36d40d5](https://github.com/phi-ag/mta-sts-exporter/commit/36d40d5bf3f7b5700cd31eae175e84e0415f03cf))
+* **deps:** update docker/login-action digest to e92390c ([9cbad2c](https://github.com/phi-ag/mta-sts-exporter/commit/9cbad2c37fb790ed33209f97eecc757f2c9108df))
+* **deps:** update google-github-actions/release-please-action digest to a37ac6e ([44a3984](https://github.com/phi-ag/mta-sts-exporter/commit/44a39845b629b3b2b298381e995c31bc252e5ba4))
+* updated compose.yaml ([163dc16](https://github.com/phi-ag/mta-sts-exporter/commit/163dc1669018c04eaaf446105d5b3e570850d437))
+* updated dependencies ([53daae5](https://github.com/phi-ag/mta-sts-exporter/commit/53daae51ffd53236a893ce9f508a71d5d14bcec8))
+
+
+### Continuous Integration
+
+* get go version from go.mod ([5eaa7c3](https://github.com/phi-ag/mta-sts-exporter/commit/5eaa7c354a78657cbb826105bd405ea1c24ad380))
+* golangci-lint skip cache ([ae543e6](https://github.com/phi-ag/mta-sts-exporter/commit/ae543e660ce548fd7ec1eb2b24d0f8041a8f030e))
+
 ## [1.5.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.4.1...v1.5.0) (2024-02-18)
 
 
