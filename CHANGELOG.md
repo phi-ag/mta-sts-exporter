@@ -1,5 +1,48 @@
 # Changelog
 
+## [1.6.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.5.0...v1.6.0) (2024-04-02)
+
+
+### Features
+
+* add session counter and merge error counter ([6caa54b](https://github.com/phi-ag/mta-sts-exporter/commit/6caa54ba1597ab9c3fba908169748a9d6f6b1f4f))
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/prometheus/client_golang to v1.19.0 ([4f100f2](https://github.com/phi-ag/mta-sts-exporter/commit/4f100f2296297611d41504aef758aa886c12f7ed))
+* parse invalid RFC3339 sent by Microsoft ([c08b3be](https://github.com/phi-ag/mta-sts-exporter/commit/c08b3bed05ebf7fc86fdf87722b7f6eb804be6aa))
+
+
+### Documentation
+
+* removed initial changelog title ([6a28617](https://github.com/phi-ag/mta-sts-exporter/commit/6a2861733e075291226de9dbe8ee743518ddfcd8))
+* updated readme badges ([d343ce9](https://github.com/phi-ag/mta-sts-exporter/commit/d343ce94d1a652d4d274aaa7b48367fa33ffe41d))
+
+
+### Miscellaneous Chores
+
+* **deps:** bump google.golang.org/protobuf from 1.32.0 to 1.33.0 ([6b1f66e](https://github.com/phi-ag/mta-sts-exporter/commit/6b1f66ec7f2ca4d5c88757762bbc07b0ff7d3784))
+* **deps:** pin phiag/mta-sts-exporter docker tag to d9183e9 ([fda00e3](https://github.com/phi-ag/mta-sts-exporter/commit/fda00e37be81c344927c1fb4615fbcae7d904df9))
+* **deps:** update actions/setup-go action to v5 ([3481011](https://github.com/phi-ag/mta-sts-exporter/commit/34810119f87aff4ae21e7dee121c6fd92072fac8))
+* **deps:** update dependency go to v1.22.1 ([36d40d5](https://github.com/phi-ag/mta-sts-exporter/commit/36d40d5bf3f7b5700cd31eae175e84e0415f03cf))
+* **deps:** update docker/login-action digest to e92390c ([9cbad2c](https://github.com/phi-ag/mta-sts-exporter/commit/9cbad2c37fb790ed33209f97eecc757f2c9108df))
+* **deps:** update golang.org/x/exp digest to a685a6e ([f3f48df](https://github.com/phi-ag/mta-sts-exporter/commit/f3f48dfd580070d17c77985a5f523bac7fbd4e18))
+* **deps:** update google-github-actions/release-please-action digest to a37ac6e ([44a3984](https://github.com/phi-ag/mta-sts-exporter/commit/44a39845b629b3b2b298381e995c31bc252e5ba4))
+* **deps:** update module github.com/pelletier/go-toml/v2 to v2.2.0 ([39cb154](https://github.com/phi-ag/mta-sts-exporter/commit/39cb1548d2e96111ea179bf7ad101b9ebb909962))
+* **deps:** update module github.com/prometheus/common to v0.51.1 ([e9b0512](https://github.com/phi-ag/mta-sts-exporter/commit/e9b0512aba17738a98ab0e2f5ad209f0f6a51957))
+* **deps:** update module github.com/prometheus/procfs to v0.13.0 ([d3ee304](https://github.com/phi-ag/mta-sts-exporter/commit/d3ee30439ab67ef3cd483287ff49013e8a5d94f0))
+* updated compose.yaml ([163dc16](https://github.com/phi-ag/mta-sts-exporter/commit/163dc1669018c04eaaf446105d5b3e570850d437))
+* updated dependencies ([53daae5](https://github.com/phi-ag/mta-sts-exporter/commit/53daae51ffd53236a893ce9f508a71d5d14bcec8))
+
+
+### Continuous Integration
+
+* enabled automerge for minor, patch, pin and digest updates ([3f2dc24](https://github.com/phi-ag/mta-sts-exporter/commit/3f2dc24e0a71d54d88d3d6a26a830ead0aec8dbb))
+* enabled indirect go modules updates ([e6bc566](https://github.com/phi-ag/mta-sts-exporter/commit/e6bc5669e5f47735a2598c6ed8870963ade5a4c3))
+* get go version from go.mod ([5eaa7c3](https://github.com/phi-ag/mta-sts-exporter/commit/5eaa7c354a78657cbb826105bd405ea1c24ad380))
+* golangci-lint skip cache ([ae543e6](https://github.com/phi-ag/mta-sts-exporter/commit/ae543e660ce548fd7ec1eb2b24d0f8041a8f030e))
+
 ## [1.5.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.4.1...v1.5.0) (2024-02-18)
 
 
