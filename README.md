@@ -4,9 +4,6 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/phiag/mta-sts-exporter?style=for-the-badge)](https://hub.docker.com/r/phiag/mta-sts-exporter/tags)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/phi-ag/mta-sts-exporter/check.yml?style=for-the-badge&label=Check)](https://github.com/phi-ag/mta-sts-exporter/actions)
 
-> [!WARNING]
-> Experimental
-
 ## Configuration
 
 Use environment variables or a configuration file (see [compose.yaml](compose.yaml))
@@ -42,52 +39,40 @@ Use environment variables or a configuration file (see [compose.yaml](compose.ya
 
 Post examples
 
-```sh
-docker run -it --rm -p 8080:8080 -p 8081:8081 phiag/mta-sts-exporter:latest
+    docker run -it --rm -p 8080:8080 -p 8081:8081 phiag/mta-sts-exporter:latest
 
-cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
-cat examples/google.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
-cat examples/microsoft.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
+    cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
+    cat examples/google.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
+    cat examples/microsoft.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
 
-curl localhost:8080/.well-known/mta-sts.txt
-curl localhost:8081/metrics
-```
+    curl localhost:8080/.well-known/mta-sts.txt
+    curl localhost:8081/metrics
 
 Save reports
 
-```sh
-mkdir reports
-chown 65532:65532 reports
-docker run -it --rm -p 8080:8080 -p 8081:8081 --env REPORTS_SAVE_ENABLED=true -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
-```
+    mkdir reports
+    chown 65532:65532 reports
+    docker run -it --rm -p 8080:8080 -p 8081:8081 --env REPORTS_SAVE_ENABLED=true -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
 
 ## Development
 
 Test
 
-```sh
-go test
-```
+    go test
 
 Lint
 
-```sh
-golangci-lint run
-```
+    golangci-lint run
 
 Format
 
-```sh
-go fmt
-```
+    go fmt
 
 Run
 
-```sh
-PORT=1234 METRICS_PORT=3333 go run .
-cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:1234/report
-curl localhost:3333/metrics
-```
+    PORT=1234 METRICS_PORT=3333 go run .
+    cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:1234/report
+    curl localhost:3333/metrics
 
 ## References
 
