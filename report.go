@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"log/slog"
 	"os"
@@ -11,9 +12,34 @@ import (
 	"time"
 )
 
+type RFC3339OptionalTimezone time.Time
+
+func (t *RFC3339OptionalTimezone) UnmarshalJSON(input []byte) error {
+	trimmed := strings.Trim(string(input), `"`)
+
+	parsedTime, err := time.Parse(time.RFC3339, trimmed)
+	if err == nil {
+		*t = RFC3339OptionalTimezone(parsedTime)
+		return nil
+	}
+
+	RFC3339NoTimeZone := "2006-01-02T15:04:05"
+	parsedTime, err = time.Parse(RFC3339NoTimeZone, trimmed)
+	if err == nil {
+		*t = RFC3339OptionalTimezone(parsedTime)
+		return nil
+	}
+
+	return fmt.Errorf("Invalid time '%s'", trimmed)
+}
+
+func (t RFC3339OptionalTimezone) MarshalJSON() ([]byte, error) {
+	return json.Marshal(time.Time(t))
+}
+
 type DateRange struct {
-	StartDatetime time.Time `json:"start-datetime"`
-	EndDatetime   time.Time `json:"end-datetime"`
+	StartDatetime RFC3339OptionalTimezone `json:"start-datetime"`
+	EndDatetime   RFC3339OptionalTimezone `json:"end-datetime"`
 }
 
 type MxHost []string

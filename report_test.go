@@ -41,8 +41,11 @@ func reportExampleGzip(name string) *io.PipeReader {
 }
 
 func TestParseReportTime(t *testing.T) {
-	start, _ := time.Parse(time.RFC3339, "2016-04-01T00:00:00Z")
-	end, _ := time.Parse(time.RFC3339, "2016-04-01T23:59:59Z")
+	_start, _ := time.Parse(time.RFC3339, "2016-04-01T00:00:00Z")
+	_end, _ := time.Parse(time.RFC3339, "2016-04-01T23:59:59Z")
+
+	start := RFC3339OptionalTimezone(_start)
+	end := RFC3339OptionalTimezone(_end)
 
 	report := Report{
 		OrganizationName: "Foo Ltd.",
@@ -137,5 +140,33 @@ func TestParseReportMicrosoftExample(t *testing.T) {
 
 	if len(parsed.Policies[0].Policy.MxHost) != 0 {
 		t.Errorf("expected no MxHost got %v", len(parsed.Policies[0].Policy.MxHost))
+	}
+}
+
+func TestParseReportMicrosoftExampleWithInvalidTime(t *testing.T) {
+	reportReader := reportExample("microsoft-2")
+	defer reportReader.Close()
+
+	parsed, err := parseReport(reportReader)
+	if err != nil {
+		t.Error("failed to parse report example", err)
+	}
+
+	if parsed.OrganizationName != "Microsoft Corporation" {
+		t.Errorf("expected OrganizationName Microsoft Corporation got %v", parsed.OrganizationName)
+	}
+
+	if len(parsed.Policies) != 1 {
+		t.Errorf("expected single Policy got %v", len(parsed.Policies))
+	}
+
+	if len(parsed.Policies[0].Policy.MxHost) != 0 {
+		t.Errorf("expected no MxHost got %v", len(parsed.Policies[0].Policy.MxHost))
+	}
+
+	expectedStart, _ := time.Parse(time.RFC3339, "2024-03-26T00:00:00Z")
+
+	if parsed.DateRange.StartDatetime != RFC3339OptionalTimezone(expectedStart) {
+		t.Errorf("expected start to equal %v value got %v", expectedStart, parsed.DateRange.StartDatetime)
 	}
 }
