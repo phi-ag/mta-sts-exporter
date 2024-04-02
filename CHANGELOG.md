@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.6.1](https://github.com/phi-ag/mta-sts-exporter/compare/v1.6.0...v1.6.1) (2024-04-02)
+
+
+### Documentation
+
+* removed experimental warning ([0361d64](https://github.com/phi-ag/mta-sts-exporter/commit/0361d6401c0c2b26dd366c9f60652da49f89a8cf))
+* updated container version in example compose.yaml ([798463d](https://github.com/phi-ag/mta-sts-exporter/commit/798463d7ba5f37dc4a6dad1a4cd047562fd0d460))
+
+
+### Miscellaneous Chores
+
+* **deps:** pin phiag/mta-sts-exporter docker tag to 405eea5 ([dddeb25](https://github.com/phi-ag/mta-sts-exporter/commit/dddeb251970e351e8a62089da5d615c379d68220))
+* **deps:** update module github.com/hashicorp/hcl to v2 ([eda49c1](https://github.com/phi-ag/mta-sts-exporter/commit/eda49c1b9a0eab801c35b8018bb7d5e593a15cb4))
+
+
+### Continuous Integration
+
+* add additional container commit tag ([ce22b3e](https://github.com/phi-ag/mta-sts-exporter/commit/ce22b3e33b5ea8fd8824fac4e1b2b50217c38cd8))
+* update Docker Hub description on release ([a3da8fb](https://github.com/phi-ag/mta-sts-exporter/commit/a3da8fbebe31182b0ed6c1056ab2d6f8238ffbd1))
+
 ## [1.6.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.5.0...v1.6.0) (2024-04-02)
 
 
