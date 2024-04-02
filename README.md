@@ -61,6 +61,34 @@ chown 65532:65532 reports
 docker run -it --rm -p 8080:8080 -p 8081:8081 --env REPORTS_SAVE_ENABLED=true -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
 ```
 
+## Development
+
+Test
+
+```sh
+go test
+```
+
+Lint
+
+```sh
+golangci-lint run
+```
+
+Format
+
+```sh
+go fmt
+```
+
+Run
+
+```sh
+PORT=1234 METRICS_PORT=3333 go run .
+cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:1234/report
+curl localhost:3333/metrics
+```
+
 ## References
 
 - [RFC 8460: SMTP TLS Reporting](https://www.rfc-editor.org/rfc/rfc8460.html)

@@ -17,13 +17,11 @@ import (
 )
 
 type Metrics struct {
-	PolicyRequestsTotal prometheus.Counter
-	ReportRequestsTotal prometheus.Counter
-	ReportRequestsValid prometheus.Counter
-	ReportGzipError     prometheus.Counter
-	ReportSaveError     prometheus.Counter
-	ReportTooLarge      prometheus.Counter
-	ReportError         prometheus.Counter
+	PolicyRequestsTotal     prometheus.Counter
+	ReportRequestsTotal     prometheus.Counter
+	ReportErrorsTotal       *prometheus.CounterVec
+	SuccessfulSessionsTotal *prometheus.CounterVec
+	FailureSessionsTotal    *prometheus.CounterVec
 }
 
 func createMetrics() Metrics {
@@ -40,31 +38,21 @@ func createMetrics() Metrics {
 			Name:      "report_requests_total",
 			Help:      "Total number of report requests.",
 		}),
-		ReportRequestsValid: prometheus.NewCounter(prometheus.CounterOpts{
+		ReportErrorsTotal: prometheus.NewCounterVec(prometheus.CounterOpts{
 			Namespace: namespace,
-			Name:      "report_requests_valid",
-			Help:      "Total number of valid report requests.",
-		}),
-		ReportGzipError: prometheus.NewCounter(prometheus.CounterOpts{
-			Namespace: namespace,
-			Name:      "report_gzip_error",
-			Help:      "Total number of report gzip errors.",
-		}),
-		ReportSaveError: prometheus.NewCounter(prometheus.CounterOpts{
-			Namespace: namespace,
-			Name:      "report_save_error",
-			Help:      "Total number of report save errors.",
-		}),
-		ReportTooLarge: prometheus.NewCounter(prometheus.CounterOpts{
-			Namespace: namespace,
-			Name:      "report_too_large",
-			Help:      "Total number of too large report requests.",
-		}),
-		ReportError: prometheus.NewCounter(prometheus.CounterOpts{
-			Namespace: namespace,
-			Name:      "report_error",
+			Name:      "report_errors_total",
 			Help:      "Total number of report errors.",
-		}),
+		}, []string{"cause"}),
+		SuccessfulSessionsTotal: prometheus.NewCounterVec(prometheus.CounterOpts{
+			Namespace: namespace,
+			Name:      "successful_sessions_total",
+			Help:      "Total number of successful sessions.",
+		}, []string{"organization"}),
+		FailureSessionsTotal: prometheus.NewCounterVec(prometheus.CounterOpts{
+			Namespace: namespace,
+			Name:      "failure_sessions_total",
+			Help:      "Total number of failure sessions.",
+		}, []string{"organization"}),
 	}
 }
 
@@ -74,11 +62,9 @@ func createRegistry(config Config, metrics Metrics) *prometheus.Registry {
 	registry.MustRegister(
 		metrics.PolicyRequestsTotal,
 		metrics.ReportRequestsTotal,
-		metrics.ReportRequestsValid,
-		metrics.ReportGzipError,
-		metrics.ReportSaveError,
-		metrics.ReportTooLarge,
-		metrics.ReportError)
+		metrics.ReportErrorsTotal,
+		metrics.SuccessfulSessionsTotal,
+		metrics.FailureSessionsTotal)
 
 	if config.Metrics.Go {
 		registry.MustRegister(
@@ -141,7 +127,7 @@ func handleReport(config Config, metrics Metrics) http.HandlerFunc {
 		gzipReader, err := gzip.NewReader(bodyReader)
 		if err != nil {
 			slog.Warn("Gzip error", "remote", r.RemoteAddr, "error", err)
-			metrics.ReportGzipError.Inc()
+			metrics.ReportErrorsTotal.With(prometheus.Labels{"cause": "gzip"}).Inc()
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
@@ -153,7 +139,7 @@ func handleReport(config Config, metrics Metrics) http.HandlerFunc {
 			saveReader, file, err := saveReport(config, jsonReader)
 			if err != nil {
 				slog.Warn("Save failed")
-				metrics.ReportSaveError.Inc()
+				metrics.ReportErrorsTotal.With(prometheus.Labels{"cause": "save"}).Inc()
 			} else {
 				defer file.Close()
 				jsonReader = saveReader
@@ -164,19 +150,30 @@ func handleReport(config Config, metrics Metrics) http.HandlerFunc {
 		if err != nil {
 			if err == io.ErrUnexpectedEOF {
 				slog.Warn("Request too large", "remote", r.RemoteAddr)
-				metrics.ReportTooLarge.Inc()
+				metrics.ReportErrorsTotal.With(prometheus.Labels{"cause": "request_too_large"}).Inc()
 				w.WriteHeader(http.StatusRequestEntityTooLarge)
 				return
 			}
 
 			slog.Warn("Report error", "remote", r.RemoteAddr, "error", err)
-			metrics.ReportError.Inc()
+			metrics.ReportErrorsTotal.With(prometheus.Labels{"cause": "parse"}).Inc()
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
 
-		metrics.ReportRequestsValid.Inc()
-		slog.Info("DONE", "report", report)
+		for _, policy := range report.Policies {
+			if policy.Summary.TotalSuccessfulSessionCount > 0 {
+				metrics.SuccessfulSessionsTotal.With(prometheus.Labels{"organization": report.OrganizationName}).Add(float64(policy.Summary.TotalSuccessfulSessionCount))
+			}
+
+			if policy.Summary.TotalFailureSessionCount > 0 {
+				metrics.FailureSessionsTotal.With(prometheus.Labels{"organization": report.OrganizationName}).Add(float64(policy.Summary.TotalFailureSessionCount))
+			}
+
+			if policy.FailureDetails != nil && len(policy.FailureDetails) > 0 {
+				slog.Warn("Failure details", "failure", policy.FailureDetails)
+			}
+		}
 	}
 }
 
