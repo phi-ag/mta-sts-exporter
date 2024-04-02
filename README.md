@@ -1,7 +1,7 @@
 # MTA-STS Exporter
 
 [![GitHub Release](https://img.shields.io/github/v/release/phi-ag/mta-sts-exporter?style=for-the-badge)](https://github.com/phi-ag/mta-sts-exporter/releases/latest)
-[![Docker Pulls](https://img.shields.io/docker/pulls/phiag/mta-sts-exporter?style=for-the-badge)](https://hub.docker.com/r/phiag/mta-sts-exporter/tags)
+[![Docker Pulls](https://img.shields.io/docker/pulls/phiag/mta-sts-exporter?style=for-the-badge)](https://hub.docker.com/r/phiag/mta-sts-exporter)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/phi-ag/mta-sts-exporter/check.yml?style=for-the-badge&label=Check)](https://github.com/phi-ag/mta-sts-exporter/actions)
 
 ## Configuration
