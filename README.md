@@ -56,6 +56,14 @@ Save reports
     chown 65532:65532 reports
     docker run -it --rm -p 8080:8080 -p 8081:8081 --env REPORTS_SAVE_ENABLED=true -v ${PWD}/reports:/tmp/reports phiag/mta-sts-exporter:latest
 
+## Metrics
+
+- `mta_sts_policy_requests_total` Total number of policy requests.
+- `mta_sts_report_requests_total` Total number of report requests.
+- `mta_sts_report_errors_total` Total number of report errors partitioned by `cause`.
+- `mta_sts_successful_sessions_total` Total number of reported successful sessions partitioned by `organization`.
+- `mta_sts_failure_sessions_total` Total number of reported failure sessions partitioned by `organization`.
+
 ## Development
 
 Test
