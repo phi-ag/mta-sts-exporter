@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.7.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.6.1...v1.7.0) (2024-04-03)
+
+
+### Features
+
+* fine-grained config for internal metric collectors ([82f0f4d](https://github.com/phi-ag/mta-sts-exporter/commit/82f0f4dd546046e7f49b7bf0864f7b4821ef0dbb))
+
+
+### Documentation
+
+* document exported metrics ([145dd1c](https://github.com/phi-ag/mta-sts-exporter/commit/145dd1ca2f427334317072aa23a8d1e81fb7024a))
+* link to main dockerhub page ([a238ab0](https://github.com/phi-ag/mta-sts-exporter/commit/a238ab0f10d3a30dd6db763b4ae43988dd479dda))
+
+
+### Miscellaneous Chores
+
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.6.1 ([0b5bd07](https://github.com/phi-ag/mta-sts-exporter/commit/0b5bd074500df1db55408c4d14ea2b66c508bc43))
+* move indirect hcl dependency ([0fc9e9e](https://github.com/phi-ag/mta-sts-exporter/commit/0fc9e9e05a4b62d355885631a570b962ad2b3081))
+
+
+### Tests
+
+* add example rfc-errata-6241 ([d7393b8](https://github.com/phi-ag/mta-sts-exporter/commit/d7393b8bd4d369f4afc2d2f162e4b99387cc427f))
+
 ## [1.6.1](https://github.com/phi-ag/mta-sts-exporter/compare/v1.6.0...v1.6.1) (2024-04-02)
 
 
