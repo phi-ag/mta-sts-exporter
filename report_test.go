@@ -70,28 +70,34 @@ func TestParseReportTime(t *testing.T) {
 }
 
 func TestParseReportRfcExample(t *testing.T) {
-	reportReader := reportExample("rfc")
-	defer reportReader.Close()
+	examples := []string{"rfc", "rfc-errata-6241"}
 
-	parsed, err := parseReport(reportReader)
-	if err != nil {
-		t.Error("failed to parse report example", err)
-	}
+	for _, example := range examples {
+		t.Run(example, func(t *testing.T) {
+			reportReader := reportExample(example)
+			defer reportReader.Close()
 
-	if parsed.OrganizationName != "Company-X" {
-		t.Errorf("expected OrganizationName Company-X got %v", parsed.OrganizationName)
-	}
+			parsed, err := parseReport(reportReader)
+			if err != nil {
+				t.Error("failed to parse report example", err)
+			}
 
-	if len(parsed.Policies) != 1 {
-		t.Errorf("expected single Policy got %v", len(parsed.Policies))
-	}
+			if parsed.OrganizationName != "Company-X" {
+				t.Errorf("expected OrganizationName Company-X got %v", parsed.OrganizationName)
+			}
 
-	if parsed.Policies[0].Policy.MxHost[0] != "*.mail.company-y.example" {
-		t.Errorf("expected MxHost *.mail.company-y.example got %v", parsed.Policies[0].Policy.MxHost[0])
-	}
+			if len(parsed.Policies) != 1 {
+				t.Errorf("expected single Policy got %v", len(parsed.Policies))
+			}
 
-	if len(parsed.Policies[0].FailureDetails) != 3 {
-		t.Errorf("expected three FailureDetails got %v", len(parsed.Policies[0].FailureDetails))
+			if parsed.Policies[0].Policy.MxHost[0] != "*.mail.company-y.example" {
+				t.Errorf("expected MxHost *.mail.company-y.example got %v", parsed.Policies[0].Policy.MxHost[0])
+			}
+
+			if len(parsed.Policies[0].FailureDetails) != 3 {
+				t.Errorf("expected three FailureDetails got %v", len(parsed.Policies[0].FailureDetails))
+			}
+		})
 	}
 }
 
