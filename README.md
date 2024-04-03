@@ -26,7 +26,9 @@ Use environment variables or a configuration file (see [compose.yaml](compose.ya
 - `METRICS_ENABLED` (default: true)
 - `METRICS_PORT` (default: 8081)
 - `METRICS_PATH` (default: /metrics)
-- `METRICS_GO` (default: false)
+- `METRICS_COLLECTORS_GO` (default: false)
+- `METRICS_COLLECTORS_PROCESS` (default: false)
+- `METRICS_COLLECTORS_EXPORTER` (default: false)
 
 ## DNS
 

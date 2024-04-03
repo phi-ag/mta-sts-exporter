@@ -66,9 +66,14 @@ func createRegistry(config Config, metrics Metrics) *prometheus.Registry {
 		metrics.SuccessfulSessionsTotal,
 		metrics.FailureSessionsTotal)
 
-	if config.Metrics.Go {
+	if config.Metrics.Collectors.Go {
 		registry.MustRegister(
 			collectors.NewGoCollector(),
+		)
+	}
+
+	if config.Metrics.Collectors.Process {
+		registry.MustRegister(
 			collectors.NewProcessCollector(collectors.ProcessCollectorOpts{}),
 		)
 	}
@@ -195,7 +200,15 @@ func main() {
 
 		metrics := createMetrics()
 		registry := createRegistry(config, metrics)
-		metricsHandler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{Registry: registry})
+
+		var handlerOpts promhttp.HandlerOpts
+		if config.Metrics.Collectors.Exporter {
+			handlerOpts = promhttp.HandlerOpts{Registry: registry}
+		} else {
+			handlerOpts = promhttp.HandlerOpts{}
+		}
+
+		metricsHandler := promhttp.HandlerFor(registry, handlerOpts)
 
 		metricsHttp := http.NewServeMux()
 		metricsHttp.Handle(config.Metrics.Path, metricsHandler)

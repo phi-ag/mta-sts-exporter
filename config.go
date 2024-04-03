@@ -36,10 +36,14 @@ type Reports struct {
 }
 
 type ConfigMetrics struct {
-	Enabled bool
-	Port    uint16
-	Path    string
-	Go      bool
+	Enabled    bool
+	Port       uint16
+	Path       string
+	Collectors struct {
+		Go       bool
+		Process  bool
+		Exporter bool
+	}
 }
 
 type Config struct {
@@ -84,7 +88,9 @@ func createConfig() Config {
 	viper.SetDefault("Metrics.Enabled", true)
 	viper.SetDefault("Metrics.Port", 8081)
 	viper.SetDefault("Metrics.Path", "/metrics")
-	viper.SetDefault("Metrics.Go", false)
+	viper.SetDefault("Metrics.Collectors.Go", false)
+	viper.SetDefault("Metrics.Collectors.Process", false)
+	viper.SetDefault("Metrics.Collectors.Exporter", false)
 
 	if _, err := os.Stat(configPathFull); err == nil {
 		if err := viper.ReadInConfig(); err != nil {

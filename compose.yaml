@@ -35,7 +35,10 @@ configs:
         enabled: true
         port: 8081
         path: /metrics
-        go: false
+        collectors:
+          go: false
+          process: false
+          exporter: false
 
 x-service: &service
   restart: unless-stopped
@@ -92,7 +95,9 @@ services:
       METRICS_ENABLED: true
       METRICS_PORT: 8081
       METRICS_PATH: /metrics
-      METRICS_GO: false
+      METRICS_COLLECTORS_GO: false
+      METRICS_COLLECTORS_PROCESS: false
+      METRICS_COLLECTORS_EXPORTER: false
 
   mta-sts-exporter-save-reports:
     <<: *service
