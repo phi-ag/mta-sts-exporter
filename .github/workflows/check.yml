@@ -32,7 +32,7 @@ jobs:
         run: go build -v
 
       - name: Test
-        run: go test -v
+        run: go test -v -cover
 
       - name: Lint
         uses: golangci/golangci-lint-action@3cfe3a4abbb849e10058ce4af15d205b6da42804 # v4
