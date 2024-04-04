@@ -179,8 +179,8 @@ func handleReport(config Config, metrics Metrics) http.HandlerFunc {
 				metrics.FailureSessionsTotal.With(labels).Add(value)
 			}
 
-			if policy.FailureDetails != nil && len(policy.FailureDetails) > 0 {
-				slog.Warn("Failure details", "failure", policy.FailureDetails)
+			if len(policy.FailureDetails) > 0 {
+				slog.Warn("Policy contains failure details", "details", policy.FailureDetails)
 			}
 		}
 	}
