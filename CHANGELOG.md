@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.7.1](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.0...v1.7.1) (2024-04-04)
+
+
+### Documentation
+
+* reworded config default values comment ([9e9359a](https://github.com/phi-ag/mta-sts-exporter/commit/9e9359a78ad2b98936f23cf285a8a6f0112d127b))
+* use full url to compose.yaml to make it work on dockerhub ([4efe18f](https://github.com/phi-ag/mta-sts-exporter/commit/4efe18f5eee3b31155db820104a766015c64d8a8))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency go to v1.22.2 ([5dbe184](https://github.com/phi-ag/mta-sts-exporter/commit/5dbe18461d15ee2fb04ccc5e338c0278be2048e6))
+* **deps:** update module github.com/prometheus/client_model to v0.6.1 ([7844567](https://github.com/phi-ag/mta-sts-exporter/commit/78445679c41fdc2b53fb8110fbc003a52e0e9e7c))
+* **deps:** update module github.com/prometheus/common to v0.52.2 ([ef83f4d](https://github.com/phi-ag/mta-sts-exporter/commit/ef83f4d0f04799046507d6cc3e245821a2242656))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.0 ([5bbb7b9](https://github.com/phi-ag/mta-sts-exporter/commit/5bbb7b94fb4687248f7e89f3ec21bf94386c2e38))
+* slightly nicer log message when policy contains failure details ([f8e1935](https://github.com/phi-ag/mta-sts-exporter/commit/f8e1935e8dbdcb975f7171924b55d16d4b92cbd5))
+* use mx1.example.com and mx2.example.com as default ([07fb677](https://github.com/phi-ag/mta-sts-exporter/commit/07fb677ca52485c316c69ebe9bdb6500968a6a8f))
+
+
+### Code Refactoring
+
+* add start function ([fd4e62e](https://github.com/phi-ag/mta-sts-exporter/commit/fd4e62e5230af5041df7b454f3d482eb93cf7f81))
+
+
+### Tests
+
+* check collected counter values ([0d6b1b9](https://github.com/phi-ag/mta-sts-exporter/commit/0d6b1b97723a0d1b1184d1262aa46b72d106f72e))
+* improved test error messages ([6c7a6b6](https://github.com/phi-ag/mta-sts-exporter/commit/6c7a6b670e0837d8162ff5057dc064f52dd71d8c))
+
 ## [1.7.0](https://github.com/phi-ag/mta-sts-exporter/compare/v1.6.1...v1.7.0) (2024-04-03)
 
 
