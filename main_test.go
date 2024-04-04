@@ -199,11 +199,11 @@ func TestCreatePolicyResponse(t *testing.T) {
 	policy := Policy{
 		Version: "STSv1",
 		Mode:    "testing",
-		Mx:      []string{"example.com", "mx.example.com"},
+		Mx:      []string{"mx1.example.com", "mx2.example.com"},
 		MaxAge:  600,
 	}
 
-	expected := "version: STSv1\nmode: testing\nmx: example.com\nmx: mx.example.com\nmax_age: 600\n"
+	expected := "version: STSv1\nmode: testing\nmx: mx1.example.com\nmx: mx2.example.com\nmax_age: 600\n"
 
 	result := policyResponse(policy)
 	if result != expected {

@@ -18,7 +18,8 @@ configs:
         version: STSv1
         mode: enforce
         mx:
-          - example.com
+          - mx1.example.com
+          - mx2.example.com
         maxage: 86400
 
       reports:
@@ -84,7 +85,7 @@ services:
       POLICY_PATH: /.well-known/mta-sts.txt
       POLICY_VERSION: STSv1
       POLICY_MODE: enforce
-      POLICY_MX: example.com,mx.example.com
+      POLICY_MX: mx1.example.com,mx2.example.com
       POLICY_MAXAGE: 86400
       REPORTS_ENABLED: true
       REPORTS_PATH: /report

@@ -77,7 +77,7 @@ func createConfig() Config {
 	viper.SetDefault("Policy.Path", "/.well-known/mta-sts.txt")
 	viper.SetDefault("Policy.Version", "STSv1")
 	viper.SetDefault("Policy.Mode", "enforce")
-	viper.SetDefault("Policy.Mx", []string{"example.com"})
+	viper.SetDefault("Policy.Mx", []string{"mx1.example.com", "mx2.example.com"})
 	viper.SetDefault("Policy.MaxAge", "86400")
 	viper.SetDefault("Reports.Enabled", true)
 	viper.SetDefault("Reports.Path", "/report")

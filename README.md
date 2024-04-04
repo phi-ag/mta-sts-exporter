@@ -15,7 +15,7 @@ Use environment variables or a configuration file (see [compose.yaml](compose.ya
 - `POLICY_PATH` (default: /.well-known/mta-sts.txt)
 - `POLICY_VERSION` (default: STSv1)
 - `POLICY_MODE` (default: enforce)
-- `POLICY_MX` (default: example.com)
+- `POLICY_MX` (default: mx1.example.com,mx2.example.com)
 - `POLICY_MAXAGE` (default: 86400)
 - `REPORTS_ENABLED` (default: true)
 - `REPORTS_PATH` (default: /report)
