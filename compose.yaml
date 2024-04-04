@@ -5,7 +5,8 @@ volumes:
 
 configs:
   mta-sts-exporter:
-    # all default values, your config may only contain values you want to override
+    # this config contains all default values,
+    # you only need to set values you want to override
     content: |
       port: 8080
 
