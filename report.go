@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"errors"
 	"fmt"
 	"io"
 	"log/slog"
@@ -30,7 +29,7 @@ func (t *RFC3339OptionalTimezone) UnmarshalJSON(input []byte) error {
 		return nil
 	}
 
-	return fmt.Errorf("Invalid time '%s'", trimmed)
+	return fmt.Errorf("invalid time '%s'", trimmed)
 }
 
 func (t RFC3339OptionalTimezone) MarshalJSON() ([]byte, error) {
@@ -65,7 +64,7 @@ func (l *MxHost) UnmarshalJSON(input []byte) error {
 		return nil
 
 	default:
-		return errors.New("Invalid mx-host")
+		return fmt.Errorf("invalid mx-host '%s'", string(input))
 	}
 }
 

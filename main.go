@@ -168,11 +168,15 @@ func handleReport(config Config, metrics Metrics) http.HandlerFunc {
 
 		for _, policy := range report.Policies {
 			if policy.Summary.TotalSuccessfulSessionCount > 0 {
-				metrics.SuccessfulSessionsTotal.With(prometheus.Labels{"organization": report.OrganizationName}).Add(float64(policy.Summary.TotalSuccessfulSessionCount))
+				labels := prometheus.Labels{"organization": report.OrganizationName}
+				value := float64(policy.Summary.TotalSuccessfulSessionCount)
+				metrics.SuccessfulSessionsTotal.With(labels).Add(value)
 			}
 
 			if policy.Summary.TotalFailureSessionCount > 0 {
-				metrics.FailureSessionsTotal.With(prometheus.Labels{"organization": report.OrganizationName}).Add(float64(policy.Summary.TotalFailureSessionCount))
+				labels := prometheus.Labels{"organization": report.OrganizationName}
+				value := float64(policy.Summary.TotalFailureSessionCount)
+				metrics.FailureSessionsTotal.With(labels).Add(value)
 			}
 
 			if policy.FailureDetails != nil && len(policy.FailureDetails) > 0 {

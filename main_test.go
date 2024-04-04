@@ -147,6 +147,52 @@ func TestReturnsOk(t *testing.T) {
 	if res.StatusCode != http.StatusOK {
 		t.Errorf("expected StatusOK got %v", res.Status)
 	}
+
+	registry := createRegistry(config, metrics)
+	metricFamilies, err := registry.Gather()
+	if err != nil {
+		panic(err)
+	}
+
+	if len(metricFamilies) != 4 {
+		t.Errorf("expected 4 metrics got %v", len(metricFamilies))
+	}
+
+	var reportRequestsTotal float64
+	var policyRequestsTotal float64
+	var successfulSessionsTotal float64
+	var failureSessionsTotal float64
+
+	for _, family := range metricFamilies {
+		if *family.Name == "mta_sts_report_requests_total" {
+			reportRequestsTotal = *family.Metric[0].Counter.Value
+		}
+		if *family.Name == "mta_sts_policy_requests_total" {
+			policyRequestsTotal = *family.Metric[0].Counter.Value
+		}
+		if *family.Name == "mta_sts_successful_sessions_total" {
+			successfulSessionsTotal = *family.Metric[0].Counter.Value
+		}
+		if *family.Name == "mta_sts_failure_sessions_total" {
+			failureSessionsTotal = *family.Metric[0].Counter.Value
+		}
+	}
+
+	if policyRequestsTotal != 0 {
+		t.Errorf("expected 0 policy requests got %v", policyRequestsTotal)
+	}
+
+	if reportRequestsTotal != 1 {
+		t.Errorf("expected 1 report requests got %v", reportRequestsTotal)
+	}
+
+	if successfulSessionsTotal != 5326 {
+		t.Errorf("expected 5326 successful sessions got %v", successfulSessionsTotal)
+	}
+
+	if failureSessionsTotal != 303 {
+		t.Errorf("expected 303 failure sessions got %v", failureSessionsTotal)
+	}
 }
 
 func TestCreatePolicyResponse(t *testing.T) {
