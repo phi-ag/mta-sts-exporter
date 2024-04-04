@@ -87,7 +87,7 @@ func TestParseReportRfcExample(t *testing.T) {
 			}
 
 			if len(parsed.Policies) != 1 {
-				t.Errorf("expected single Policy got %v", len(parsed.Policies))
+				t.Errorf("expected 1 Policy got %v", len(parsed.Policies))
 			}
 
 			if parsed.Policies[0].Policy.MxHost[0] != "*.mail.company-y.example" {
@@ -95,7 +95,7 @@ func TestParseReportRfcExample(t *testing.T) {
 			}
 
 			if len(parsed.Policies[0].FailureDetails) != 3 {
-				t.Errorf("expected three FailureDetails got %v", len(parsed.Policies[0].FailureDetails))
+				t.Errorf("expected 3 FailureDetails got %v", len(parsed.Policies[0].FailureDetails))
 			}
 		})
 	}
@@ -115,11 +115,11 @@ func TestParseReportGoogleExample(t *testing.T) {
 	}
 
 	if len(parsed.Policies) != 1 {
-		t.Errorf("expected single Policy got %v", len(parsed.Policies))
+		t.Errorf("expected 1 Policy got %v", len(parsed.Policies))
 	}
 
 	if len(parsed.Policies[0].Policy.MxHost) != 1 {
-		t.Errorf("expected one MxHost got %v", len(parsed.Policies[0].Policy.MxHost))
+		t.Errorf("expected 1 MxHost got %v", len(parsed.Policies[0].Policy.MxHost))
 	}
 
 	if parsed.Policies[0].Policy.MxHost[0] != "example.com" {
@@ -141,7 +141,7 @@ func TestParseReportMicrosoftExample(t *testing.T) {
 	}
 
 	if len(parsed.Policies) != 1 {
-		t.Errorf("expected single Policy got %v", len(parsed.Policies))
+		t.Errorf("expected 1 Policy got %v", len(parsed.Policies))
 	}
 
 	if len(parsed.Policies[0].Policy.MxHost) != 0 {
@@ -163,7 +163,7 @@ func TestParseReportMicrosoftExampleWithInvalidTime(t *testing.T) {
 	}
 
 	if len(parsed.Policies) != 1 {
-		t.Errorf("expected single Policy got %v", len(parsed.Policies))
+		t.Errorf("expected 1 Policy got %v", len(parsed.Policies))
 	}
 
 	if len(parsed.Policies[0].Policy.MxHost) != 0 {
@@ -173,6 +173,6 @@ func TestParseReportMicrosoftExampleWithInvalidTime(t *testing.T) {
 	expectedStart, _ := time.Parse(time.RFC3339, "2024-03-26T00:00:00Z")
 
 	if parsed.DateRange.StartDatetime != RFC3339OptionalTimezone(expectedStart) {
-		t.Errorf("expected start to equal %v value got %v", expectedStart, parsed.DateRange.StartDatetime)
+		t.Errorf("expected start to equal %v got %v", expectedStart, parsed.DateRange.StartDatetime)
 	}
 }
