@@ -182,6 +182,46 @@ func handleReport(config Config, metrics Metrics) http.HandlerFunc {
 	}
 }
 
+func start(config Config) {
+	slog.Info("Config", "config", config)
+
+	metrics := createMetrics()
+	registry := createRegistry(config, metrics)
+
+	var handlerOpts promhttp.HandlerOpts
+	if config.Metrics.Collectors.Exporter {
+		handlerOpts = promhttp.HandlerOpts{Registry: registry}
+	} else {
+		handlerOpts = promhttp.HandlerOpts{}
+	}
+
+	metricsHandler := promhttp.HandlerFor(registry, handlerOpts)
+
+	metricsHttp := http.NewServeMux()
+	metricsHttp.Handle(config.Metrics.Path, metricsHandler)
+
+	http.HandleFunc("/healthz", func(http.ResponseWriter, *http.Request) {})
+
+	if config.Metrics.Enabled {
+		go func() {
+			slog.Info("Serving metrics", "port", config.Metrics.Port, "path", config.Metrics.Path)
+			log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Metrics.Port), metricsHttp))
+		}()
+	}
+
+	if config.Reports.Enabled {
+		slog.Info("Listening for reports", "port", config.Port, "path", config.Reports.Path)
+		http.HandleFunc(config.Reports.Path, handleReport(config, metrics))
+	}
+
+	if config.Policy.Enabled {
+		slog.Info("Serving policy", "port", config.Port, "path", config.Policy.Path)
+		http.HandleFunc(config.Policy.Path, handlePolicy(config, metrics))
+	}
+
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Port), nil))
+}
+
 func main() {
 	config := createConfig()
 
@@ -196,42 +236,6 @@ func main() {
 	if *healthCheckFlag {
 		os.Exit(healthCheck(config))
 	} else {
-		slog.Info("Config", "config", config)
-
-		metrics := createMetrics()
-		registry := createRegistry(config, metrics)
-
-		var handlerOpts promhttp.HandlerOpts
-		if config.Metrics.Collectors.Exporter {
-			handlerOpts = promhttp.HandlerOpts{Registry: registry}
-		} else {
-			handlerOpts = promhttp.HandlerOpts{}
-		}
-
-		metricsHandler := promhttp.HandlerFor(registry, handlerOpts)
-
-		metricsHttp := http.NewServeMux()
-		metricsHttp.Handle(config.Metrics.Path, metricsHandler)
-
-		http.HandleFunc("/healthz", func(http.ResponseWriter, *http.Request) {})
-
-		if config.Metrics.Enabled {
-			go func() {
-				slog.Info("Serving metrics", "port", config.Metrics.Port, "path", config.Metrics.Path)
-				log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Metrics.Port), metricsHttp))
-			}()
-		}
-
-		if config.Reports.Enabled {
-			slog.Info("Listening for reports", "port", config.Port, "path", config.Reports.Path)
-			http.HandleFunc(config.Reports.Path, handleReport(config, metrics))
-		}
-
-		if config.Policy.Enabled {
-			slog.Info("Serving policy", "port", config.Port, "path", config.Policy.Path)
-			http.HandleFunc(config.Policy.Path, handlePolicy(config, metrics))
-		}
-
-		log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Port), nil))
+		start(config)
 	}
 }
