@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.7.2](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.1...v1.7.2) (2024-04-05)
+
+
+### Miscellaneous Chores
+
+* **deps:** update golang.org/x/exp digest to c0f41cb ([62aae02](https://github.com/phi-ag/mta-sts-exporter/commit/62aae02e05e566881ee919d426a9ef731a68ccf2))
+* **deps:** update module github.com/cespare/xxhash/v2 to v2.3.0 ([d3fe65d](https://github.com/phi-ag/mta-sts-exporter/commit/d3fe65d0460b7a8d49855b1d5b07e32b602062b5))
+* **deps:** update module golang.org/x/sys to v0.19.0 ([b459240](https://github.com/phi-ag/mta-sts-exporter/commit/b459240b1255b484f39ee147efe5d09168acb8a3))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.1 ([3aa9338](https://github.com/phi-ag/mta-sts-exporter/commit/3aa9338e771a01d2095670371a88294fadda13d1))
+
+
+### Continuous Integration
+
+* log test coverage ([b3eba7e](https://github.com/phi-ag/mta-sts-exporter/commit/b3eba7e8be3d78309d964f5ac3235d39920cc12d))
+
 ## [1.7.1](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.0...v1.7.1) (2024-04-04)
 
 
