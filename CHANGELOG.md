@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.3](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.2...v1.7.3) (2024-04-11)
+
+
+### Miscellaneous Chores
+
+* **deps:** update golang.org/x/exp digest to 93d18d7 ([55c65ca](https://github.com/phi-ag/mta-sts-exporter/commit/55c65ca986199c22ee9b7d2776e3cd7001944165))
+* **deps:** update module github.com/prometheus/common to v0.52.3 ([5a2452b](https://github.com/phi-ag/mta-sts-exporter/commit/5a2452b0b6ea62f9001402a6184422a67ce1af90))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.2 ([6bf6f76](https://github.com/phi-ag/mta-sts-exporter/commit/6bf6f76fc7d1bbe9f82c3f31522d3e8cf02671fe))
+
 ## [1.7.2](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.1...v1.7.2) (2024-04-05)
 
 
