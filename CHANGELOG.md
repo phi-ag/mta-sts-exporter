@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.7.4](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.3...v1.7.4) (2024-04-12)
+
+
+### Miscellaneous Chores
+
+* **deps:** update module github.com/pelletier/go-toml/v2 to v2.2.1 ([1d74de3](https://github.com/phi-ag/mta-sts-exporter/commit/1d74de36a0c47bb360d5124c2f8d72f290bab8fe))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.3 ([976563b](https://github.com/phi-ag/mta-sts-exporter/commit/976563bfcfbdee0d74d02823840719c0be629bff))
+
+
+### Build System
+
+* use commit timestamp for ko and label ([d1e62d0](https://github.com/phi-ag/mta-sts-exporter/commit/d1e62d0e12cc230a5d4f8c93a6eb1f1e894187f3))
+
 ## [1.7.3](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.2...v1.7.3) (2024-04-11)
 
 
