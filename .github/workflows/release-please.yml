@@ -39,6 +39,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Export commit timestamp
+        if: ${{ steps.release.outputs.release_created }}
+        run: echo "TIMESTAMP=$(git log -1 --pretty=%ct)" >> $GITHUB_ENV
+
       - name: Setup ko
         if: ${{ steps.release.outputs.release_created }}
         uses: ko-build/setup-ko@ace48d793556083a76f1e3e6068850c1f4a369aa # v0.6
@@ -51,10 +55,11 @@ jobs:
           ko build
           --base-import-paths
           --tags latest,${{ github.sha }},${{ steps.release.outputs.major }},${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }},${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
-          --image-label org.opencontainers.image.created=$(date +'%Y-%m-%dT%H:%M:%S'),org.opencontainers.image.revision=${{ github.sha }}",org.opencontainers.image.version=${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}",org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+          --image-label org.opencontainers.image.created=$(date -d @${{ env.TIMESTAMP }} +'%Y-%m-%dT%H:%M:%S'),org.opencontainers.image.revision=${{ github.sha }}",org.opencontainers.image.version=${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}",org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
         env:
-          # NOTE: riscv64 and 386 currently not supported by base image
-          KO_DEFAULTPLATFORMS: linux/amd64,linux/arm64,linux/arm/v7,linux/riscv64,linux/386
+          # NOTE: riscv64 currently not supported by default base image
+          KO_DEFAULTPLATFORMS: linux/amd64,linux/arm64,linux/arm/v7,linux/riscv64
+          KO_DATA_DATE_EPOCH: ${{ env.TIMESTAMP }}
 
       - name: Update Docker Hub description
         if: ${{ steps.release.outputs.release_created }}
