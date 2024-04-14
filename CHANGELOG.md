@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.7.5](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.4...v1.7.5) (2024-04-14)
+
+
+### Miscellaneous Chores
+
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.4 ([c924f6f](https://github.com/phi-ag/mta-sts-exporter/commit/c924f6f2b5c44815e1b1485c35ca8d6008288184))
+
+
+### Build System
+
+* add license label ([e866382](https://github.com/phi-ag/mta-sts-exporter/commit/e8663828200eb467396c47ba8f1070ccfdbc6f0e))
+* add timezone to image label ([ecf20f5](https://github.com/phi-ag/mta-sts-exporter/commit/ecf20f5a5191647062a175339d0e87a21d1003e2))
+* set dockerhub short description and enable url completion ([9f3044e](https://github.com/phi-ag/mta-sts-exporter/commit/9f3044e0363158d2ca0ec5005223f9b10e7390ec))
+
 ## [1.7.4](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.3...v1.7.4) (2024-04-12)
 
 
