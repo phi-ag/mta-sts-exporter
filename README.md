@@ -6,7 +6,7 @@
 
 ## Configuration
 
-Use environment variables or a configuration file (see [compose.yaml](https://github.com/phi-ag/mta-sts-exporter/blob/main/compose.yaml))
+Use environment variables or a configuration file (see [compose.yaml](compose.yaml))
 
 - `CONFIG_PATH` (default: /etc/mta-sts-exporter/config.yaml)
 - `PORT` (default: 8080)
