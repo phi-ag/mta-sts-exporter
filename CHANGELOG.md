@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.7.6](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.5...v1.7.6) (2024-04-17)
+
+
+### Miscellaneous Chores
+
+* **deps:** update golang.org/x/exp digest to fe59bbe ([13a741d](https://github.com/phi-ag/mta-sts-exporter/commit/13a741db525ad1f3243063fdecf8e6a0cc29853f))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.5 ([0689c0e](https://github.com/phi-ag/mta-sts-exporter/commit/0689c0e9e6d33f86b45abeb0c9e70d798530bee9))
+
+
+### Tests
+
+* improved policy tests ([304c525](https://github.com/phi-ag/mta-sts-exporter/commit/304c5252c3829083d75b712a9d722462731cf398))
+* refactor metric gather function and check report errors ([bbe0d9d](https://github.com/phi-ag/mta-sts-exporter/commit/bbe0d9d93d6947cb8a28a9a37436d1f39bdfcd29))
+* removed unnecessary configs ([c82d04f](https://github.com/phi-ag/mta-sts-exporter/commit/c82d04faf500186e812befd4cc633e29b58b9bb8))
+
 ## [1.7.5](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.4...v1.7.5) (2024-04-14)
 
 
