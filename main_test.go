@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -22,7 +23,7 @@ func GatherCounters(config Config, metrics Metrics) map[string]float64 {
 	return counters
 }
 
-func TestReturnsMethodNotAllowedForGetRequest(t *testing.T) {
+func TestReportReturnsMethodNotAllowedForGetRequest(t *testing.T) {
 	req := httptest.NewRequest(http.MethodGet, "/", nil)
 	recorder := httptest.NewRecorder()
 
@@ -43,7 +44,7 @@ func TestReturnsMethodNotAllowedForGetRequest(t *testing.T) {
 	}
 }
 
-func TestReturnsBadRequestForNonGzip(t *testing.T) {
+func TestReportReturnsBadRequestForNonGzip(t *testing.T) {
 	body := make([]byte, 50)
 	reader := bytes.NewReader(body)
 
@@ -71,7 +72,7 @@ func TestReturnsBadRequestForNonGzip(t *testing.T) {
 	}
 }
 
-func TestReturnsRequestEntityTooLargeForBody(t *testing.T) {
+func TestReportReturnsRequestEntityTooLargeForBody(t *testing.T) {
 	reader := reportExampleGzip("rfc")
 	defer reader.Close()
 
@@ -106,7 +107,7 @@ func TestReturnsRequestEntityTooLargeForBody(t *testing.T) {
 	}
 }
 
-func TestReturnsRequestEntityTooLargeForJson(t *testing.T) {
+func TestReportReturnsRequestEntityTooLargeForJson(t *testing.T) {
 	reader := reportExampleGzip("rfc")
 	defer reader.Close()
 
@@ -141,7 +142,7 @@ func TestReturnsRequestEntityTooLargeForJson(t *testing.T) {
 	}
 }
 
-func TestReturnsOk(t *testing.T) {
+func TestReportReturnsOk(t *testing.T) {
 	reader := reportExampleGzip("rfc")
 	defer reader.Close()
 
@@ -189,18 +190,63 @@ func TestReturnsOk(t *testing.T) {
 	}
 }
 
-func TestCreatePolicyResponse(t *testing.T) {
-	policy := Policy{
-		Version: "STSv1",
-		Mode:    "testing",
-		Mx:      []string{"mx1.example.com", "mx2.example.com"},
-		MaxAge:  600,
+func TestPolicyReturnsMethodNotAllowedForPostRequest(t *testing.T) {
+	req := httptest.NewRequest(http.MethodPost, "/.well-known/mta-sts.txt", nil)
+	recorder := httptest.NewRecorder()
+
+	config := Config{}
+
+	metrics := createMetrics()
+	handlePolicy(config, metrics)(recorder, req)
+	res := recorder.Result()
+	defer res.Body.Close()
+
+	if res.StatusCode != http.StatusMethodNotAllowed {
+		t.Errorf("expected StatusMethodNotAllowed got %v", res.Status)
+	}
+
+	counters := GatherCounters(config, metrics)
+	if counters["mta_sts_policy_requests_total"] != 0 {
+		t.Errorf("expected 0 policy requests got %v", counters["mta_sts_policy_requests_total"])
+	}
+}
+
+func TestPolicyReturnsOk(t *testing.T) {
+	req := httptest.NewRequest(http.MethodGet, "/.well-known/mta-sts.txt", nil)
+	recorder := httptest.NewRecorder()
+
+	config := Config{
+		Policy: Policy{
+			Version: "STSv1",
+			Mode:    "testing",
+			Mx:      []string{"mx1.example.com", "mx2.example.com"},
+			MaxAge:  600,
+		},
 	}
 
 	expected := "version: STSv1\nmode: testing\nmx: mx1.example.com\nmx: mx2.example.com\nmax_age: 600\n"
 
-	result := policyResponse(policy)
-	if result != expected {
-		t.Errorf("unexpected policy response %v", result)
+	metrics := createMetrics()
+	handlePolicy(config, metrics)(recorder, req)
+	res := recorder.Result()
+	defer res.Body.Close()
+
+	if res.StatusCode != http.StatusOK {
+		t.Errorf("expected StatusOK got %v", res.Status)
+	}
+
+	bodyBytes, err := io.ReadAll(res.Body)
+	if err != nil {
+		panic(err)
+	}
+
+	body := string(bodyBytes)
+	if body != expected {
+		t.Errorf("expected policy got %v", body)
+	}
+
+	counters := GatherCounters(config, metrics)
+	if counters["mta_sts_policy_requests_total"] != 1 {
+		t.Errorf("expected 1 policy requests got %v", counters["mta_sts_policy_requests_total"])
 	}
 }
