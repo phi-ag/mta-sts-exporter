@@ -7,6 +7,21 @@ import (
 	"testing"
 )
 
+func GatherCounters(config Config, metrics Metrics) map[string]float64 {
+	registry := createRegistry(config, metrics)
+	metricFamilies, err := registry.Gather()
+	if err != nil {
+		panic(err)
+	}
+
+	counters := make(map[string]float64)
+	for _, family := range metricFamilies {
+		counters[*family.Name] = *family.Metric[0].Counter.Value
+	}
+
+	return counters
+}
+
 func TestReturnsMethodNotAllowedForGetRequest(t *testing.T) {
 	req := httptest.NewRequest(http.MethodGet, "/", nil)
 	recorder := httptest.NewRecorder()
@@ -20,6 +35,11 @@ func TestReturnsMethodNotAllowedForGetRequest(t *testing.T) {
 
 	if res.StatusCode != http.StatusMethodNotAllowed {
 		t.Errorf("expected StatusMethodNotAllowed got %v", res.Status)
+	}
+
+	counters := GatherCounters(config, metrics)
+	if counters["mta_sts_report_requests_total"] != 0 {
+		t.Errorf("expected 0 report requests got %v", counters["mta_sts_report_requests_total"])
 	}
 }
 
@@ -39,6 +59,15 @@ func TestReturnsBadRequestForNonGzip(t *testing.T) {
 
 	if res.StatusCode != http.StatusBadRequest {
 		t.Errorf("expected StatusBadRequest got %v", res.Status)
+	}
+
+	counters := GatherCounters(config, metrics)
+	if counters["mta_sts_report_requests_total"] != 1 {
+		t.Errorf("expected 1 report requests got %v", counters["mta_sts_report_requests_total"])
+	}
+
+	if counters["mta_sts_report_errors_total"] != 1 {
+		t.Errorf("expected 1 report errors got %v", counters["mta_sts_report_errors_total"])
 	}
 }
 
@@ -66,6 +95,15 @@ func TestReturnsRequestEntityTooLargeForBody(t *testing.T) {
 	if res.StatusCode != http.StatusRequestEntityTooLarge {
 		t.Errorf("expected StatusRequestEntityTooLarge got %v", res.Status)
 	}
+
+	counters := GatherCounters(config, metrics)
+	if counters["mta_sts_report_requests_total"] != 1 {
+		t.Errorf("expected 1 report requests got %v", counters["mta_sts_report_requests_total"])
+	}
+
+	if counters["mta_sts_report_errors_total"] != 1 {
+		t.Errorf("expected 1 report errors got %v", counters["mta_sts_report_errors_total"])
+	}
 }
 
 func TestReturnsRequestEntityTooLargeForJson(t *testing.T) {
@@ -91,6 +129,15 @@ func TestReturnsRequestEntityTooLargeForJson(t *testing.T) {
 
 	if res.StatusCode != http.StatusRequestEntityTooLarge {
 		t.Errorf("expected StatusRequestEntityTooLarge got %v", res.Status)
+	}
+
+	counters := GatherCounters(config, metrics)
+	if counters["mta_sts_report_requests_total"] != 1 {
+		t.Errorf("expected 1 report requests got %v", counters["mta_sts_report_requests_total"])
+	}
+
+	if counters["mta_sts_report_errors_total"] != 1 {
+		t.Errorf("expected 1 report errors got %v", counters["mta_sts_report_errors_total"])
 	}
 }
 
@@ -119,50 +166,26 @@ func TestReturnsOk(t *testing.T) {
 		t.Errorf("expected StatusOK got %v", res.Status)
 	}
 
-	registry := createRegistry(config, metrics)
-	metricFamilies, err := registry.Gather()
-	if err != nil {
-		panic(err)
+	counters := GatherCounters(config, metrics)
+
+	if counters["mta_sts_policy_requests_total"] != 0 {
+		t.Errorf("expected 0 policy requests got %v", counters["mta_sts_policy_requests_total"])
 	}
 
-	if len(metricFamilies) != 4 {
-		t.Errorf("expected 4 metrics got %v", len(metricFamilies))
+	if counters["mta_sts_report_requests_total"] != 1 {
+		t.Errorf("expected 1 report requests got %v", counters["mta_sts_report_requests_total"])
 	}
 
-	var reportRequestsTotal float64
-	var policyRequestsTotal float64
-	var successfulSessionsTotal float64
-	var failureSessionsTotal float64
-
-	for _, family := range metricFamilies {
-		if *family.Name == "mta_sts_report_requests_total" {
-			reportRequestsTotal = *family.Metric[0].Counter.Value
-		}
-		if *family.Name == "mta_sts_policy_requests_total" {
-			policyRequestsTotal = *family.Metric[0].Counter.Value
-		}
-		if *family.Name == "mta_sts_successful_sessions_total" {
-			successfulSessionsTotal = *family.Metric[0].Counter.Value
-		}
-		if *family.Name == "mta_sts_failure_sessions_total" {
-			failureSessionsTotal = *family.Metric[0].Counter.Value
-		}
+	if counters["mta_sts_successful_sessions_total"] != 5326 {
+		t.Errorf("expected 5326 successful sessions got %v", counters["mta_sts_successful_sessions_total"])
 	}
 
-	if policyRequestsTotal != 0 {
-		t.Errorf("expected 0 policy requests got %v", policyRequestsTotal)
+	if counters["mta_sts_failure_sessions_total"] != 303 {
+		t.Errorf("expected 303 failure sessions got %v", counters["mta_sts_failure_sessions_total"])
 	}
 
-	if reportRequestsTotal != 1 {
-		t.Errorf("expected 1 report requests got %v", reportRequestsTotal)
-	}
-
-	if successfulSessionsTotal != 5326 {
-		t.Errorf("expected 5326 successful sessions got %v", successfulSessionsTotal)
-	}
-
-	if failureSessionsTotal != 303 {
-		t.Errorf("expected 303 failure sessions got %v", failureSessionsTotal)
+	if counters["mta_sts_report_errors_total"] != 0 {
+		t.Errorf("expected 0 report errors got %v", counters["mta_sts_report_errors_total"])
 	}
 }
 
