@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.7](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.6...v1.7.7) (2024-04-19)
+
+
+### Miscellaneous Chores
+
+* **deps:** update module github.com/prometheus/common to v0.53.0 ([dc37bc3](https://github.com/phi-ag/mta-sts-exporter/commit/dc37bc32057a2a3710ac45468e4a5c821158cf3a))
+* **deps:** update module github.com/prometheus/procfs to v0.14.0 ([1b81bbf](https://github.com/phi-ag/mta-sts-exporter/commit/1b81bbf13d1017209cd91f427ec0dacd014f50ab))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.6 ([a520294](https://github.com/phi-ag/mta-sts-exporter/commit/a52029404a149a8e747d4e38ba3cf680c3036438))
+
 ## [1.7.6](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.5...v1.7.6) (2024-04-17)
 
 
