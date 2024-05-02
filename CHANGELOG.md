@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.7.8](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.7...v1.7.8) (2024-05-02)
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/checkout digest to 0ad4b8f ([8ddd914](https://github.com/phi-ag/mta-sts-exporter/commit/8ddd914ee37cc178f3fe453382cb1a73e4475831))
+* **deps:** update actions/checkout digest to 1d96c77 ([8851cbe](https://github.com/phi-ag/mta-sts-exporter/commit/8851cbee291fc37221e14a767f38129b405ba637))
+* **deps:** update golangci/golangci-lint-action action to v5 ([81faabc](https://github.com/phi-ag/mta-sts-exporter/commit/81faabc454d28c4c46907f8424079722e48ba31a))
+* **deps:** update golangci/golangci-lint-action digest to 9d1e062 ([598346c](https://github.com/phi-ag/mta-sts-exporter/commit/598346cf1895884b1dbbb386dc2bd7bb454dbcf5))
+* **deps:** update golangci/golangci-lint-action digest to d6238b0 ([fa60713](https://github.com/phi-ag/mta-sts-exporter/commit/fa60713eca3f34c1b421f17be5deeef0e07ad21f))
+* **deps:** update module github.com/pelletier/go-toml/v2 to v2.2.2 ([07a0d54](https://github.com/phi-ag/mta-sts-exporter/commit/07a0d545eb919372a65fa2830824f70bca7c8570))
+* **deps:** update module google.golang.org/protobuf to v1.34.0 ([c4d2a74](https://github.com/phi-ag/mta-sts-exporter/commit/c4d2a74f9b9c6d79d3008b3239884eba47a02644))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.7 ([f6499ce](https://github.com/phi-ag/mta-sts-exporter/commit/f6499ce178c253f29859c83a3bf4cd38922f6999))
+
 ## [1.7.7](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.6...v1.7.7) (2024-04-19)
 
 
