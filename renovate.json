@@ -2,6 +2,15 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:best-practices", "docker:enableMajor"],
   "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^\\.github/actions/golangci-lint/action\\.yml$"],
+      "matchStrings": ["version: v(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "github.com/golangci/golangci-lint",
+      "datasourceTemplate": "go"
+    }
+  ],
   "packageRules": [
     {
       "matchManagers": ["gomod"],

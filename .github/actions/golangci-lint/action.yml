@@ -1,0 +1,10 @@
+name: Lint
+
+runs:
+  using: composite
+  steps:
+    - name: Lint
+      uses: golangci/golangci-lint-action@38e1018663fa5173f3968ea0777460d3de38f256 # v5
+      with:
+        version: v1.56.0
+        skip-cache: true
