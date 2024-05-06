@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.7.9](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.8...v1.7.9) (2024-05-06)
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/setup-go digest to cdcb360 ([5d1a9e1](https://github.com/phi-ag/mta-sts-exporter/commit/5d1a9e1a84f8e94fccfb7e3ae852a5a95dd6a001))
+* **deps:** update golangci/golangci-lint-action digest to 38e1018 ([43b2477](https://github.com/phi-ag/mta-sts-exporter/commit/43b2477f7a7008ea748df17b92a9455745dc1391))
+* **deps:** update golangci/golangci-lint-action digest to d9c9b53 ([6b4fe24](https://github.com/phi-ag/mta-sts-exporter/commit/6b4fe243495a3253ef3ea2e361d487e70c2b7bd5))
+* **deps:** update module github.com/golangci/golangci-lint to v1.58.0 ([46fc5f6](https://github.com/phi-ag/mta-sts-exporter/commit/46fc5f6cd5c52e71f7cb5247e6572f37e6cf1a03))
+* **deps:** update module golang.org/x/sys to v0.20.0 ([2851305](https://github.com/phi-ag/mta-sts-exporter/commit/2851305205bb118b3f4402aaf729772007ef7aff))
+* **deps:** update module golang.org/x/text to v0.15.0 ([6391432](https://github.com/phi-ag/mta-sts-exporter/commit/6391432d5f40d2281849379e294e2730cdb9c9c8))
+* **deps:** update module google.golang.org/protobuf to v1.34.1 ([a8080c6](https://github.com/phi-ag/mta-sts-exporter/commit/a8080c6ff8ef55be2e7e1570c8df77a465f78a34))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.8 ([0631440](https://github.com/phi-ag/mta-sts-exporter/commit/0631440e50bd83412c2cf5f640763d315fc58d60))
+
+
+### Continuous Integration
+
+* update golangci-lint version with renovate ([e786d5f](https://github.com/phi-ag/mta-sts-exporter/commit/e786d5feed02ceb6f17ed205a19d802eab97ac39))
+
 ## [1.7.8](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.7...v1.7.8) (2024-05-02)
 
 
