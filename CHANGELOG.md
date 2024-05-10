@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.7.10](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.9...v1.7.10) (2024-05-10)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/prometheus/client_golang to v1.19.1 ([83b1109](https://github.com/phi-ag/mta-sts-exporter/commit/83b110960b777da182d2a8923ca0c8c20d621149))
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/checkout digest to 0ad4b8f ([1e16bdc](https://github.com/phi-ag/mta-sts-exporter/commit/1e16bdc3de3494f08e614bc97d6e6ba86e7ebd99))
+* **deps:** update actions/checkout digest to 44c2b7a ([67a4de6](https://github.com/phi-ag/mta-sts-exporter/commit/67a4de6ca83391aad87b0930a05cfbb5186ba9ed))
+* **deps:** update golangci/golangci-lint-action action to v6 ([24757a1](https://github.com/phi-ag/mta-sts-exporter/commit/24757a11f6176ad951b01c6875aa2bdc0eda8ce7))
+* **deps:** update golangci/golangci-lint-action digest to a4f60bb ([a0c21aa](https://github.com/phi-ag/mta-sts-exporter/commit/a0c21aa6547a3c25b7377abd76624fb6852f4adc))
+* **deps:** update module github.com/golangci/golangci-lint to v1.58.1 ([bc32535](https://github.com/phi-ag/mta-sts-exporter/commit/bc32535142c4342a775274128df2770569d3569a))
+* **deps:** update module golang.org/x/exp to v0.0.0-20240506185415-9bf2ced13842 ([0ef94d4](https://github.com/phi-ag/mta-sts-exporter/commit/0ef94d459ce74a111dcf5e3153d69fd2bca163b4))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.9 ([24cc0ea](https://github.com/phi-ag/mta-sts-exporter/commit/24cc0ea183bb48ff2fe25621c9eb01efb29e7858))
+
 ## [1.7.9](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.8...v1.7.9) (2024-05-06)
 
 
