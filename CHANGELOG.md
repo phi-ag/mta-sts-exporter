@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.7.11](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.10...v1.7.11) (2024-05-25)
+
+
+### Miscellaneous Chores
+
+* **deps:** pin googleapis/release-please-action action to f3969c0 ([bbdeb62](https://github.com/phi-ag/mta-sts-exporter/commit/bbdeb6224e135a79ec7e867c64c76382a6e94464))
+* **deps:** update actions/checkout digest to a5ac7e5 ([f1cfdc0](https://github.com/phi-ag/mta-sts-exporter/commit/f1cfdc011fb201de1cff9ac000c553656d14fead))
+* **deps:** update dependency go to v1.22.3 ([a1149fe](https://github.com/phi-ag/mta-sts-exporter/commit/a1149fe580edad6e95d589a6ee17c17632091fd9))
+* **deps:** update golang.org/x/exp digest to 4c93da0 ([04b548e](https://github.com/phi-ag/mta-sts-exporter/commit/04b548ee9238ef299a14dca3cb52e0818966a615))
+* **deps:** update google-github-actions/release-please-action digest to e4dc86b ([8d9c590](https://github.com/phi-ag/mta-sts-exporter/commit/8d9c590e01705c3dda456efabcce83b693cd3f44))
+* **deps:** update module github.com/golangci/golangci-lint to v1.58.2 ([3087dd7](https://github.com/phi-ag/mta-sts-exporter/commit/3087dd7f5674d3a895cdd33e40f89c3087b7b93f))
+* **deps:** update module github.com/prometheus/procfs to v0.15.0 ([a0da6b0](https://github.com/phi-ag/mta-sts-exporter/commit/a0da6b0941acfd3e81a557b877b8867d655d0b21))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.10 ([6fc2411](https://github.com/phi-ag/mta-sts-exporter/commit/6fc24117c258b8a6b6e7cd7eaa69122c107817cc))
+
+
+### Continuous Integration
+
+* enable renovate golang version bumps ([d414683](https://github.com/phi-ag/mta-sts-exporter/commit/d41468337f262937a0decebf236a515645662c07))
+* switch to new release-please github org ([f807ef2](https://github.com/phi-ag/mta-sts-exporter/commit/f807ef202698f8d6f210c1b6bf18e7ce25f6ca54))
+
 ## [1.7.10](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.9...v1.7.10) (2024-05-10)
 
 
