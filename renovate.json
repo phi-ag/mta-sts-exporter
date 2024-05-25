@@ -14,6 +14,11 @@
   "packageRules": [
     {
       "matchManagers": ["gomod"],
+      "matchDatasources": ["golang-version"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchManagers": ["gomod"],
       "matchDepTypes": ["indirect"],
       "enabled": true
     },
