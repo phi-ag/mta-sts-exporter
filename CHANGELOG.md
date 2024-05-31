@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.12](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.11...v1.7.12) (2024-05-31)
+
+
+### Miscellaneous Chores
+
+* **deps:** update docker/login-action digest to 0d4c9c5 ([561826c](https://github.com/phi-ag/mta-sts-exporter/commit/561826c9b6b94421f4a136dca9294571dce13524))
+* **deps:** update golang.org/x/exp digest to 23cca88 ([14d0ee3](https://github.com/phi-ag/mta-sts-exporter/commit/14d0ee3500fb417abfd868a219ddbeb93ffdd6d5))
+* **deps:** update golang.org/x/exp digest to 404ba88 ([204707b](https://github.com/phi-ag/mta-sts-exporter/commit/204707b8e67004b721dbb3aa6658656f02b09773))
+* **deps:** update module github.com/golangci/golangci-lint to v1.59.0 ([416b8dc](https://github.com/phi-ag/mta-sts-exporter/commit/416b8dc9bed6af5aa87f1cc69b899935c93075fa))
+* **deps:** update module github.com/prometheus/procfs to v0.15.1 ([829a192](https://github.com/phi-ag/mta-sts-exporter/commit/829a192beace1e6f75ce06b901f04e1195568245))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.11 ([d6eccd8](https://github.com/phi-ag/mta-sts-exporter/commit/d6eccd846bd45eef95b903706b27d62216bc0c08))
+
 ## [1.7.11](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.10...v1.7.11) (2024-05-25)
 
 
