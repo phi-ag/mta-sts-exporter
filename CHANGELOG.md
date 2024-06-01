@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.7.13](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.12...v1.7.13) (2024-06-01)
+
+
+### Miscellaneous Chores
+
+* **deps:** pin cgr.dev/chainguard/static docker tag to 288b818 ([34ab37c](https://github.com/phi-ag/mta-sts-exporter/commit/34ab37c921fed3df4314bc47c384ca95274c1b15))
+* **deps:** update golang.org/x/exp digest to fd00a4e ([3c750cd](https://github.com/phi-ag/mta-sts-exporter/commit/3c750cdbf6f97e997d22ff7969301a1a9ab044bf))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.12 ([df6c393](https://github.com/phi-ag/mta-sts-exporter/commit/df6c393b55d4317b596f5f4e17eec765cf4bca4a))
+
+
+### Continuous Integration
+
+* configure ko base image and disable armv7 support ([840ec07](https://github.com/phi-ag/mta-sts-exporter/commit/840ec07e74991c994ec12a59e5da5845c382b5d0))
+
 ## [1.7.12](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.11...v1.7.12) (2024-05-31)
 
 
