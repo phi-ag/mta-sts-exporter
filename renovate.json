@@ -9,6 +9,15 @@
       "matchStrings": ["version: v(?<currentValue>.*?)\\n"],
       "depNameTemplate": "github.com/golangci/golangci-lint",
       "datasourceTemplate": "go"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["^\\.github/workflows/release-please\\.yml$"],
+      "matchStrings": [
+        "KO_DEFAULTBASEIMAGE: (?<depName>[^:\n]+):(?<currentValue>[^@\n]+)(@(?<currentDigest>sha256:[a-f0-9]+))?\\n"
+      ],
+      "autoReplaceStringTemplate": "KO_DEFAULTBASEIMAGE: {{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}\n",
+      "datasourceTemplate": "docker"
     }
   ],
   "packageRules": [
