@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.14](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.13...v1.7.14) (2024-06-02)
+
+
+### Miscellaneous Chores
+
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.13 ([5cf6371](https://github.com/phi-ag/mta-sts-exporter/commit/5cf637160ebbdaad75ff33282fe94f8d9bdd5ace))
+
+
+### Continuous Integration
+
+* use multiple lines for tags and labels and set SOURCE_DATE_EPOCH ([68e17bd](https://github.com/phi-ag/mta-sts-exporter/commit/68e17bdda21f113480c482677ea600e64de0265c))
+
 ## [1.7.13](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.12...v1.7.13) (2024-06-01)
 
 
