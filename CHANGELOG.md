@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.15](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.14...v1.7.15) (2024-06-02)
+
+
+### Continuous Integration
+
+* fix using multiple lines for tags and labels ([0288815](https://github.com/phi-ag/mta-sts-exporter/commit/0288815c890ccef22287e802f1b1eeecfc92d7dd))
+
 ## [1.7.14](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.13...v1.7.14) (2024-06-02)
 
 
