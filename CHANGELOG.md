@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.16](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.15...v1.7.16) (2024-06-02)
+
+
+### Continuous Integration
+
+* fix action variables ([84508b1](https://github.com/phi-ag/mta-sts-exporter/commit/84508b1f212aa55ea87e9fe0eb970a3b0e77fac2))
+
 ## [1.7.15](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.14...v1.7.15) (2024-06-02)
 
 
