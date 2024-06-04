@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.7.17](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.16...v1.7.17) (2024-06-04)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/spf13/viper to v1.19.0 ([92f4b38](https://github.com/phi-ag/mta-sts-exporter/commit/92f4b3891ddde4b7acf4462b1ad2847cd21c327d))
+
+
+### Miscellaneous Chores
+
+* **deps:** update module github.com/prometheus/common to v0.54.0 ([9298a25](https://github.com/phi-ag/mta-sts-exporter/commit/9298a25933bf266250451f58d96bbcd6eccc23c2))
+* **deps:** update module github.com/sagikazarmark/locafero to v0.5.0 ([3f036cb](https://github.com/phi-ag/mta-sts-exporter/commit/3f036cb25a3aa61f8ce99ee816eace19136fccbc))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.16 ([27e8b31](https://github.com/phi-ag/mta-sts-exporter/commit/27e8b31f63c5391802ec6f20f0fdb46305a69cf1))
+
 ## [1.7.16](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.15...v1.7.16) (2024-06-02)
 
 
