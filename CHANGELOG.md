@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.18](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.17...v1.7.18) (2024-06-05)
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency go to v1.22.4 ([280100b](https://github.com/phi-ag/mta-sts-exporter/commit/280100b1f472ff106bf592b015db21864790e6b8))
+* **deps:** update golang.org/x/exp digest to fc45aab ([cb22537](https://github.com/phi-ag/mta-sts-exporter/commit/cb2253799139b8ad9bb2c12ede86ceb3b5497b3d))
+* **deps:** update module github.com/sagikazarmark/locafero to v0.6.0 ([8e9d2b7](https://github.com/phi-ag/mta-sts-exporter/commit/8e9d2b75e9e607082ca355c68e26957c66216bb3))
+* **deps:** update module golang.org/x/sys to v0.21.0 ([89698b9](https://github.com/phi-ag/mta-sts-exporter/commit/89698b9da3e4e4027b68cd0272f4e72567426b7b))
+* **deps:** update module golang.org/x/text to v0.16.0 ([89e0309](https://github.com/phi-ag/mta-sts-exporter/commit/89e0309ebc0b43b136e15cb60b1e52fd43f04c8c))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.17 ([7863c8a](https://github.com/phi-ag/mta-sts-exporter/commit/7863c8a697e0790c524b157b7586791541c8877e))
+
 ## [1.7.17](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.16...v1.7.17) (2024-06-04)
 
 
