@@ -1,0 +1,6 @@
+builds:
+- id: default
+  flags:
+  - -trimpath
+  ldflags:
+  - -s -w
