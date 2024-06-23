@@ -45,7 +45,7 @@ jobs:
 
       - name: Setup ko
         if: ${{ steps.release.outputs.release_created }}
-        uses: ko-build/setup-ko@3aebd0597dc1e9d1a26bcfdb7cbeb19c131d3037 # v0.7
+        uses: ./.github/actions/setup-ko
         env:
           KO_DOCKER_REPO: ${{ secrets.DOCKERHUB_USERNAME }}
 

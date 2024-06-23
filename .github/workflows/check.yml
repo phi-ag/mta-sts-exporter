@@ -36,3 +36,11 @@ jobs:
 
       - name: Lint
         uses: ./.github/actions/golangci-lint
+
+      - name: Setup ko
+        uses: ./.github/actions/setup-ko
+
+      - name: Build container
+        run: ko build --local --base-import-paths
+        env:
+          KO_DEFAULTPLATFORMS: linux/amd64,linux/arm64
