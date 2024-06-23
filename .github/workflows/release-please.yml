@@ -65,7 +65,6 @@ jobs:
           --image-label org.opencontainers.image.revision=${{ github.sha }}
           --image-label org.opencontainers.image.licenses=MIT
         env:
-          KO_DEFAULTBASEIMAGE: cgr.dev/chainguard/static:latest@sha256:68b8855b2ce85b1c649c0e6c69f93c214f4db75359e4fd07b1df951a4e2b0140
           KO_DEFAULTPLATFORMS: linux/amd64,linux/arm64
           KO_DATA_DATE_EPOCH: ${{ env.TIMESTAMP }}
           SOURCE_DATE_EPOCH: ${{ env.TIMESTAMP }}

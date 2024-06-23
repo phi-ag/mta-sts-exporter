@@ -17,11 +17,11 @@
     },
     {
       "customType": "regex",
-      "fileMatch": ["^\\.github/workflows/release-please\\.yml$"],
+      "fileMatch": ["^\\.ko\\.yaml$"],
       "matchStrings": [
-        "KO_DEFAULTBASEIMAGE: (?<depName>[^:\n]+):(?<currentValue>[^@\n]+)(@(?<currentDigest>sha256:[a-f0-9]+))?\\n"
+        "defaultBaseImage: (?<depName>[^:]+):(?<currentValue>[^@\\s]+)(@(?<currentDigest>sha256:[a-f0-9]+))?"
       ],
-      "autoReplaceStringTemplate": "KO_DEFAULTBASEIMAGE: {{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}\n",
+      "autoReplaceStringTemplate": "defaultBaseImage: {{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}",
       "datasourceTemplate": "docker"
     }
   ],
