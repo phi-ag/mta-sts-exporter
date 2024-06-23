@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.7.21](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.20...v1.7.21) (2024-06-23)
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/checkout digest to 692973e ([efe4248](https://github.com/phi-ag/mta-sts-exporter/commit/efe424853cd75181603557c745a8a92ca0a5e37b))
+* **deps:** update golang.org/x/exp digest to 7f521ea ([d63afe1](https://github.com/phi-ag/mta-sts-exporter/commit/d63afe1eff0f1508606efb937e015b6f71d20103))
+* **deps:** update googleapis/release-please-action digest to 7987652 ([759309b](https://github.com/phi-ag/mta-sts-exporter/commit/759309bb242b04447340200c2c6bfed41ce63a4e))
+* **deps:** update ko-build/setup-ko action to v0.7 ([6c01525](https://github.com/phi-ag/mta-sts-exporter/commit/6c01525e92401d0909d025eac05cdfa1dc330546))
+* **deps:** update module google.golang.org/protobuf to v1.34.2 ([4c95283](https://github.com/phi-ag/mta-sts-exporter/commit/4c9528340a20824a2d916e5d02a3907101969287))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.20 ([9ca9b3f](https://github.com/phi-ag/mta-sts-exporter/commit/9ca9b3fb235f0de4973898315fcc6cda8e68d2ef))
+
+
+### Build System
+
+* move ko base image config ([eb54e3e](https://github.com/phi-ag/mta-sts-exporter/commit/eb54e3e2f082d2df23596134c2bc11b4126bf658))
+
+
+### Continuous Integration
+
+* build local ko image in check pipeline ([5f43b6e](https://github.com/phi-ag/mta-sts-exporter/commit/5f43b6ede8fccba78650ab22e0cadee03cdec36f))
+* pin ko version ([1ac3a48](https://github.com/phi-ag/mta-sts-exporter/commit/1ac3a48797cb210001336bebec41ebf3eedc6bd2))
+
 ## [1.7.20](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.19...v1.7.20) (2024-06-10)
 
 
