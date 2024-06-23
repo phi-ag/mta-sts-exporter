@@ -10,6 +10,15 @@
   "customManagers": [
     {
       "customType": "regex",
+      "fileMatch": ["^\\.ko\\.yaml$"],
+      "matchStrings": [
+        "defaultBaseImage: (?<depName>[^:]+):(?<currentValue>[^@\\s]+)(@(?<currentDigest>sha256:[a-f0-9]+))?"
+      ],
+      "autoReplaceStringTemplate": "defaultBaseImage: {{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
       "fileMatch": ["^\\.github/actions/golangci-lint/action\\.yml$"],
       "matchStrings": ["version: v(?<currentValue>.*?)\\n"],
       "depNameTemplate": "github.com/golangci/golangci-lint",
@@ -17,12 +26,10 @@
     },
     {
       "customType": "regex",
-      "fileMatch": ["^\\.ko\\.yaml$"],
-      "matchStrings": [
-        "defaultBaseImage: (?<depName>[^:]+):(?<currentValue>[^@\\s]+)(@(?<currentDigest>sha256:[a-f0-9]+))?"
-      ],
-      "autoReplaceStringTemplate": "defaultBaseImage: {{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}",
-      "datasourceTemplate": "docker"
+      "fileMatch": ["^\\.github/actions/setup-ko/action\\.yml$"],
+      "matchStrings": ["version: v(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "github.com/ko-build/ko",
+      "datasourceTemplate": "go"
     }
   ],
   "packageRules": [
