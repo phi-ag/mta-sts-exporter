@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.22](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.21...v1.7.22) (2024-07-02)
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency go to v1.22.5 ([488f3c4](https://github.com/phi-ag/mta-sts-exporter/commit/488f3c495a19510781d01a3ef534aa774398603a))
+* **deps:** update module github.com/prometheus/common to v0.55.0 ([046d003](https://github.com/phi-ag/mta-sts-exporter/commit/046d0033b4531c8dc2e64320864bf89b8a3b69fb))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.21 ([27a42fc](https://github.com/phi-ag/mta-sts-exporter/commit/27a42fc577632a1474fcda552073724b6668a523))
+
 ## [1.7.21](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.20...v1.7.21) (2024-06-23)
 
 
