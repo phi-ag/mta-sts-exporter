@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.24](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.23...v1.7.24) (2024-07-06)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to d94c01c ([6f73316](https://github.com/phi-ag/mta-sts-exporter/commit/6f73316fc1ef15f44fca5b5df1480220dd00f906))
+* **deps:** update module golang.org/x/sys to v0.22.0 ([d204079](https://github.com/phi-ag/mta-sts-exporter/commit/d204079db5950f0f992c1d4933be96ba1f0a398e))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.23 ([e66df79](https://github.com/phi-ag/mta-sts-exporter/commit/e66df792632afda4b7adff593f8e6c996aa3d44d))
+
 ## [1.7.23](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.22...v1.7.23) (2024-07-03)
 
 
