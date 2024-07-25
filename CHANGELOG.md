@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.27](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.26...v1.7.27) (2024-07-25)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to d751850 ([a421d4d](https://github.com/phi-ag/mta-sts-exporter/commit/a421d4d944ffd2cdb4e19b569215cfb6a3b7c92e))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.26 ([7a86d07](https://github.com/phi-ag/mta-sts-exporter/commit/7a86d07be17793cde2ad5a25e58cf42dd4ebfa99))
+
 ## [1.7.26](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.25...v1.7.26) (2024-07-24)
 
 
