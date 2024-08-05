@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.7.28](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.27...v1.7.28) (2024-08-05)
+
+
+### Miscellaneous Chores
+
+* **deps:** update golangci/golangci-lint-action digest to aaa42aa ([d07ca45](https://github.com/phi-ag/mta-sts-exporter/commit/d07ca451f8f3f7d7f8a8f9d664c744594f01e69a))
+* **deps:** update module github.com/ko-build/ko to v0.16.0 ([c202245](https://github.com/phi-ag/mta-sts-exporter/commit/c2022450cb6fbe0ca9f4b6f372e27d93931c4869))
+* **deps:** update module golang.org/x/sys to v0.23.0 ([fd11834](https://github.com/phi-ag/mta-sts-exporter/commit/fd11834f471d5e01f5274674681bc68c75dbe0f7))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.27 ([bc7fa48](https://github.com/phi-ag/mta-sts-exporter/commit/bc7fa48f0ac8fc1982c895ff8d6826751369fe9a))
+
 ## [1.7.27](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.26...v1.7.27) (2024-07-25)
 
 
