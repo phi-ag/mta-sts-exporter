@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.31](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.30...v1.7.31) (2024-08-08)
+
+
+### Miscellaneous Chores
+
+* **deps:** update golang.org/x/exp digest to 0cdaa3a ([a8f0268](https://github.com/phi-ag/mta-sts-exporter/commit/a8f026821beabaa1ec93264effb05b8d8e9a9bae))
+* **deps:** update module golang.org/x/sys to v0.24.0 ([fa5aefd](https://github.com/phi-ag/mta-sts-exporter/commit/fa5aefdcf45bde5d14d76d551f15a5e1093de26f))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.30 ([e76791f](https://github.com/phi-ag/mta-sts-exporter/commit/e76791f2e3101bae77d86297e40ef21a4dba4313))
+
 ## [1.7.30](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.29...v1.7.30) (2024-08-07)
 
 
