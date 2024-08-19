@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.7.32](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.31...v1.7.32) (2024-08-19)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/prometheus/client_golang to v1.20.0 ([6d85cd8](https://github.com/phi-ag/mta-sts-exporter/commit/6d85cd8af47145a949e3c4639c320dda54f10b8e))
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 791657d ([a9ff547](https://github.com/phi-ag/mta-sts-exporter/commit/a9ff547f0fcde491c82b6d7e9916ac38184f33af))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.31 ([7ae8178](https://github.com/phi-ag/mta-sts-exporter/commit/7ae8178516a584f86500fa8693f7404f08014967))
+
 ## [1.7.31](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.30...v1.7.31) (2024-08-14)
 
 
