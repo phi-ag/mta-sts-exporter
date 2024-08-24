@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.7.33](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.32...v1.7.33) (2024-08-24)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/prometheus/client_golang to v1.20.1 ([508d5b4](https://github.com/phi-ag/mta-sts-exporter/commit/508d5b4752ba3c3931bfb778918b0101ad4bb636))
+* **deps:** update module github.com/prometheus/client_golang to v1.20.2 ([2895f86](https://github.com/phi-ag/mta-sts-exporter/commit/2895f867951a2742f07c81f8a3d2938a787e69b8))
+
+
+### Miscellaneous Chores
+
+* **deps:** update golang.org/x/exp digest to 778ce7b ([26c78fa](https://github.com/phi-ag/mta-sts-exporter/commit/26c78fa6656a36f14e53f7a3fced030bbe77b316))
+* **deps:** update golang.org/x/exp digest to 9b4947d ([e206708](https://github.com/phi-ag/mta-sts-exporter/commit/e206708462f1a9e7f94b8bbad9f2db6957722432))
+* **deps:** update module github.com/golangci/golangci-lint to v1.60.2 ([8c0df6b](https://github.com/phi-ag/mta-sts-exporter/commit/8c0df6b1c15f2f0d949bac731692607665ac3bca))
+* **deps:** update module github.com/golangci/golangci-lint to v1.60.3 ([3abb990](https://github.com/phi-ag/mta-sts-exporter/commit/3abb990923799c3775326686a95aebb9c9176aad))
+* **deps:** update module github.com/pelletier/go-toml/v2 to v2.2.3 ([4e59d76](https://github.com/phi-ag/mta-sts-exporter/commit/4e59d765136ee492ab477b28380ec56d8892b663))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.32 ([5f52505](https://github.com/phi-ag/mta-sts-exporter/commit/5f52505143eb52f41e41c28fd7860ae130eea996))
+
 ## [1.7.32](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.31...v1.7.32) (2024-08-19)
 
 
