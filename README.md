@@ -84,6 +84,10 @@ Run
     cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:1234/report
     curl localhost:3333/metrics
 
+Build container
+
+    ko build --local --base-import-paths
+
 ## References
 
 - [RFC 8460: SMTP TLS Reporting](https://www.rfc-editor.org/rfc/rfc8460.html)

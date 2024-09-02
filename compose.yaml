@@ -68,10 +68,9 @@ services:
     healthcheck:
       <<: *healthcheck
       test: [CMD, /ko-app/mta-sts-exporter, -health]
-    environment:
-      CONFIG_PATH: /mta-sts-exporter
     configs:
-      - mta-sts-exporter
+      - source: mta-sts-exporter
+        target: /etc/mta-sts-exporter/config.yaml
 
   mta-sts-exporter-env:
     <<: *service

@@ -59,9 +59,11 @@ type Config struct {
 func createConfig() Config {
 	configPathFull := getEnv("CONFIG_PATH", "/etc/mta-sts-exporter/config.yaml")
 	configPath := filepath.Dir(configPathFull)
-	configName := filepath.Base(configPathFull)
+	fileName := filepath.Base(configPathFull)
+	extension := filepath.Ext(fileName)
+	configName := strings.TrimSuffix(fileName, extension)
 
-	if filepath.Ext(configName) == "" {
+	if extension == "" {
 		viper.SetConfigType("yaml")
 	}
 
