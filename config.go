@@ -57,9 +57,9 @@ type Config struct {
 }
 
 func createConfig() Config {
-	configPathFull := getEnv("CONFIG_PATH", "/etc/mta-sts-exporter/config.yaml")
-	configPath := filepath.Dir(configPathFull)
-	fileName := filepath.Base(configPathFull)
+	path := getEnv("CONFIG_PATH", "/etc/mta-sts-exporter/config.yaml")
+	directory := filepath.Dir(path)
+	fileName := filepath.Base(path)
 	extension := filepath.Ext(fileName)
 	configName := strings.TrimSuffix(fileName, extension)
 
@@ -68,7 +68,7 @@ func createConfig() Config {
 	}
 
 	viper.SetConfigName(configName)
-	viper.AddConfigPath(configPath)
+	viper.AddConfigPath(directory)
 	viper.AutomaticEnv()
 
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
@@ -94,7 +94,7 @@ func createConfig() Config {
 	viper.SetDefault("Metrics.Collectors.Process", false)
 	viper.SetDefault("Metrics.Collectors.Exporter", false)
 
-	if _, err := os.Stat(configPathFull); err == nil {
+	if _, err := os.Stat(path); err == nil {
 		if err := viper.ReadInConfig(); err != nil {
 			log.Fatalln("Failed to read config file:", err)
 		}
