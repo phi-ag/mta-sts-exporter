@@ -41,7 +41,7 @@ jobs:
 
       - name: Export commit timestamp
         if: ${{ steps.release.outputs.release_created }}
-        run: echo "TIMESTAMP=$(git log -1 --pretty=%ct)" >> $GITHUB_ENV
+        run: echo "SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct)" >> $GITHUB_ENV
 
       - name: Setup ko
         if: ${{ steps.release.outputs.release_created }}
@@ -59,15 +59,14 @@ jobs:
           --tags ${{ steps.release.outputs.major }}
           --tags ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}
           --tags ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
-          --image-label org.opencontainers.image.created=$(date -d @${{ env.TIMESTAMP }} +'%Y-%m-%dT%H:%M:%SZ')
+          --image-label org.opencontainers.image.created=$(date -d @${{ env.SOURCE_DATE_EPOCH }} +'%Y-%m-%dT%H:%M:%SZ')
           --image-label org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
           --image-label org.opencontainers.image.version=${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
           --image-label org.opencontainers.image.revision=${{ github.sha }}
           --image-label org.opencontainers.image.licenses=MIT
         env:
           KO_DEFAULTPLATFORMS: linux/amd64,linux/arm64
-          KO_DATA_DATE_EPOCH: ${{ env.TIMESTAMP }}
-          SOURCE_DATE_EPOCH: ${{ env.TIMESTAMP }}
+          KO_DATA_DATE_EPOCH: ${{ env.SOURCE_DATE_EPOCH }}
 
       - name: Update Docker Hub description
         if: ${{ steps.release.outputs.release_created }}
