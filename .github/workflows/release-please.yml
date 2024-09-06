@@ -60,7 +60,7 @@ jobs:
           --tags ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}
           --tags ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
           --image-label org.opencontainers.image.created=$(date -d @${{ env.TIMESTAMP }} +'%Y-%m-%dT%H:%M:%SZ')
-          --image-label org.opencontainers.image.url=${{ github.server_url }}/${{ github.repository }}
+          --image-label org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
           --image-label org.opencontainers.image.version=${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
           --image-label org.opencontainers.image.revision=${{ github.sha }}
           --image-label org.opencontainers.image.licenses=MIT
