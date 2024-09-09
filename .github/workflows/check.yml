@@ -44,3 +44,27 @@ jobs:
         run: ko build --local --base-import-paths
         env:
           KO_DEFAULTPLATFORMS: linux/amd64,linux/arm64
+
+      - name: Build container
+        run: |
+          IMAGE="$(ko build --local --base-import-paths | tee | tail -1)"
+          echo "IMAGE=${IMAGE}" >> $GITHUB_ENV
+        env:
+          KO_DEFAULTPLATFORMS: linux/amd64,linux/arm64
+
+      - name: Start container
+        uses: addnab/docker-run-action@v3
+        with:
+          image: ${{ env.IMAGE }}
+          options: -p 8080:8080 -p 8081:8081
+
+      - name: Post example report
+        run: >
+          cat examples/rfc.json
+          | gzip
+          | curl --no-progress-meter --fail-with-body -X POST -v --data-binary @- localhost:8080/report
+
+      - name: Fetch policy and metrcis
+        run: |
+          curl --no-progress-meter --fail-with-body localhost:8080/.well-known/mta-sts.txt
+          curl --no-progress-meter --fail-with-body localhost:8081/metrics
