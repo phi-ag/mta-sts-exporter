@@ -53,7 +53,7 @@ jobs:
           KO_DEFAULTPLATFORMS: linux/amd64,linux/arm64
 
       - name: Start container
-        uses: addnab/docker-run-action@v3
+        uses: addnab/docker-run-action@4f65fabd2431ebc8d299f8e5a018d79a769ae185 # v3
         with:
           image: ${{ env.IMAGE }}
           options: -p 8080:8080 -p 8081:8081
