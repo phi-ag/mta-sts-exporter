@@ -43,9 +43,9 @@ Post examples
 
     docker run -it --rm -p 8080:8080 -p 8081:8081 phiag/mta-sts-exporter:latest
 
-    cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
-    cat examples/google.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
-    cat examples/microsoft.json | gzip | curl -X POST -v --data-binary @- localhost:8080/report
+    cat examples/rfc.json | gzip | curl --data-binary @- localhost:8080/report
+    cat examples/google.json | gzip | curl --data-binary @- localhost:8080/report
+    cat examples/microsoft.json | gzip | curl --data-binary @- localhost:8080/report
 
     curl localhost:8080/.well-known/mta-sts.txt
     curl localhost:8081/metrics
@@ -81,7 +81,7 @@ Format
 Run
 
     PORT=1234 METRICS_PORT=3333 go run .
-    cat examples/rfc.json | gzip | curl -X POST -v --data-binary @- localhost:1234/report
+    cat examples/rfc.json | gzip | curl --data-binary @- localhost:1234/report
     curl localhost:3333/metrics
 
 Build container

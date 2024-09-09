@@ -41,6 +41,24 @@ jobs:
         uses: ./.github/actions/setup-ko
 
       - name: Build container
-        run: ko build --local --base-import-paths
+        run: |
+          IMAGE="$(ko build --local --base-import-paths | tee | tail -1)"
+          echo "IMAGE=${IMAGE}" >> $GITHUB_ENV
         env:
           KO_DEFAULTPLATFORMS: linux/amd64,linux/arm64
+
+      - name: Start container
+        run: docker run -d -p 8080:8080 -p 8081:8081 ${{ env.IMAGE }}
+
+      - name: Post example reports
+        run: |
+          for report in examples/*.json; do
+            echo Post report ${report}
+            cat "${report}" | gzip | curl --no-progress-meter --fail-with-body --data-binary @- localhost:8080/report
+          done
+
+      - name: Fetch policy
+        run: curl --no-progress-meter --fail-with-body localhost:8080/.well-known/mta-sts.txt
+
+      - name: Fetch metrics
+        run: curl --no-progress-meter --fail-with-body localhost:8081/metrics

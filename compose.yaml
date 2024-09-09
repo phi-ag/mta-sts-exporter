@@ -63,8 +63,6 @@ services:
     ports:
       - 127.0.0.1:8080:8080
       - 127.0.0.1:8081:8081
-      - "[::1]:8080:8080"
-      - "[::1]:8081:8081"
     healthcheck:
       <<: *healthcheck
       test: [CMD, /ko-app/mta-sts-exporter, -health]
