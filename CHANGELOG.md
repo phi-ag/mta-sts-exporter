@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.7.36](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.35...v1.7.36) (2024-09-09)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to bde549d ([d1762fc](https://github.com/phi-ag/mta-sts-exporter/commit/d1762fcaf2cc1c105a5df1eff0db916df3dba1d7))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.35 ([09979f0](https://github.com/phi-ag/mta-sts-exporter/commit/09979f02867337a97f9bfb8af1c52ac910a81fe8))
+
+
+### Continuous Integration
+
+* export commit timestamp as SOURCE_DATE_EPOCH ([eccf2a1](https://github.com/phi-ag/mta-sts-exporter/commit/eccf2a15cab37be554ea7a019a5128bb03122052))
+* run e2e tests in pipeline ([141800a](https://github.com/phi-ag/mta-sts-exporter/commit/141800aac40c7b0faa9bb231064bc3ce227d0b93))
+* use opencontainers source label ([b40db42](https://github.com/phi-ag/mta-sts-exporter/commit/b40db427ade16e944b08a097f2b0cca5ec1c4887))
+
 ## [1.7.35](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.34...v1.7.35) (2024-09-05)
 
 
