@@ -59,7 +59,7 @@ x-healthcheck: &healthcheck
 services:
   mta-sts-exporter:
     <<: *service
-    image: phiag/mta-sts-exporter:1.7.36@sha256:46e9776120c9316d76936939d57ddf789d9e2e58d24bf539d338da06c87ef61b
+    image: phiag/mta-sts-exporter:1.7.37@sha256:36f2ca1c6217ca6bd508fb0cdb53c574c96a671b4bdeb10a972ef36ce6591086
     ports:
       - 127.0.0.1:8080:8080
       - 127.0.0.1:8081:8081
@@ -72,7 +72,7 @@ services:
 
   mta-sts-exporter-env:
     <<: *service
-    image: phiag/mta-sts-exporter:1.7.36@sha256:46e9776120c9316d76936939d57ddf789d9e2e58d24bf539d338da06c87ef61b
+    image: phiag/mta-sts-exporter:1.7.37@sha256:36f2ca1c6217ca6bd508fb0cdb53c574c96a671b4bdeb10a972ef36ce6591086
     healthcheck:
       <<: *healthcheck
       test: [CMD, /ko-app/mta-sts-exporter, -health]
@@ -100,7 +100,7 @@ services:
 
   mta-sts-exporter-save-reports:
     <<: *service
-    image: phiag/mta-sts-exporter:1.7.36@sha256:46e9776120c9316d76936939d57ddf789d9e2e58d24bf539d338da06c87ef61b
+    image: phiag/mta-sts-exporter:1.7.37@sha256:36f2ca1c6217ca6bd508fb0cdb53c574c96a671b4bdeb10a972ef36ce6591086
     # only required for rootless docker to write to volume
     user: 0:0
     healthcheck:
@@ -113,7 +113,7 @@ services:
 
   mta-sts-exporter-traefik:
     <<: *service
-    image: phiag/mta-sts-exporter:1.7.36@sha256:46e9776120c9316d76936939d57ddf789d9e2e58d24bf539d338da06c87ef61b
+    image: phiag/mta-sts-exporter:1.7.37@sha256:36f2ca1c6217ca6bd508fb0cdb53c574c96a671b4bdeb10a972ef36ce6591086
     expose:
       - 8080
       - 8081
