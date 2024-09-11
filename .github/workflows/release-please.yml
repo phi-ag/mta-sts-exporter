@@ -64,6 +64,9 @@ jobs:
           --image-label org.opencontainers.image.version=${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
           --image-label org.opencontainers.image.revision=${{ github.sha }}
           --image-label org.opencontainers.image.licenses=MIT
+          --image-label org.opencontainers.image.authors=phi.ag
+          --image-label org.opencontainers.image.vendor=phi.ag
+          --image-label org.opencontainers.image.authors=${{ github.server_url }}/${{ github.repository }}
         env:
           KO_DEFAULTPLATFORMS: linux/amd64,linux/arm64
           KO_DATA_DATE_EPOCH: ${{ env.SOURCE_DATE_EPOCH }}
