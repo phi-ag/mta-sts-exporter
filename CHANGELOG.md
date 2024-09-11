@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.7.37](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.36...v1.7.37) (2024-09-11)
+
+
+### Miscellaneous Chores
+
+* **deps:** update golang.org/x/exp digest to 701f63a ([521075e](https://github.com/phi-ag/mta-sts-exporter/commit/521075ef65fd3d8951a771fb3e86dc885db5e310))
+* **deps:** update module github.com/golangci/golangci-lint to v1.61.0 ([7ea4fbc](https://github.com/phi-ag/mta-sts-exporter/commit/7ea4fbc1ef37508be1a7414c3f88015fc766d7f8))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.36 ([e504b25](https://github.com/phi-ag/mta-sts-exporter/commit/e504b2503adf1e2eaefd55854aaea3940ac3db5c))
+
+
+### Continuous Integration
+
+* override chainguard labels ([1eae6b9](https://github.com/phi-ag/mta-sts-exporter/commit/1eae6b9771e1bd9eeed24fe2f267e7c405b04f61))
+
 ## [1.7.36](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.35...v1.7.36) (2024-09-09)
 
 
