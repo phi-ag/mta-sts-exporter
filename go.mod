@@ -3,7 +3,7 @@ module github.com/phi-ag/mta-sts-exporter
 go 1.23.1
 
 require (
-	github.com/prometheus/client_golang v1.20.3
+	github.com/prometheus/client_golang v1.20.4
 	github.com/spf13/viper v1.19.0
 )
 
