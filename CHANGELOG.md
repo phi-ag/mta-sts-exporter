@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.7.41](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.40...v1.7.41) (2024-10-08)
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/checkout digest to eef6144 ([d1d0e80](https://github.com/phi-ag/mta-sts-exporter/commit/d1d0e80c84d2b25aae37e320e0d59393c25a3537))
+* **deps:** update golang.org/x/exp digest to 225e2ab ([57c31cc](https://github.com/phi-ag/mta-sts-exporter/commit/57c31cc04bd7701c2e29cdf7b26b764ff67b98f6))
+* **deps:** update module golang.org/x/sys to v0.26.0 ([583c01c](https://github.com/phi-ag/mta-sts-exporter/commit/583c01c79188dc6b0cb7d8bf67cf6ac39ec0063c))
+* **deps:** update module golang.org/x/text to v0.19.0 ([d2705a5](https://github.com/phi-ag/mta-sts-exporter/commit/d2705a5eae1b20eab2ffc7d408ed97a8ba398461))
+* **deps:** update module google.golang.org/protobuf to v1.35.1 ([ddb48ae](https://github.com/phi-ag/mta-sts-exporter/commit/ddb48ae74d1b6f9496128bfbb550d270a0040b70))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.40 ([733e3ac](https://github.com/phi-ag/mta-sts-exporter/commit/733e3ac8a4637a62ec5e240ed61579019e8dbbc8))
+
+
+### Continuous Integration
+
+* simpler renovate match strings ([d8091d3](https://github.com/phi-ag/mta-sts-exporter/commit/d8091d33fa6c2c997fbaf27a9c7c330e3b8f096b))
+
 ## [1.7.40](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.39...v1.7.40) (2024-10-03)
 
 
