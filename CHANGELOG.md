@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.44](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.43...v1.7.44) (2024-10-24)
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/setup-go digest to 41dfa10 ([fa954f9](https://github.com/phi-ag/mta-sts-exporter/commit/fa954f921e267bcfa8973341006e8ba675315ca4))
+* **deps:** update module github.com/prometheus/common to v0.60.1 ([7bc0af6](https://github.com/phi-ag/mta-sts-exporter/commit/7bc0af6daf7f243c0227d9b4409edecf853201c0))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.43 ([367ed35](https://github.com/phi-ag/mta-sts-exporter/commit/367ed358ddaca7d86aa680bb2528325f06be6419))
+
 ## [1.7.43](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.42...v1.7.43) (2024-10-23)
 
 
