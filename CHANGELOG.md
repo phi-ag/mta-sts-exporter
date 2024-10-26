@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.7.44](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.43...v1.7.44) (2024-10-26)
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/setup-go digest to 41dfa10 ([fa954f9](https://github.com/phi-ag/mta-sts-exporter/commit/fa954f921e267bcfa8973341006e8ba675315ca4))
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 1c785f2 ([deef13c](https://github.com/phi-ag/mta-sts-exporter/commit/deef13ca32d0a2973b7f17e770336dc27b621d57))
+* **deps:** update module github.com/ko-build/ko to v0.17.1 ([c3d9ef0](https://github.com/phi-ag/mta-sts-exporter/commit/c3d9ef0bb0163e1364bc5073eb82b684695b4d1a))
+* **deps:** update module github.com/prometheus/common to v0.60.1 ([7bc0af6](https://github.com/phi-ag/mta-sts-exporter/commit/7bc0af6daf7f243c0227d9b4409edecf853201c0))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.43 ([367ed35](https://github.com/phi-ag/mta-sts-exporter/commit/367ed358ddaca7d86aa680bb2528325f06be6419))
+
 ## [1.7.43](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.42...v1.7.43) (2024-10-23)
 
 
