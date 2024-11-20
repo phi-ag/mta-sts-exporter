@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.47](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.46...v1.7.47) (2024-11-20)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 5ff428f ([77f6b81](https://github.com/phi-ag/mta-sts-exporter/commit/77f6b8173f4fbda9d7ad496c7bc5fac05d99e6e9))
+* **deps:** update module google.golang.org/protobuf to v1.35.2 ([e68b0f6](https://github.com/phi-ag/mta-sts-exporter/commit/e68b0f64fd0fc8fa0c1622ca1f67df52866fa7dd))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.46 ([7cb8599](https://github.com/phi-ag/mta-sts-exporter/commit/7cb859911088f27fb2b86334dde77c4592c4840f))
+
 ## [1.7.46](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.45...v1.7.46) (2024-11-13)
 
 
