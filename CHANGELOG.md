@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.7.49](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.48...v1.7.49) (2024-12-11)
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/setup-go digest to 3041bf5 ([5a69a98](https://github.com/phi-ag/mta-sts-exporter/commit/5a69a98fc7aee432898fd2d12cde8d4dcbbc81b6))
+* **deps:** update golang.org/x/exp digest to 1829a12 ([d6f36fb](https://github.com/phi-ag/mta-sts-exporter/commit/d6f36fb0a4c37f71ceebe1804c9c7acbdb67ef13))
+* **deps:** update golang.org/x/exp digest to 43b7b7c ([f4f6fbd](https://github.com/phi-ag/mta-sts-exporter/commit/f4f6fbd56efb5e23a6e24abf0a5beb892303c5a5))
+* **deps:** update module github.com/magiconair/properties to v1.8.9 ([600cf77](https://github.com/phi-ag/mta-sts-exporter/commit/600cf77993dbadd53ecf2ec0fb172d27de429211))
+* **deps:** update module github.com/prometheus/common to v0.61.0 ([ab9f1d0](https://github.com/phi-ag/mta-sts-exporter/commit/ab9f1d088e199b315cb47e4bccab5e6b34bddb6d))
+* **deps:** update module golang.org/x/sys to v0.28.0 ([54a3016](https://github.com/phi-ag/mta-sts-exporter/commit/54a3016abf735b8376387c8f6f9097c2dad6e677))
+* **deps:** update module golang.org/x/text to v0.21.0 ([9c191d6](https://github.com/phi-ag/mta-sts-exporter/commit/9c191d669f6b6bf54adabe7c4a2602e61d255fc2))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.48 ([5f30808](https://github.com/phi-ag/mta-sts-exporter/commit/5f30808cd19d6dc5d46110db1813a417fc6c8de0))
+
 ## [1.7.48](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.47...v1.7.48) (2024-12-04)
 
 
