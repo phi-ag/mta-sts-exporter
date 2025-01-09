@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.55](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.54...v1.7.55) (2025-01-09)
+
+
+### Miscellaneous Chores
+
+* **deps:** update module github.com/sagikazarmark/locafero to v0.7.0 ([44dce78](https://github.com/phi-ag/mta-sts-exporter/commit/44dce78b571db5fdcc5f70352b8a1d52b114ae44))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.54 ([c4dd618](https://github.com/phi-ag/mta-sts-exporter/commit/c4dd6189b7e3dfabfef37a04fb32c588c2496221))
+
 ## [1.7.54](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.53...v1.7.54) (2025-01-08)
 
 
