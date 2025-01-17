@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.7.55](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.54...v1.7.55) (2025-01-17)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 5497b01 ([372e59b](https://github.com/phi-ag/mta-sts-exporter/commit/372e59b627fa43ddd7e69ae5b35cff7cfc9d0c7e))
+* **deps:** update dependency go to v1.23.5 ([e3f5781](https://github.com/phi-ag/mta-sts-exporter/commit/e3f57819b35762ecd7b7794d121a989d3adf43bf))
+* **deps:** update golangci/golangci-lint-action digest to ec5d184 ([bd18d9e](https://github.com/phi-ag/mta-sts-exporter/commit/bd18d9e1be5f18cbb5d4ef2c45f987f0bf430112))
+* **deps:** update ko-build/setup-ko action to v0.8 ([5166b8d](https://github.com/phi-ag/mta-sts-exporter/commit/5166b8dfda9e07202d48b209904c6f6af1ccfefa))
+* **deps:** update module github.com/prometheus/common to v0.62.0 ([59ca4fe](https://github.com/phi-ag/mta-sts-exporter/commit/59ca4fe963fe940eb7df7333f9549ee316329525))
+* **deps:** update module github.com/sagikazarmark/locafero to v0.7.0 ([44dce78](https://github.com/phi-ag/mta-sts-exporter/commit/44dce78b571db5fdcc5f70352b8a1d52b114ae44))
+* **deps:** update module google.golang.org/protobuf to v1.36.3 ([1f0e1c6](https://github.com/phi-ag/mta-sts-exporter/commit/1f0e1c67e3316fba8b9661fa814630c74a161b45))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.54 ([c4dd618](https://github.com/phi-ag/mta-sts-exporter/commit/c4dd6189b7e3dfabfef37a04fb32c588c2496221))
+
 ## [1.7.54](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.53...v1.7.54) (2025-01-08)
 
 
