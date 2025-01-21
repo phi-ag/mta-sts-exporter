@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.56](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.55...v1.7.56) (2025-01-21)
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/setup-go digest to f111f33 ([8100658](https://github.com/phi-ag/mta-sts-exporter/commit/8100658f75bcedc5a5228481c14e6823ff572d42))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.55 ([13acb9e](https://github.com/phi-ag/mta-sts-exporter/commit/13acb9e80fe608d8f818485a251b90bae6f29e7c))
+
 ## [1.7.55](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.54...v1.7.55) (2025-01-17)
 
 
