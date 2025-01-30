@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.57](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.56...v1.7.57) (2025-01-30)
+
+
+### Miscellaneous Chores
+
+* **deps:** update golang.org/x/exp digest to e0ece0d ([e6d16f0](https://github.com/phi-ag/mta-sts-exporter/commit/e6d16f0813385fa593ffc3f8104929ccd7287a88))
+* **deps:** update module github.com/spf13/pflag to v1.0.6 ([aa4eec6](https://github.com/phi-ag/mta-sts-exporter/commit/aa4eec6f033011f751149661d1fedfef95df7922))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.56 ([d2aca45](https://github.com/phi-ag/mta-sts-exporter/commit/d2aca456b851a44d13d7bc8fd889ed87a4b5b954))
+
 ## [1.7.56](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.55...v1.7.56) (2025-01-26)
 
 
