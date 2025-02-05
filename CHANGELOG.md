@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.7.57](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.56...v1.7.57) (2025-02-05)
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency go to v1.23.6 ([9b537b9](https://github.com/phi-ag/mta-sts-exporter/commit/9b537b96828832e13207bbd7e8a372c1daa93f33))
+* **deps:** update golang.org/x/exp digest to e0ece0d ([e6d16f0](https://github.com/phi-ag/mta-sts-exporter/commit/e6d16f0813385fa593ffc3f8104929ccd7287a88))
+* **deps:** update golangci/golangci-lint-action digest to e60da84 ([e6eda04](https://github.com/phi-ag/mta-sts-exporter/commit/e6eda049cb41cae1e2cac1c6e40b7a58458f79e2))
+* **deps:** update module github.com/spf13/pflag to v1.0.6 ([aa4eec6](https://github.com/phi-ag/mta-sts-exporter/commit/aa4eec6f033011f751149661d1fedfef95df7922))
+* **deps:** update module golang.org/x/sys to v0.30.0 ([e247724](https://github.com/phi-ag/mta-sts-exporter/commit/e247724eb3473ec102b7ca02fdf11f57262f14c8))
+* **deps:** update module golang.org/x/text to v0.22.0 ([f3a6e6d](https://github.com/phi-ag/mta-sts-exporter/commit/f3a6e6d0b1d54df7523b639bf850bf84e1aa5bf1))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.56 ([d2aca45](https://github.com/phi-ag/mta-sts-exporter/commit/d2aca456b851a44d13d7bc8fd889ed87a4b5b954))
+
 ## [1.7.56](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.55...v1.7.56) (2025-01-26)
 
 
