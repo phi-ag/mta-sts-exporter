@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.58](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.57...v1.7.58) (2025-02-06)
+
+
+### Miscellaneous Chores
+
+* **deps:** update module google.golang.org/protobuf to v1.36.5 ([b8fa2e5](https://github.com/phi-ag/mta-sts-exporter/commit/b8fa2e5276fd7f95f9749d474bb396e88eb2f77d))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.57 ([b8a6da5](https://github.com/phi-ag/mta-sts-exporter/commit/b8a6da5567ea548789922659bc7ab1848641e052))
+
 ## [1.7.57](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.56...v1.7.57) (2025-02-05)
 
 
