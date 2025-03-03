@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.7.59](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.58...v1.7.59) (2025-03-03)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/prometheus/client_golang to v1.21.0 ([b72d925](https://github.com/phi-ag/mta-sts-exporter/commit/b72d925e22587a6db1c895ae6cef147c5b9fdee8))
+
+
+### Miscellaneous Chores
+
+* **deps:** update golang.org/x/exp digest to aa4b98e ([be3114a](https://github.com/phi-ag/mta-sts-exporter/commit/be3114aee305fd66107d4961c0bb4d99b0e64607))
+* **deps:** update golang.org/x/exp digest to dead583 ([2a0b28b](https://github.com/phi-ag/mta-sts-exporter/commit/2a0b28bbdafec51c8b0e585d5babb28dcfa07a8b))
+* **deps:** update golang.org/x/exp digest to eff6e97 ([46b77a3](https://github.com/phi-ag/mta-sts-exporter/commit/46b77a3b184cb4c101e30403352ec205969f99cd))
+* **deps:** update golangci/golangci-lint-action digest to 0adbc47 ([ff92077](https://github.com/phi-ag/mta-sts-exporter/commit/ff9207751b17f0083bbd556b3ac8469f09378269))
+* **deps:** update golangci/golangci-lint-action digest to 2226d7c ([589c7c6](https://github.com/phi-ag/mta-sts-exporter/commit/589c7c6e378a08422c1bde47ed1f95c7684d0020))
+* **deps:** update golangci/golangci-lint-action digest to 818ec4d ([a579cf4](https://github.com/phi-ag/mta-sts-exporter/commit/a579cf4de4969ce8dfdd511a0dbb3ef010e3149b))
+* **deps:** update module github.com/golangci/golangci-lint to v1.64.4 ([8e5b574](https://github.com/phi-ag/mta-sts-exporter/commit/8e5b574d537dbb13a4159ff83c810b7bf406e255))
+* **deps:** update module github.com/golangci/golangci-lint to v1.64.5 ([38cb67c](https://github.com/phi-ag/mta-sts-exporter/commit/38cb67c4da5678a8596c58569ee025da8c4dba56))
+* **deps:** update module github.com/golangci/golangci-lint to v1.64.6 ([d783c49](https://github.com/phi-ag/mta-sts-exporter/commit/d783c499d3ee2c961de0a5acec91896e048fbf8d))
+* **deps:** update module github.com/klauspost/compress to v1.18.0 ([bc6ea21](https://github.com/phi-ag/mta-sts-exporter/commit/bc6ea21bc7b0664ecea046f919a937b1d5c4bc09))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.58 ([a727474](https://github.com/phi-ag/mta-sts-exporter/commit/a727474b3c43ace414c4463c37646eeab1d7b8af))
+
 ## [1.7.58](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.57...v1.7.58) (2025-02-12)
 
 
