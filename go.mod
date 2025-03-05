@@ -1,6 +1,6 @@
 module github.com/phi-ag/mta-sts-exporter
 
-go 1.24.0
+go 1.24.1
 
 require (
 	github.com/prometheus/client_golang v1.21.1
