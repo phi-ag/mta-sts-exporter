@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.7.61](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.60...v1.7.61) (2025-03-06)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/prometheus/client_golang to v1.21.1 ([609266c](https://github.com/phi-ag/mta-sts-exporter/commit/609266c934b0612ab40c68e33e0d4b8d20f70289))
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 7a6456c ([881b000](https://github.com/phi-ag/mta-sts-exporter/commit/881b00046e1234ee6d6a1b23931816d8f91c98e8))
+* **deps:** update dependency go to v1.24.1 ([996966e](https://github.com/phi-ag/mta-sts-exporter/commit/996966e3e901288051210d65cb3e289bd362ca9b))
+* **deps:** update golang.org/x/exp digest to 054e65f ([1732e41](https://github.com/phi-ag/mta-sts-exporter/commit/1732e412061aab87c173d78b803685837adbd728))
+* **deps:** update googleapis/release-please-action digest to 26ac09b ([788e886](https://github.com/phi-ag/mta-sts-exporter/commit/788e88667003dab1ca97293f9882279a622a6f0c))
+* **deps:** update module golang.org/x/sys to v0.31.0 ([31e2337](https://github.com/phi-ag/mta-sts-exporter/commit/31e2337ca778060e60c91d7979ae147e25e9046c))
+* **deps:** update module golang.org/x/text to v0.23.0 ([07a38f8](https://github.com/phi-ag/mta-sts-exporter/commit/07a38f842327f746317116b96a325d670a9a10ab))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.60 ([e83ed85](https://github.com/phi-ag/mta-sts-exporter/commit/e83ed8515bb80409e2a1ee14b60943f23e30307e))
+
 ## [1.7.60](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.59...v1.7.60) (2025-03-04)
 
 
