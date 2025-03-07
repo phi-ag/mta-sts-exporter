@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.62](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.61...v1.7.62) (2025-03-07)
+
+
+### Miscellaneous Chores
+
+* **deps:** update googleapis/release-please-action digest to a02a34c ([eacdb85](https://github.com/phi-ag/mta-sts-exporter/commit/eacdb85145b9f9af1d20f3c068eac8ee586279b4))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.61 ([f83074a](https://github.com/phi-ag/mta-sts-exporter/commit/f83074a2bcf2f5c58f047286505c1ca9c87ec0d2))
+
 ## [1.7.61](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.60...v1.7.61) (2025-03-06)
 
 
