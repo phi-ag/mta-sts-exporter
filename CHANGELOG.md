@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.7.63](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.62...v1.7.63) (2025-03-14)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 9276a4e ([e11f26e](https://github.com/phi-ag/mta-sts-exporter/commit/e11f26e1ff5b9a4831a7aefb55afb80a920020fa))
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to beb6a9e ([589701f](https://github.com/phi-ag/mta-sts-exporter/commit/589701f53b06423eb99b0a440eda46f3bb61347a))
+* **deps:** update golangci/golangci-lint-action digest to 4696ba8 ([ca433d4](https://github.com/phi-ag/mta-sts-exporter/commit/ca433d4cd3b4b1466e2c2a50a1652b870f4ad517))
+* **deps:** update module github.com/prometheus/common to v0.63.0 ([f794f81](https://github.com/phi-ag/mta-sts-exporter/commit/f794f81610477833ceef2df53ce494092c5ebd88))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.62 ([cd0cfc6](https://github.com/phi-ag/mta-sts-exporter/commit/cd0cfc67c370a3b05e8c24f124a14abaa2f6a781))
+
 ## [1.7.62](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.61...v1.7.62) (2025-03-12)
 
 
