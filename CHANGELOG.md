@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.64](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.63...v1.7.64) (2025-03-15)
+
+
+### Miscellaneous Chores
+
+* **deps:** update docker/login-action digest to 74a5d14 ([494d545](https://github.com/phi-ag/mta-sts-exporter/commit/494d5451663633bfddb85384c93f8ee74e648a31))
+* **deps:** update module github.com/spf13/afero to v1.13.0 ([835f03b](https://github.com/phi-ag/mta-sts-exporter/commit/835f03b83ac87d51ab92c7e93e2dc209039cd263))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.63 ([3364abf](https://github.com/phi-ag/mta-sts-exporter/commit/3364abf736bb18b5e5bc37565fc740c7855f1103))
+
 ## [1.7.63](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.62...v1.7.63) (2025-03-14)
 
 
