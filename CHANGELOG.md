@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.7.64](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.63...v1.7.64) (2025-03-19)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/spf13/viper to v1.20.0 ([06c9967](https://github.com/phi-ag/mta-sts-exporter/commit/06c996797e237fc5d39bc237241b021a2d06122c))
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/setup-go digest to 0aaccfd ([5ae8b01](https://github.com/phi-ag/mta-sts-exporter/commit/5ae8b0120d07bb2fca446ee33d7f65fc466fed70))
+* **deps:** update docker/login-action digest to 74a5d14 ([494d545](https://github.com/phi-ag/mta-sts-exporter/commit/494d5451663633bfddb85384c93f8ee74e648a31))
+* **deps:** update golangci/golangci-lint-action digest to 55c2c14 ([4abbbd1](https://github.com/phi-ag/mta-sts-exporter/commit/4abbbd15d5b5976909c22318b0b1d6335d4d6d68))
+* **deps:** update module github.com/golangci/golangci-lint to v1.64.8 ([f73b21e](https://github.com/phi-ag/mta-sts-exporter/commit/f73b21e6813f2ca270e5fb1410303a531d0a563e))
+* **deps:** update module github.com/prometheus/procfs to v0.16.0 ([0a9ee02](https://github.com/phi-ag/mta-sts-exporter/commit/0a9ee028c79ce8d2106d579e6ab18e13a70e4d81))
+* **deps:** update module github.com/sagikazarmark/locafero to v0.8.0 ([ce0de68](https://github.com/phi-ag/mta-sts-exporter/commit/ce0de688270d3d97d208bb90d389698e2a0e0473))
+* **deps:** update module github.com/spf13/afero to v1.13.0 ([835f03b](https://github.com/phi-ag/mta-sts-exporter/commit/835f03b83ac87d51ab92c7e93e2dc209039cd263))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.63 ([3364abf](https://github.com/phi-ag/mta-sts-exporter/commit/3364abf736bb18b5e5bc37565fc740c7855f1103))
+
 ## [1.7.63](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.62...v1.7.63) (2025-03-14)
 
 
