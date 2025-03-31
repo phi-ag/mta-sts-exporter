@@ -46,6 +46,13 @@
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "matchCurrentVersion": "!/^0/",
       "automerge": true
+    },
+    {
+      "groupName": "golangci-lint",
+      "matchPackageNames": [
+        "golangci/golangci-lint-action",
+        "github.com/golangci/golangci-lint"
+      ]
     }
   ]
 }
