@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.7.64](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.63...v1.7.64) (2025-04-01)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/spf13/viper to v1.20.0 ([06c9967](https://github.com/phi-ag/mta-sts-exporter/commit/06c996797e237fc5d39bc237241b021a2d06122c))
+* **deps:** update module github.com/spf13/viper to v1.20.1 ([8bdc3aa](https://github.com/phi-ag/mta-sts-exporter/commit/8bdc3aa518882ec27d644698802cf89e6f1b996f))
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/setup-go digest to 0aaccfd ([5ae8b01](https://github.com/phi-ag/mta-sts-exporter/commit/5ae8b0120d07bb2fca446ee33d7f65fc466fed70))
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 95a45fc ([6d6b702](https://github.com/phi-ag/mta-sts-exporter/commit/6d6b702e35bcbb395d0737cfdebc0666513b9abb))
+* **deps:** update dependency go to v1.24.2 ([393a33c](https://github.com/phi-ag/mta-sts-exporter/commit/393a33cf7f050ddd8d098a4d173e35f1001c72e4))
+* **deps:** update docker/login-action digest to 74a5d14 ([494d545](https://github.com/phi-ag/mta-sts-exporter/commit/494d5451663633bfddb85384c93f8ee74e648a31))
+* **deps:** update golangci/golangci-lint-action digest to 55c2c14 ([4abbbd1](https://github.com/phi-ag/mta-sts-exporter/commit/4abbbd15d5b5976909c22318b0b1d6335d4d6d68))
+* **deps:** update module github.com/golangci/golangci-lint to v1.64.8 ([f73b21e](https://github.com/phi-ag/mta-sts-exporter/commit/f73b21e6813f2ca270e5fb1410303a531d0a563e))
+* **deps:** update module github.com/prometheus/procfs to v0.16.0 ([0a9ee02](https://github.com/phi-ag/mta-sts-exporter/commit/0a9ee028c79ce8d2106d579e6ab18e13a70e4d81))
+* **deps:** update module github.com/sagikazarmark/locafero to v0.8.0 ([ce0de68](https://github.com/phi-ag/mta-sts-exporter/commit/ce0de688270d3d97d208bb90d389698e2a0e0473))
+* **deps:** update module github.com/sagikazarmark/locafero to v0.9.0 ([02882d9](https://github.com/phi-ag/mta-sts-exporter/commit/02882d9a83920e8c774d52d91fbf605a9ef1fa58))
+* **deps:** update module github.com/spf13/afero to v1.13.0 ([835f03b](https://github.com/phi-ag/mta-sts-exporter/commit/835f03b83ac87d51ab92c7e93e2dc209039cd263))
+* **deps:** update module google.golang.org/protobuf to v1.36.6 ([5ef4fb1](https://github.com/phi-ag/mta-sts-exporter/commit/5ef4fb1952902dd465e34b4639fb76facd905093))
+* **deps:** update peter-evans/dockerhub-description digest to 0505d8b ([85bf67d](https://github.com/phi-ag/mta-sts-exporter/commit/85bf67d234684f03bec53f18420ed4867cde7420))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.63 ([3364abf](https://github.com/phi-ag/mta-sts-exporter/commit/3364abf736bb18b5e5bc37565fc740c7855f1103))
+* **renovate:** add golangci-lint group ([8a61c52](https://github.com/phi-ag/mta-sts-exporter/commit/8a61c52cd30779eb3b9436b75a015de0170a7e55))
+
 ## [1.7.63](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.62...v1.7.63) (2025-03-14)
 
 
