@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.65](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.64...v1.7.65) (2025-04-04)
+
+
+### Miscellaneous Chores
+
+* **deps:** update module github.com/fsnotify/fsnotify to v1.9.0 ([d9e6c7d](https://github.com/phi-ag/mta-sts-exporter/commit/d9e6c7dc995b334b4a0bd9596e7b9a67f48a40a3))
+* **deps:** update peter-evans/dockerhub-description digest to 432a30c ([fe4e877](https://github.com/phi-ag/mta-sts-exporter/commit/fe4e87702e9af00cde79ba1707f346f1aed944ab))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.64 ([178fe15](https://github.com/phi-ag/mta-sts-exporter/commit/178fe15e6c296a016ae26772faff867eb0a74faf))
+
 ## [1.7.64](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.63...v1.7.64) (2025-04-01)
 
 
