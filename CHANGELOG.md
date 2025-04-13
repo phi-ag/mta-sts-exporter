@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.7.65](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.64...v1.7.65) (2025-04-13)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/prometheus/client_golang to v1.22.0 ([7c63711](https://github.com/phi-ag/mta-sts-exporter/commit/7c63711baf5f5f9d078f78a383358977647ad7f4))
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 1ff7590 ([93bd266](https://github.com/phi-ag/mta-sts-exporter/commit/93bd2668cc2d383b465c03a3cea723366be307ff))
+* **deps:** update ko-build/setup-ko action to v0.9 ([5e9ed50](https://github.com/phi-ag/mta-sts-exporter/commit/5e9ed503cc33773e8bbb20506f46f8337115cbc7))
+* **deps:** update module github.com/fsnotify/fsnotify to v1.9.0 ([d9e6c7d](https://github.com/phi-ag/mta-sts-exporter/commit/d9e6c7dc995b334b4a0bd9596e7b9a67f48a40a3))
+* **deps:** update module github.com/pelletier/go-toml/v2 to v2.2.4 ([1f7964f](https://github.com/phi-ag/mta-sts-exporter/commit/1f7964fa8194128780a7583925f9488ee3666e79))
+* **deps:** update module github.com/prometheus/client_model to v0.6.2 ([8f493d2](https://github.com/phi-ag/mta-sts-exporter/commit/8f493d24dbb4db6f4ea0e40870cb03b592b9a1d3))
+* **deps:** update module golang.org/x/sys to v0.32.0 ([837bcc7](https://github.com/phi-ag/mta-sts-exporter/commit/837bcc70974175c3e6c2f3dd79bd0fbebc303115))
+* **deps:** update module golang.org/x/text to v0.24.0 ([e798842](https://github.com/phi-ag/mta-sts-exporter/commit/e798842db95a8ed11d3a80e5aa0f1fb33a5b843a))
+* **deps:** update peter-evans/dockerhub-description digest to 432a30c ([fe4e877](https://github.com/phi-ag/mta-sts-exporter/commit/fe4e87702e9af00cde79ba1707f346f1aed944ab))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.64 ([178fe15](https://github.com/phi-ag/mta-sts-exporter/commit/178fe15e6c296a016ae26772faff867eb0a74faf))
+
 ## [1.7.64](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.63...v1.7.64) (2025-04-01)
 
 
