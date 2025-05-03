@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.67](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.66...v1.7.67) (2025-05-03)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 2a62581 ([221819b](https://github.com/phi-ag/mta-sts-exporter/commit/221819b5030698450a4c46e1d7dafafaec5845df))
+* **deps:** update module github.com/spf13/cast to v1.8.0 ([0b14a49](https://github.com/phi-ag/mta-sts-exporter/commit/0b14a49efe1731afccaa3d340bee8948fc84d611))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.66 ([edbf881](https://github.com/phi-ag/mta-sts-exporter/commit/edbf881e8d82e63bf7b144aa041b9b631899781f))
+
 ## [1.7.66](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.65...v1.7.66) (2025-04-25)
 
 
