@@ -10,7 +10,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["^\\.ko\\.yaml$"],
+      "managerFilePatterns": [".ko.yaml"],
       "matchStrings": [
         "defaultBaseImage: (?<depName>[^:]+):(?<currentValue>[^@\\s]+)(@(?<currentDigest>[^\\s]+))?"
       ],
@@ -18,14 +18,14 @@
     },
     {
       "customType": "regex",
-      "fileMatch": ["^\\.github/actions/golangci-lint/action\\.yml$"],
+      "managerFilePatterns": [".github/actions/golangci-lint/action.yml"],
       "matchStrings": ["version: v(?<currentValue>[^\\s]+)"],
       "depNameTemplate": "github.com/golangci/golangci-lint",
       "datasourceTemplate": "go"
     },
     {
       "customType": "regex",
-      "fileMatch": ["^\\.github/actions/setup-ko/action\\.yml$"],
+      "managerFilePatterns": [".github/actions/setup-ko/action.yml"],
       "matchStrings": ["version: v(?<currentValue>[^\\s]+)"],
       "depNameTemplate": "github.com/ko-build/ko",
       "datasourceTemplate": "go"
