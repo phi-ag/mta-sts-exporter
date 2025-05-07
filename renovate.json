@@ -6,11 +6,16 @@
     "group:monorepos",
     "group:recommended"
   ],
-  "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
+  "postUpdateOptions": [
+    "gomodTidy",
+    "gomodUpdateImportPaths"
+  ],
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["^\\.ko\\.yaml$"],
+      "managerFilePatterns": [
+        "/^\\.ko\\.yaml$/"
+      ],
       "matchStrings": [
         "defaultBaseImage: (?<depName>[^:]+):(?<currentValue>[^@\\s]+)(@(?<currentDigest>[^\\s]+))?"
       ],
@@ -18,32 +23,53 @@
     },
     {
       "customType": "regex",
-      "fileMatch": ["^\\.github/actions/golangci-lint/action\\.yml$"],
-      "matchStrings": ["version: v(?<currentValue>[^\\s]+)"],
+      "managerFilePatterns": [
+        "/^\\.github/actions/golangci-lint/action\\.yml$/"
+      ],
+      "matchStrings": [
+        "version: v(?<currentValue>[^\\s]+)"
+      ],
       "depNameTemplate": "github.com/golangci/golangci-lint",
       "datasourceTemplate": "go"
     },
     {
       "customType": "regex",
-      "fileMatch": ["^\\.github/actions/setup-ko/action\\.yml$"],
-      "matchStrings": ["version: v(?<currentValue>[^\\s]+)"],
+      "managerFilePatterns": [
+        "/^\\.github/actions/setup-ko/action\\.yml$/"
+      ],
+      "matchStrings": [
+        "version: v(?<currentValue>[^\\s]+)"
+      ],
       "depNameTemplate": "github.com/ko-build/ko",
       "datasourceTemplate": "go"
     }
   ],
   "packageRules": [
     {
-      "matchManagers": ["gomod"],
-      "matchDatasources": ["golang-version"],
+      "matchManagers": [
+        "gomod"
+      ],
+      "matchDatasources": [
+        "golang-version"
+      ],
       "rangeStrategy": "bump"
     },
     {
-      "matchManagers": ["gomod"],
-      "matchDepTypes": ["indirect"],
+      "matchManagers": [
+        "gomod"
+      ],
+      "matchDepTypes": [
+        "indirect"
+      ],
       "enabled": true
     },
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
       "matchCurrentVersion": "!/^0/",
       "automerge": true
     },
