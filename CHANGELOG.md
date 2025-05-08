@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.7.69](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.68...v1.7.69) (2025-05-08)
+
+
+### Miscellaneous Chores
+
+* **config:** migrate renovate config ([75abcd4](https://github.com/phi-ag/mta-sts-exporter/commit/75abcd4751050f65a75a7ef0fa70695a55c11128))
+* **deps:** update actions/setup-go digest to d35c59a ([10525e9](https://github.com/phi-ag/mta-sts-exporter/commit/10525e9870a83bffb7dae4f99d6f09fd43a72a35))
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 8d1a963 ([c23345b](https://github.com/phi-ag/mta-sts-exporter/commit/c23345b8fb5737ad870a020f321c8a1bffc753b9))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.68 ([1ba79dc](https://github.com/phi-ag/mta-sts-exporter/commit/1ba79dce4b1e27d2d93c8233cec29e4c61b5f1ec))
+
 ## [1.7.68](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.67...v1.7.68) (2025-05-07)
 
 
