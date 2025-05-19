@@ -204,7 +204,8 @@ func start(config Config) {
 	metricsHttp := http.NewServeMux()
 	metricsHttp.Handle(config.Metrics.Path, metricsHandler)
 
-	http.HandleFunc("/healthz", func(http.ResponseWriter, *http.Request) {})
+	publicHttp := http.NewServeMux()
+	publicHttp.HandleFunc("/healthz", func(http.ResponseWriter, *http.Request) {})
 
 	if config.Metrics.Enabled {
 		go func() {
@@ -215,15 +216,15 @@ func start(config Config) {
 
 	if config.Reports.Enabled {
 		slog.Info("Listening for reports", "port", config.Port, "path", config.Reports.Path)
-		http.HandleFunc(config.Reports.Path, handleReport(config, metrics))
+		publicHttp.HandleFunc(config.Reports.Path, handleReport(config, metrics))
 	}
 
 	if config.Policy.Enabled {
 		slog.Info("Serving policy", "port", config.Port, "path", config.Policy.Path)
-		http.HandleFunc(config.Policy.Path, handlePolicy(config, metrics))
+		publicHttp.HandleFunc(config.Policy.Path, handlePolicy(config, metrics))
 	}
 
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Port), nil))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Port), publicHttp))
 }
 
 func main() {
