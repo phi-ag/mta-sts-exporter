@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.7.70](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.69...v1.7.70) (2025-05-19)
+
+
+### Bug Fixes
+
+* don't expose /debug/vars ([be2e102](https://github.com/phi-ag/mta-sts-exporter/commit/be2e1028599d25aa537d8426d58b1e3a60efdacb))
+
+
+### Miscellaneous Chores
+
+* **deps:** update module github.com/prometheus/common to v0.64.0 ([4026ea2](https://github.com/phi-ag/mta-sts-exporter/commit/4026ea2bc63f21e1bb45b7969bf0a1c17d938663))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.69 ([492b5d4](https://github.com/phi-ag/mta-sts-exporter/commit/492b5d4712897b5e4c2c78facce1736d997b720a))
+
 ## [1.7.69](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.68...v1.7.69) (2025-05-08)
 
 
