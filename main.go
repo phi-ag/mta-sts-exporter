@@ -113,7 +113,10 @@ func handlePolicy(config Config, metrics Metrics) http.HandlerFunc {
 			return
 		}
 		metrics.PolicyRequestsTotal.Inc()
-		fmt.Fprint(w, response)
+		_, err := fmt.Fprint(w, response)
+		if err != nil {
+			slog.Warn("Policy error", "remote", r.RemoteAddr, "error", err)
+		}
 	}
 }
 
@@ -127,7 +130,12 @@ func handleReport(config Config, metrics Metrics) http.HandlerFunc {
 		metrics.ReportRequestsTotal.Inc()
 
 		bodyReader := io.LimitReader(r.Body, config.Reports.Max.Body)
-		defer r.Body.Close()
+		defer func() {
+			err := r.Body.Close()
+			if err != nil {
+				slog.Warn("Failed to close report body", "remote", r.RemoteAddr, "error", err)
+			}
+		}()
 
 		gzipReader, err := gzip.NewReader(bodyReader)
 		if err != nil {
@@ -136,7 +144,12 @@ func handleReport(config Config, metrics Metrics) http.HandlerFunc {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
-		defer gzipReader.Close()
+		defer func() {
+			err := gzipReader.Close()
+			if err != nil {
+				slog.Warn("Failed to close report gzip reader", "remote", r.RemoteAddr, "error", err)
+			}
+		}()
 
 		jsonReader := io.LimitReader(gzipReader, config.Reports.Max.Json)
 
@@ -146,7 +159,12 @@ func handleReport(config Config, metrics Metrics) http.HandlerFunc {
 				slog.Warn("Save failed")
 				metrics.ReportErrorsTotal.With(prometheus.Labels{"cause": "save"}).Inc()
 			} else {
-				defer file.Close()
+				defer func() {
+					err := file.Close()
+					if err != nil {
+						slog.Warn("Failed to close report file", "remote", r.RemoteAddr, "error", err)
+					}
+				}()
 				jsonReader = saveReader
 			}
 		}
