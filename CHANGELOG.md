@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.7.71](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.70...v1.7.71) (2025-05-23)
+
+
+### Bug Fixes
+
+* check error return values ([2aa8600](https://github.com/phi-ag/mta-sts-exporter/commit/2aa860090d21c8a929817324bf7ed1d6b34059e9))
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 4827893 ([f74f904](https://github.com/phi-ag/mta-sts-exporter/commit/f74f9042fa75d64d48fde5e2f8ae9b98c7b629ed))
+* **deps:** update golangci-lint ([874f0c9](https://github.com/phi-ag/mta-sts-exporter/commit/874f0c977f956df4ef6f9a48d7efc7a8240b0b7e))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.70 ([10be880](https://github.com/phi-ag/mta-sts-exporter/commit/10be880bc2b73de411cc906ac243dd3f9222c650))
+
 ## [1.7.70](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.69...v1.7.70) (2025-05-19)
 
 
