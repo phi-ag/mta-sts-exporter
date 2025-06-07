@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.7.73](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.72...v1.7.73) (2025-06-07)
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency go to v1.24.4 ([3022375](https://github.com/phi-ag/mta-sts-exporter/commit/302237561a0725a570c4092b69d99e698aedab23))
+* **deps:** update module github.com/spf13/cast to v1.9.1 ([c0375a3](https://github.com/phi-ag/mta-sts-exporter/commit/c0375a36b3a0383fa0e96a3915d7f90317f7f44e))
+* **deps:** update module github.com/spf13/cast to v1.9.2 ([7299a65](https://github.com/phi-ag/mta-sts-exporter/commit/7299a65f2af5682c2aa8f96ca7a780514cb4c928))
+* **deps:** update module golang.org/x/text to v0.26.0 ([8b4cbee](https://github.com/phi-ag/mta-sts-exporter/commit/8b4cbee9f3702e2e49da9fde4d05bcc858a11e42))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.72 ([f78246c](https://github.com/phi-ag/mta-sts-exporter/commit/f78246ccff589882395cf461480a3583bd3d0600))
+
 ## [1.7.72](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.71...v1.7.72) (2025-05-29)
 
 
