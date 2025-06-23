@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.7.74](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.73...v1.7.74) (2025-06-23)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 092aad9 ([dea36b1](https://github.com/phi-ag/mta-sts-exporter/commit/dea36b1e4f0d923cede3950cc217a6eecc405bf1))
+* **deps:** update module github.com/go-viper/mapstructure/v2 to v2.3.0 ([e329caf](https://github.com/phi-ag/mta-sts-exporter/commit/e329cafe09cc8f350aa9c43f49404d60c07c6a13))
+* **deps:** update module github.com/prometheus/common to v0.65.0 ([179a00a](https://github.com/phi-ag/mta-sts-exporter/commit/179a00a9712908b2791bd95e99c0ee450cd70eef))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.73 ([e0c7106](https://github.com/phi-ag/mta-sts-exporter/commit/e0c7106a055d5c366c1bd7cc241933ed5a26b307))
+
 ## [1.7.73](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.72...v1.7.73) (2025-06-10)
 
 
