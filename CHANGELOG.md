@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.75](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.74...v1.7.75) (2025-06-29)
+
+
+### Miscellaneous Chores
+
+* **deps:** update module github.com/golangci/golangci-lint to v2.2.0 ([9a4482f](https://github.com/phi-ag/mta-sts-exporter/commit/9a4482fc9cec2b4982008a572a97d0cf81173058))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.74 ([0acf6e2](https://github.com/phi-ag/mta-sts-exporter/commit/0acf6e23dd0f8caebde7a818254d5b6750041aad))
+
 ## [1.7.74](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.73...v1.7.74) (2025-06-23)
 
 
