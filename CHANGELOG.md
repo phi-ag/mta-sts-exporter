@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.76](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.75...v1.7.76) (2025-07-09)
+
+
+### Miscellaneous Chores
+
+* republish because of dockerhub error ([c2f068f](https://github.com/phi-ag/mta-sts-exporter/commit/c2f068fbc28ee48d88aee53a5a607a76bdaaef48))
+
 ## [1.7.75](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.74...v1.7.75) (2025-07-09)
 
 
