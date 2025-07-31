@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.7.80](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.79...v1.7.80) (2025-07-31)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 7d8e6ef ([8331b76](https://github.com/phi-ag/mta-sts-exporter/commit/8331b76534f0077f9693634753b00d3ec8e33bfe))
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 81b61e1 ([1897143](https://github.com/phi-ag/mta-sts-exporter/commit/189714307be23b249bbc3790a20dddb5580e5b38))
+* **deps:** update module github.com/golangci/golangci-lint to v2.3.0 ([8dc7da8](https://github.com/phi-ag/mta-sts-exporter/commit/8dc7da86fb01c60052a092484ad9f84c5df4092d))
+* **deps:** update module github.com/sagikazarmark/locafero to v0.10.0 ([1bb5273](https://github.com/phi-ag/mta-sts-exporter/commit/1bb52735809c951d696d6854be79375d2edf700c))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.79 ([cbb7302](https://github.com/phi-ag/mta-sts-exporter/commit/cbb7302a097e0fa1ee8fe50695abc61f2b6d7d49))
+
 ## [1.7.79](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.78...v1.7.79) (2025-07-20)
 
 
