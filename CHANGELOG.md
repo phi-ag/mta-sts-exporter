@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.7.82](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.81...v1.7.82) (2025-08-08)
+
+
+### Miscellaneous Chores
+
+* **deps:** update module golang.org/x/sys to v0.35.0 ([483fc0b](https://github.com/phi-ag/mta-sts-exporter/commit/483fc0b968d1d0bd472cff1b94b5d09ea9674b50))
+* **deps:** update module golang.org/x/text to v0.28.0 ([1958fd0](https://github.com/phi-ag/mta-sts-exporter/commit/1958fd0a8b747d1f949f84fbca7c3aa9fc554d61))
+* **deps:** update module google.golang.org/protobuf to v1.36.7 ([377066b](https://github.com/phi-ag/mta-sts-exporter/commit/377066bf45278aa26f9e800bb17700f4120e1358))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.81 ([e790f4b](https://github.com/phi-ag/mta-sts-exporter/commit/e790f4b4d189181b181c55e3b0d506d85794cb95))
+
 ## [1.7.81](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.80...v1.7.81) (2025-08-07)
 
 
