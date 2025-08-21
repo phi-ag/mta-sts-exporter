@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.7.82](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.81...v1.7.82) (2025-08-21)
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/checkout action to v5 ([eaf730c](https://github.com/phi-ag/mta-sts-exporter/commit/eaf730c32c132989a5fbde673c6d14c0fea27737))
+* **deps:** update actions/checkout digest to 08eba0b ([0f8dd48](https://github.com/phi-ag/mta-sts-exporter/commit/0f8dd4851c09249838e661d2cea344d2ded513fd))
+* **deps:** update dependency go to v1.25.0 ([7bc0ce2](https://github.com/phi-ag/mta-sts-exporter/commit/7bc0ce21558cd0fe77d897d21f1196bb29306825))
+* **deps:** update googleapis/release-please-action digest to c2a5a2b ([10b8d49](https://github.com/phi-ag/mta-sts-exporter/commit/10b8d4979b986a774b4b93c50d1055e9810e681a))
+* **deps:** update module github.com/golangci/golangci-lint to v2.4.0 ([fdfa85e](https://github.com/phi-ag/mta-sts-exporter/commit/fdfa85e5591162195a3a9d714eef8971727d8cc4))
+* **deps:** update module golang.org/x/sys to v0.35.0 ([483fc0b](https://github.com/phi-ag/mta-sts-exporter/commit/483fc0b968d1d0bd472cff1b94b5d09ea9674b50))
+* **deps:** update module golang.org/x/text to v0.28.0 ([1958fd0](https://github.com/phi-ag/mta-sts-exporter/commit/1958fd0a8b747d1f949f84fbca7c3aa9fc554d61))
+* **deps:** update module google.golang.org/protobuf to v1.36.7 ([377066b](https://github.com/phi-ag/mta-sts-exporter/commit/377066bf45278aa26f9e800bb17700f4120e1358))
+* **deps:** update module google.golang.org/protobuf to v1.36.8 ([21f8095](https://github.com/phi-ag/mta-sts-exporter/commit/21f8095b3d08cceff1351cf804b70199829ace14))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.81 ([e790f4b](https://github.com/phi-ag/mta-sts-exporter/commit/e790f4b4d189181b181c55e3b0d506d85794cb95))
+
 ## [1.7.81](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.80...v1.7.81) (2025-08-07)
 
 
