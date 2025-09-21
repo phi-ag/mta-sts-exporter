@@ -6,5 +6,5 @@ runs:
     - name: Lint
       uses: golangci/golangci-lint-action@4afd733a84b1f43292c63897423277bb7f4313a9 # v8
       with:
-        version: v2.4.0
+        version: v2.5.0
         skip-cache: true
