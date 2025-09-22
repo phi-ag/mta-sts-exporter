@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.7.83](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.82...v1.7.83) (2025-09-22)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/prometheus/client_golang to v1.23.2 ([a04fb1b](https://github.com/phi-ag/mta-sts-exporter/commit/a04fb1b3c732a67f375e613b9d0ed4223ddfc122))
+* **deps:** update module github.com/spf13/viper to v1.21.0 ([91d9f74](https://github.com/phi-ag/mta-sts-exporter/commit/91d9f74a63bdd8802c7b03f465e23d80169702bd))
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/setup-go action to v6 ([5da8bef](https://github.com/phi-ag/mta-sts-exporter/commit/5da8befaa352ed843893d906637410ac4094b81a))
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 7124bf9 ([83a51d1](https://github.com/phi-ag/mta-sts-exporter/commit/83a51d18484b7cec3a656530e418b30790109e5c))
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to b2e1c3d ([56af75e](https://github.com/phi-ag/mta-sts-exporter/commit/56af75ed3d5710e90d375bcbf529bbce4ead192a))
+* **deps:** update dependency go to v1.25.1 ([09435b9](https://github.com/phi-ag/mta-sts-exporter/commit/09435b92f504d596d4a5bf13cb21cbe70266045c))
+* **deps:** update module github.com/golangci/golangci-lint to v2.5.0 ([576b477](https://github.com/phi-ag/mta-sts-exporter/commit/576b4772792c51c90fa531e8a378c335946bce32))
+* **deps:** update module github.com/sagikazarmark/locafero to v0.11.0 ([c1207bb](https://github.com/phi-ag/mta-sts-exporter/commit/c1207bb739a78724081cdd8387860701d0c2297a))
+* **deps:** update module github.com/sagikazarmark/locafero to v0.12.0 ([da55607](https://github.com/phi-ag/mta-sts-exporter/commit/da5560750098053ddb17f7934c5c1ce0d49923a4))
+* **deps:** update module github.com/spf13/cast to v1.10.0 ([975cbda](https://github.com/phi-ag/mta-sts-exporter/commit/975cbda9328488de11cc6456700d897f0f048a5e))
+* **deps:** update module github.com/spf13/pflag to v1.0.10 ([7a5cc78](https://github.com/phi-ag/mta-sts-exporter/commit/7a5cc7821252acd2350decddf0ce972c1d72aca3))
+* **deps:** update module go.yaml.in/yaml/v2 to v2.4.3 ([41e5feb](https://github.com/phi-ag/mta-sts-exporter/commit/41e5febeca393e61bd47837b5066bf9fcd69fa63))
+* **deps:** update module golang.org/x/sys to v0.36.0 ([0ae1058](https://github.com/phi-ag/mta-sts-exporter/commit/0ae10583cfaff651706d2229078f111a179a789b))
+* **deps:** update module golang.org/x/text to v0.29.0 ([7a31846](https://github.com/phi-ag/mta-sts-exporter/commit/7a318464f87462296b99f6731de6ba859e4af2c0))
+* **deps:** update module google.golang.org/protobuf to v1.36.9 ([0db5adf](https://github.com/phi-ag/mta-sts-exporter/commit/0db5adf287fb18ad80c0e8a357688fa87bcd4045))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.82 ([cc9c9db](https://github.com/phi-ag/mta-sts-exporter/commit/cc9c9db6b7e19ef09d1d16f62cf6421027c59905))
+
 ## [1.7.82](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.81...v1.7.82) (2025-08-21)
 
 
