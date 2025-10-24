@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.7.86](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.85...v1.7.86) (2025-10-24)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 01f45a2 ([406c228](https://github.com/phi-ag/mta-sts-exporter/commit/406c2284a388437b18bd30069fe28f2825d13a7c))
+* **deps:** update googleapis/release-please-action digest to 16a9c90 ([6d84a3d](https://github.com/phi-ag/mta-sts-exporter/commit/6d84a3d9d30b49ea7decba84859e2673157b30da))
+* **deps:** update module github.com/prometheus/procfs to v0.18.0 ([a97ab4e](https://github.com/phi-ag/mta-sts-exporter/commit/a97ab4eaa664de20edcf25cf2597368206613435))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.85 ([e0ab2ff](https://github.com/phi-ag/mta-sts-exporter/commit/e0ab2ff393c66c6a1ab6161c9c0bbfcf9f7259d7))
+
 ## [1.7.85](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.84...v1.7.85) (2025-10-22)
 
 
