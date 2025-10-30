@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.7.86](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.85...v1.7.86) (2025-10-30)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 01f45a2 ([406c228](https://github.com/phi-ag/mta-sts-exporter/commit/406c2284a388437b18bd30069fe28f2825d13a7c))
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 939a132 ([15b5848](https://github.com/phi-ag/mta-sts-exporter/commit/15b584812b4bfff4c5878b7416e52f7b8ff6f4bd))
+* **deps:** update googleapis/release-please-action digest to 16a9c90 ([6d84a3d](https://github.com/phi-ag/mta-sts-exporter/commit/6d84a3d9d30b49ea7decba84859e2673157b30da))
+* **deps:** update module github.com/golangci/golangci-lint to v2.6.0 ([a005eed](https://github.com/phi-ag/mta-sts-exporter/commit/a005eed6e88e925d8eda3c90643b9c2b6d4be64c))
+* **deps:** update module github.com/prometheus/common to v0.67.2 ([8b248dc](https://github.com/phi-ag/mta-sts-exporter/commit/8b248dcb22cfc50353942b0badaa74c5ef689e83))
+* **deps:** update module github.com/prometheus/procfs to v0.18.0 ([a97ab4e](https://github.com/phi-ag/mta-sts-exporter/commit/a97ab4eaa664de20edcf25cf2597368206613435))
+* **deps:** update module github.com/prometheus/procfs to v0.19.0 ([d4c655b](https://github.com/phi-ag/mta-sts-exporter/commit/d4c655bf732319f151e68994a3053e4026c3a947))
+* **deps:** update module github.com/prometheus/procfs to v0.19.1 ([6f043fc](https://github.com/phi-ag/mta-sts-exporter/commit/6f043fc9a31ffb9010097d05f2a35f232b50acc2))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.85 ([e0ab2ff](https://github.com/phi-ag/mta-sts-exporter/commit/e0ab2ff393c66c6a1ab6161c9c0bbfcf9f7259d7))
+
 ## [1.7.85](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.84...v1.7.85) (2025-10-22)
 
 
