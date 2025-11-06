@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.7.87](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.86...v1.7.87) (2025-11-06)
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency go to v1.25.4 ([98aa203](https://github.com/phi-ag/mta-sts-exporter/commit/98aa20333adf6836661a8b765896dee31ced9b12))
+* **deps:** update module github.com/golangci/golangci-lint to v2.6.1 ([8bc9e97](https://github.com/phi-ag/mta-sts-exporter/commit/8bc9e9722532e51f2ea4bf8793f227c94a75c62e))
+* **deps:** update module github.com/prometheus/procfs to v0.19.2 ([169b7fb](https://github.com/phi-ag/mta-sts-exporter/commit/169b7fb2861ce761d535628ca8e91330ba061da8))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.86 ([4440153](https://github.com/phi-ag/mta-sts-exporter/commit/444015383a1b51ca46b7b34e2b2e3106b6e40982))
+
 ## [1.7.86](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.85...v1.7.86) (2025-10-30)
 
 
