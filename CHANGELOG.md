@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.7.93](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.92...v1.7.93) (2026-01-16)
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/setup-go digest to 7a3fe6c ([5636221](https://github.com/phi-ag/mta-sts-exporter/commit/5636221fbe30cf97c3e88a525e4de9dcafb5cd7b))
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 0f33d0d ([f907e1f](https://github.com/phi-ag/mta-sts-exporter/commit/f907e1f7795241ee4d99737d4a9acee90af8ac03))
+* **deps:** update dependency go to v1.25.6 ([3613158](https://github.com/phi-ag/mta-sts-exporter/commit/36131589a33efa157e7fefcdc0d1617784137348))
+* **deps:** update module github.com/go-viper/mapstructure/v2 to v2.5.0 ([56b8a6b](https://github.com/phi-ag/mta-sts-exporter/commit/56b8a6b78f55590626adcc5fd06c0becc66598eb))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.92 ([c628273](https://github.com/phi-ag/mta-sts-exporter/commit/c628273f5980715824a38415d0e6f78f424c0b47))
+
 ## [1.7.92](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.91...v1.7.92) (2026-01-10)
 
 
