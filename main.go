@@ -93,14 +93,14 @@ func healthCheck(config Config) int {
 func policyResponse(policy Policy) string {
 	var sb strings.Builder
 
-	sb.WriteString(fmt.Sprintf("version: %s\n", policy.Version))
-	sb.WriteString(fmt.Sprintf("mode: %s\n", policy.Mode))
+	fmt.Fprintf(&sb, "version: %s\n", policy.Version)
+	fmt.Fprintf(&sb, "mode: %s\n", policy.Mode)
 
 	for _, mx := range policy.Mx {
-		sb.WriteString(fmt.Sprintf("mx: %s\n", mx))
+		fmt.Fprintf(&sb, "mx: %s\n", mx)
 	}
 
-	sb.WriteString(fmt.Sprintf("max_age: %d\n", policy.MaxAge))
+	fmt.Fprintf(&sb, "max_age: %d\n", policy.MaxAge)
 	return sb.String()
 }
 
