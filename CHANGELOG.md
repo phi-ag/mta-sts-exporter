@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.7.97](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.96...v1.7.97) (2026-02-19)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 11ec91f ([6141d9e](https://github.com/phi-ag/mta-sts-exporter/commit/6141d9e96911540ab4fc9c5fc897704525020055))
+* **deps:** update dependency go to v1.25.7 ([18ea388](https://github.com/phi-ag/mta-sts-exporter/commit/18ea388e460a81b83f91ceeb381a0c9644a0ef36))
+* **deps:** update dependency go to v1.26.0 ([1c45dbe](https://github.com/phi-ag/mta-sts-exporter/commit/1c45dbe4af80e8ca44416a5e54bad229c1a631c6))
+* **deps:** update module github.com/golangci/golangci-lint to v2.10.1 ([aee6c06](https://github.com/phi-ag/mta-sts-exporter/commit/aee6c066adf97e97cf5cbd770166d36c11a6bed5))
+* **deps:** update module github.com/golangci/golangci-lint to v2.9.0 ([c10a413](https://github.com/phi-ag/mta-sts-exporter/commit/c10a41368641d7cf09af1db62fc9f1dc28ab6a9d))
+* **deps:** update module golang.org/x/sys to v0.41.0 ([d68b29e](https://github.com/phi-ag/mta-sts-exporter/commit/d68b29ecfd892855d9541e306ae88b9ea5d4b55f))
+* **deps:** update module golang.org/x/text to v0.34.0 ([d687323](https://github.com/phi-ag/mta-sts-exporter/commit/d687323e85e53623624c835fa8a8fcc529177b9b))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.96 ([4cf1f9f](https://github.com/phi-ag/mta-sts-exporter/commit/4cf1f9fcd87a05dd9ff794b62ad84e085d2752f3))
+* use fmt to print directly to the strings.Builder ([29ab2e5](https://github.com/phi-ag/mta-sts-exporter/commit/29ab2e510dec3fad040695ed12fdd61356590476))
+
 ## [1.7.96](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.95...v1.7.96) (2026-02-03)
 
 
