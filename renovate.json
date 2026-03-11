@@ -18,13 +18,6 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [".github/actions/golangci-lint/action.yml"],
-      "matchStrings": ["version: v(?<currentValue>[^\\s]+)"],
-      "depNameTemplate": "github.com/golangci/golangci-lint",
-      "datasourceTemplate": "go"
-    },
-    {
-      "customType": "regex",
       "managerFilePatterns": [".github/actions/setup-ko/action.yml"],
       "matchStrings": ["version: v(?<currentValue>[^\\s]+)"],
       "depNameTemplate": "github.com/ko-build/ko",
