@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.7.99](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.98...v1.7.99) (2026-03-11)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 2fdfacc ([8acd49a](https://github.com/phi-ag/mta-sts-exporter/commit/8acd49a4d79fa6d72f50f0199a7a80e516ee5b9c))
+* **deps:** update dependency go to v1.26.1 ([0dc6f1c](https://github.com/phi-ag/mta-sts-exporter/commit/0dc6f1cf959bd03f75478d2037d2bdf9b765ec0f))
+* **deps:** update dependency golangci/golangci-lint to v2.11.2 ([6db401f](https://github.com/phi-ag/mta-sts-exporter/commit/6db401f37ccfd7513827637971ff09e057c599ec))
+* **deps:** update dependency golangci/golangci-lint to v2.11.3 ([3cc65ee](https://github.com/phi-ag/mta-sts-exporter/commit/3cc65eed9f92564be5ae207c2b0d9d8142002792))
+* **deps:** update docker/login-action action to v4 ([7f951ca](https://github.com/phi-ag/mta-sts-exporter/commit/7f951ca8d4fbd8f54f814590a5c26a86f69293ae))
+* **deps:** update module go.yaml.in/yaml/v2 to v2.4.4 ([9bd3101](https://github.com/phi-ag/mta-sts-exporter/commit/9bd310142ab6464e3568b11eb1a32fe41836d5a9))
+* **deps:** update module golang.org/x/sys to v0.42.0 ([ae57686](https://github.com/phi-ag/mta-sts-exporter/commit/ae576869c641bf67107cfd2a0d5df7c7b2eccea0))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.98 ([c8f9963](https://github.com/phi-ag/mta-sts-exporter/commit/c8f9963fde3c55c56f2bb38188b24677bd3fa7d5))
+
+
+### Continuous Integration
+
+* **renovate:** remove custom regex manager for golangci-lint, supported ootb ([e2ae7e8](https://github.com/phi-ag/mta-sts-exporter/commit/e2ae7e8ebc168ab3c76370792abe066c66dd63d2))
+
 ## [1.7.98](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.97...v1.7.98) (2026-03-03)
 
 
