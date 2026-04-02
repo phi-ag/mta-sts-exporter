@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.100](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.99...v1.7.100) (2026-04-02)
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/setup-go digest to 4a36011 ([afd6791](https://github.com/phi-ag/mta-sts-exporter/commit/afd67910afb8e7ab587f843089b833db666e25fe))
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to d6d54da ([0e63c47](https://github.com/phi-ag/mta-sts-exporter/commit/0e63c479120add51f2b5dbad8e894815511b0543))
+* **deps:** update dependency golangci/golangci-lint to v2.11.4 ([b7b6111](https://github.com/phi-ag/mta-sts-exporter/commit/b7b611159d1efb83af3c27af8d328b10987c9a46))
+* **deps:** update module github.com/pelletier/go-toml/v2 to v2.3.0 ([34f9bdb](https://github.com/phi-ag/mta-sts-exporter/commit/34f9bdbe9f108982fef336173e0fe8a53009395b))
+* **deps:** update module golang.org/x/text to v0.35.0 ([ea55f46](https://github.com/phi-ag/mta-sts-exporter/commit/ea55f467ff83969656dd644a21ad25b6f15c52c9))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.99 ([cef6a77](https://github.com/phi-ag/mta-sts-exporter/commit/cef6a77879e5ed25972f00b283839c5d043d9bd7))
+
 ## [1.7.99](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.98...v1.7.99) (2026-03-11)
 
 
