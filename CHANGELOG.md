@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.7.101](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.100...v1.7.101) (2026-04-23)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 1f14279 ([6a419bc](https://github.com/phi-ag/mta-sts-exporter/commit/6a419bc9469193ae07e8be586ef5b0021f48bfdf))
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 6d508f4 ([d179a94](https://github.com/phi-ag/mta-sts-exporter/commit/d179a94d3c9b81e4fbf43a7976edf129b21e5f0f))
+* **deps:** update dependency go to v1.26.2 ([7e34974](https://github.com/phi-ag/mta-sts-exporter/commit/7e349744f28f4ca24f21d343c715efc715b138cb))
+* **deps:** update docker/login-action digest to 4907a6d ([262b0d8](https://github.com/phi-ag/mta-sts-exporter/commit/262b0d8665a2fa6167ceff073ec4a7c9fc5e7e8c))
+* **deps:** update googleapis/release-please-action action to v5 ([3ee0af0](https://github.com/phi-ag/mta-sts-exporter/commit/3ee0af090c388d9fbeb437f03d2de781eacb9ba7))
+* **deps:** update googleapis/release-please-action digest to 5c625bf ([7fced32](https://github.com/phi-ag/mta-sts-exporter/commit/7fced32f4c452b9f9a330a123aca6855ac5315ff))
+* **deps:** update module golang.org/x/sys to v0.43.0 ([a193e12](https://github.com/phi-ag/mta-sts-exporter/commit/a193e12a86b69fd9753cf6daae6e4ba0796b643f))
+* **deps:** update module golang.org/x/text to v0.36.0 ([c700266](https://github.com/phi-ag/mta-sts-exporter/commit/c70026670dc7f76343db286c023e7e45906d1bab))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.100 ([ba7f047](https://github.com/phi-ag/mta-sts-exporter/commit/ba7f04713b4cf4e4847a40e41007f5d06684adab))
+
 ## [1.7.100](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.99...v1.7.100) (2026-04-02)
 
 
