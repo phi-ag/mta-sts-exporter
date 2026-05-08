@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.7.103](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.102...v1.7.103) (2026-05-08)
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency golangci/golangci-lint to v2.12.0 ([f134ed2](https://github.com/phi-ag/mta-sts-exporter/commit/f134ed286a096181654478899409ced47da82d18))
+* **deps:** update dependency golangci/golangci-lint to v2.12.1 ([68aebca](https://github.com/phi-ag/mta-sts-exporter/commit/68aebcaf65f89e0b6469031c64a3c65defef2dc1))
+* **deps:** update dependency golangci/golangci-lint to v2.12.2 ([e21e633](https://github.com/phi-ag/mta-sts-exporter/commit/e21e6331d504123c303d7f5a131a9d4fb67249c1))
+* **deps:** update go module directive to v1.26.3 ([ee34427](https://github.com/phi-ag/mta-sts-exporter/commit/ee34427a2993c4376bb71636012ea7ec17b1a559))
+* **deps:** update module github.com/fsnotify/fsnotify to v1.10.0 ([3708435](https://github.com/phi-ag/mta-sts-exporter/commit/37084352291a0b05f7b56ec51f090b2e5dda317c))
+* **deps:** update module github.com/fsnotify/fsnotify to v1.10.1 ([89434bd](https://github.com/phi-ag/mta-sts-exporter/commit/89434bdbf6dc78e1a5d789a1ca533ae4119d4c8b))
+* **deps:** update module github.com/pelletier/go-toml/v2 to v2.3.1 ([7cd7e14](https://github.com/phi-ag/mta-sts-exporter/commit/7cd7e143e974c6b2d957f9ed1c81f593ccc4a6c9))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.102 ([6e7b26e](https://github.com/phi-ag/mta-sts-exporter/commit/6e7b26e52d20a618c9dcd8e0620a927466e58033))
+
 ## [1.7.102](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.101...v1.7.102) (2026-04-27)
 
 
