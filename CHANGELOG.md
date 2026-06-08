@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.7.104](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.103...v1.7.104) (2026-06-08)
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/checkout digest to df4cb1c ([b3f6575](https://github.com/phi-ag/mta-sts-exporter/commit/b3f6575cf2d3d067946f22b4de26dec842f80cd1))
+* **deps:** update module github.com/prometheus/common to v0.68.1 ([04e9a87](https://github.com/phi-ag/mta-sts-exporter/commit/04e9a87d3f611c15943ea05f457147f05fbe07a8))
+* **deps:** update module golang.org/x/sys to v0.46.0 ([ef583ca](https://github.com/phi-ag/mta-sts-exporter/commit/ef583ca7b668404559cc9ddce6657e0687fe5368))
+* **deps:** update module golang.org/x/text to v0.38.0 ([e6f37ea](https://github.com/phi-ag/mta-sts-exporter/commit/e6f37ea8ab5e986bbebfd533016b40e676cb999f))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.103 ([cab6df4](https://github.com/phi-ag/mta-sts-exporter/commit/cab6df435d3b7194d5e8096d805776021f2672d1))
+
 ## [1.7.103](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.102...v1.7.103) (2026-06-03)
 
 
