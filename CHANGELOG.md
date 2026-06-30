@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.7.104](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.103...v1.7.104) (2026-06-30)
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/checkout action to v7 ([2129682](https://github.com/phi-ag/mta-sts-exporter/commit/2129682ced5eea92e10d5b078b1a53fcff2e547c))
+* **deps:** update actions/checkout digest to df4cb1c ([b3f6575](https://github.com/phi-ag/mta-sts-exporter/commit/b3f6575cf2d3d067946f22b4de26dec842f80cd1))
+* **deps:** update actions/setup-go digest to 924ae3a ([e1e02ca](https://github.com/phi-ag/mta-sts-exporter/commit/e1e02ca8ef73557452391a74b81bb7135234f3fb))
+* **deps:** update golangci/golangci-lint-action digest to ba0d7d2 ([1fedb74](https://github.com/phi-ag/mta-sts-exporter/commit/1fedb74cf4de621e1d9d1e58035f4ba3a1e571c5))
+* **deps:** update ko-build/setup-ko action to v0.10 ([d72d729](https://github.com/phi-ag/mta-sts-exporter/commit/d72d729719471ba0620f9941117bc68aa453681f))
+* **deps:** update module github.com/ko-build/ko to v0.19.0 ([f33c2dd](https://github.com/phi-ag/mta-sts-exporter/commit/f33c2ddeb88857a7529d0ae8543e456836be6043))
+* **deps:** update module github.com/ko-build/ko to v0.19.1 ([fabbcae](https://github.com/phi-ag/mta-sts-exporter/commit/fabbcae3cf5b2a5c3e3af48f4d44d3c31bda789e))
+* **deps:** update module github.com/pelletier/go-toml/v2 to v2.4.0 ([240980a](https://github.com/phi-ag/mta-sts-exporter/commit/240980ac7912051d985a813242a239a10edfcef2))
+* **deps:** update module github.com/pelletier/go-toml/v2 to v2.4.1 ([e04db13](https://github.com/phi-ag/mta-sts-exporter/commit/e04db13f2e8b907ea7ddd50f6fcf7009022aaf75))
+* **deps:** update module github.com/pelletier/go-toml/v2 to v2.4.2 ([0d50cbe](https://github.com/phi-ag/mta-sts-exporter/commit/0d50cbed07c013c2e25bea43968364c8fad9d2c3))
+* **deps:** update module github.com/prometheus/common to v0.68.1 ([04e9a87](https://github.com/phi-ag/mta-sts-exporter/commit/04e9a87d3f611c15943ea05f457147f05fbe07a8))
+* **deps:** update module github.com/prometheus/common to v0.69.0 ([675391c](https://github.com/phi-ag/mta-sts-exporter/commit/675391cbe2bdcb681833bffcf03e2ab6eb108d10))
+* **deps:** update module github.com/prometheus/procfs to v0.21.0 ([b03753b](https://github.com/phi-ag/mta-sts-exporter/commit/b03753b903ce9904bdd9a0951c61d4239ab84d52))
+* **deps:** update module github.com/prometheus/procfs to v0.21.1 ([a539146](https://github.com/phi-ag/mta-sts-exporter/commit/a53914608f44e9b57b6b0be707f0c2006e1a2b38))
+* **deps:** update module golang.org/x/sys to v0.46.0 ([ef583ca](https://github.com/phi-ag/mta-sts-exporter/commit/ef583ca7b668404559cc9ddce6657e0687fe5368))
+* **deps:** update module golang.org/x/text to v0.38.0 ([e6f37ea](https://github.com/phi-ag/mta-sts-exporter/commit/e6f37ea8ab5e986bbebfd533016b40e676cb999f))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.103 ([cab6df4](https://github.com/phi-ag/mta-sts-exporter/commit/cab6df435d3b7194d5e8096d805776021f2672d1))
+
 ## [1.7.103](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.102...v1.7.103) (2026-06-03)
 
 
