@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.7.107](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.106...v1.7.107) (2026-08-05)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 24dd7ff ([b2fa1c4](https://github.com/phi-ag/mta-sts-exporter/commit/b2fa1c4ab9ae3ba9bb1b851be09d7103fcb9dce4))
+* **deps:** update docker/login-action digest to 371161b ([34f2728](https://github.com/phi-ag/mta-sts-exporter/commit/34f272894edce007be2fb1cea4a73a405383c248))
+* **deps:** update docker/login-action digest to dbcb813 ([fc83cc7](https://github.com/phi-ag/mta-sts-exporter/commit/fc83cc79c8c99bef597d96cb9e8ef389435bd797))
+* **deps:** update module go.yaml.in/yaml/v3 to v3.0.5 ([9ffb026](https://github.com/phi-ag/mta-sts-exporter/commit/9ffb026e55bae77ab5575fb062db70bee055690e))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.106 ([81af70d](https://github.com/phi-ag/mta-sts-exporter/commit/81af70de0337d87069b0542e491b57bc0884dc0f))
+
 ## [1.7.106](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.105...v1.7.106) (2026-07-26)
 
 
