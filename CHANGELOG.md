@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.7.116](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.115...v1.7.116) (2026-10-10)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/prometheus/client_golang to v1.25.0 ([63173f4](https://github.com/phi-ag/mta-sts-exporter/commit/63173f4efcc17613634c99168ee394222a4d0c8f))
+
+
+### Miscellaneous Chores
+
+* **deps:** update go module directive to v1.27.2 ([a38279b](https://github.com/phi-ag/mta-sts-exporter/commit/a38279b592067945916a53b69a7292bff37a410a))
+* **deps:** update module golang.org/x/sys to v0.49.0 ([68c81b5](https://github.com/phi-ag/mta-sts-exporter/commit/68c81b5ccab27974c14d1adb631167066beab7d3))
+* **deps:** update module golang.org/x/text to v0.43.0 ([ab28786](https://github.com/phi-ag/mta-sts-exporter/commit/ab287864717dd8d8a2954e10ce18214e0ab4145e))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.115 ([14f1ec1](https://github.com/phi-ag/mta-sts-exporter/commit/14f1ec1537e7ef5931a0dd78dca80c3d9ebf84dd))
+
 ## [1.7.115](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.114...v1.7.115) (2026-10-02)
 
 
