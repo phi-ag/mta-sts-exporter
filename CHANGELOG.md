@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.7.116](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.115...v1.7.116) (2026-10-24)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/prometheus/client_golang to v1.25.0 ([63173f4](https://github.com/phi-ag/mta-sts-exporter/commit/63173f4efcc17613634c99168ee394222a4d0c8f))
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 17367e4 ([4d1f37b](https://github.com/phi-ag/mta-sts-exporter/commit/4d1f37b16d1c99bf50d7e420035954cf3a5df520))
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to c12f010 ([cc4393c](https://github.com/phi-ag/mta-sts-exporter/commit/cc4393c0a95d18804d2a5a2c3d74b45640442935))
+* **deps:** update dependency golangci/golangci-lint to v2.15.0 ([202490a](https://github.com/phi-ag/mta-sts-exporter/commit/202490a9dfc92af318e383875d730d7e531b6458))
+* **deps:** update docker/login-action digest to 81c6f93 ([2ccb6fc](https://github.com/phi-ag/mta-sts-exporter/commit/2ccb6fcbf570ec0e964114d8a9b697261d29e478))
+* **deps:** update go module directive to v1.27.2 ([a38279b](https://github.com/phi-ag/mta-sts-exporter/commit/a38279b592067945916a53b69a7292bff37a410a))
+* **deps:** update go module directive to v1.27.3 ([8276f69](https://github.com/phi-ag/mta-sts-exporter/commit/8276f697b33a6939853c4b2bc0de434b796570bb))
+* **deps:** update module github.com/prometheus/common to v0.72.1 ([f866878](https://github.com/phi-ag/mta-sts-exporter/commit/f866878638f44585750bf00af436fe752b1b8e56))
+* **deps:** update module github.com/prometheus/procfs to v0.23.0 ([b612813](https://github.com/phi-ag/mta-sts-exporter/commit/b6128136252932d8fbbd6b1cec45c85cd5aac4c6))
+* **deps:** update module golang.org/x/sys to v0.49.0 ([68c81b5](https://github.com/phi-ag/mta-sts-exporter/commit/68c81b5ccab27974c14d1adb631167066beab7d3))
+* **deps:** update module golang.org/x/text to v0.43.0 ([ab28786](https://github.com/phi-ag/mta-sts-exporter/commit/ab287864717dd8d8a2954e10ce18214e0ab4145e))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.115 ([14f1ec1](https://github.com/phi-ag/mta-sts-exporter/commit/14f1ec1537e7ef5931a0dd78dca80c3d9ebf84dd))
+
 ## [1.7.115](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.114...v1.7.115) (2026-10-02)
 
 
