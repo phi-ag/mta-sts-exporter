@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.7.117](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.116...v1.7.117) (2026-11-13)
+
+
+### Miscellaneous Chores
+
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to 9e2306b ([c9e7796](https://github.com/phi-ag/mta-sts-exporter/commit/c9e77966bfb1a186df3d65999d2f34a7db3d2887))
+* **deps:** update cgr.dev/chainguard/static:latest docker digest to fc42af3 ([f2e3f82](https://github.com/phi-ag/mta-sts-exporter/commit/f2e3f827741aa780081354e5a86960fc1d844d55))
+* **deps:** update docker/login-action digest to 8aa5831 ([a643fca](https://github.com/phi-ag/mta-sts-exporter/commit/a643fca9504882dfea1271f261a6d7b5a311f1ef))
+* **deps:** update go module directive to v1.27.4 ([9a6e824](https://github.com/phi-ag/mta-sts-exporter/commit/9a6e8243d63d7588c12c7f69521b127d1220c61c))
+* **deps:** update module github.com/hashicorp/go-uuid to v1.0.4 ([5ba4d85](https://github.com/phi-ag/mta-sts-exporter/commit/5ba4d8594c29eb31e5b59ad80d739db51d8a32ea))
+* **deps:** update module github.com/pandatix/go-abnf to v0.5.3 ([446b6b4](https://github.com/phi-ag/mta-sts-exporter/commit/446b6b49d65b27cd05443bb4e21455200f5b1e86))
+* **deps:** update module github.com/pandatix/go-abnf to v0.5.4 ([23c14e9](https://github.com/phi-ag/mta-sts-exporter/commit/23c14e909b18c9368951c2e4b3ed5f2f62c4dc23))
+* **deps:** update module github.com/pandatix/go-abnf to v0.5.5 ([8f8c6c9](https://github.com/phi-ag/mta-sts-exporter/commit/8f8c6c960784282de03ff596643226fea9805493))
+* **deps:** update module github.com/prometheus/common to v0.73.0 ([a084443](https://github.com/phi-ag/mta-sts-exporter/commit/a0844439c543272d07cf46597ad7ad49bd5edcde))
+* **deps:** update module github.com/prometheus/common to v0.73.1 ([1d23b09](https://github.com/phi-ag/mta-sts-exporter/commit/1d23b099981b7e522e3871ab20ae997eaada18c3))
+* **deps:** update module github.com/prometheus/common to v0.74.0 ([c38dfa7](https://github.com/phi-ag/mta-sts-exporter/commit/c38dfa7f09c01ee37225e89ca9b0f3a3aa2bf050))
+* **deps:** update module github.com/spf13/pflag to v1.1.0 ([e4859bb](https://github.com/phi-ag/mta-sts-exporter/commit/e4859bbd795881cd511220f3c69605d72e484708))
+* **deps:** update module go.yaml.in/yaml/v3 to v3.0.6 ([c52fa74](https://github.com/phi-ag/mta-sts-exporter/commit/c52fa7406c49a152b609c91657ee24c0f12d4ce1))
+* **deps:** update module golang.org/x/sys to v0.50.0 ([494792f](https://github.com/phi-ag/mta-sts-exporter/commit/494792fa4b2eccb996614ced923340e355c4dd19))
+* **deps:** update module golang.org/x/text to v0.44.0 ([f1497fd](https://github.com/phi-ag/mta-sts-exporter/commit/f1497fd7cf82692a82813b56cf694b80282c97e2))
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.116 ([3aca5ee](https://github.com/phi-ag/mta-sts-exporter/commit/3aca5ee0c9eade5dc71d15bb072576b26db3b38f))
+
 ## [1.7.116](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.115...v1.7.116) (2026-10-24)
 
 
