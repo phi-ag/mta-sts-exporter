@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.120](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.119...v1.7.120) (2026-11-25)
+
+
+### Miscellaneous Chores
+
+* **deps:** update phiag/mta-sts-exporter docker tag to v1.7.119 ([afd43b0](https://github.com/phi-ag/mta-sts-exporter/commit/afd43b0742effa26b58438544d0a71d7c5a20904))
+
 ## [1.7.119](https://github.com/phi-ag/mta-sts-exporter/compare/v1.7.118...v1.7.119) (2026-11-25)
 
 
